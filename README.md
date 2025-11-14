@@ -78,4 +78,4 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For questions or collaborations, please contact [subhrokolay2@gmail.com](mailto:subhrokolay2@gmail.com).
+For questions or collaborations, please contact [Ayushman Bhattacharya](mailto:bhattacharyaa599@gmail.com).
