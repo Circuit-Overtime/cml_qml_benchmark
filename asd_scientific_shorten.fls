@@ -278,6 +278,7 @@ INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT F:\miktex\fonts\tfm\jknappen\ec\ecbx1200.tfm
 INPUT F:\miktex\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT F:\miktex\fonts\tfm\jknappen\ec\ecbx1200.tfm
+INPUT F:\miktex\fonts\tfm\jknappen\ec\ecbx1000.tfm
 INPUT F:\miktex\fonts\tfm\jknappen\ec\ectt1000.tfm
 INPUT .\ml_graph\hyper parament analysis of histgradient\hyperparameter_combination_line.png
 INPUT .\ml_graph\hyper parament analysis of histgradient\hyperparameter_combination_line.png
@@ -349,7 +350,6 @@ INPUT .\ml_graph\DS\f1_score.jpeg
 INPUT .\ml_graph\DS\f1_score.jpeg
 INPUT .\ml_graph\DS\f1_score.jpeg
 INPUT .\ml_graph\DS\f1_score.jpeg
-INPUT F:\miktex\fonts\tfm\jknappen\ec\ecbx1000.tfm
 INPUT .\ml_graph\EDA\Ethnicity_yes.jpeg
 INPUT .\ml_graph\EDA\Ethnicity_yes.jpeg
 INPUT .\ml_graph\EDA\Ethnicity_yes.jpeg
@@ -384,14 +384,14 @@ INPUT .\asd_scientific_shorten.out
 INPUT .\asd_scientific_shorten.out
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecti1000.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecti1000.pk
-INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi662\ecbx1000.pk
-INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi662\ecbx1000.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecrm0800.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecrm0800.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecbx0800.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecbx0800.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ectt1000.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ectt1000.pk
+INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi662\ecbx1000.pk
+INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi662\ecbx1000.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecbx1200.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\ecbx1200.pk
 INPUT C:\Users\ayush\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\tcrm1000.pk

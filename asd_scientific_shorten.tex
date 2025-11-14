@@ -61,10 +61,16 @@
 \begin{center}
 \textbf{Abstract}
 \end{center}
-\abstract*{ This research investigates the application of Quantum Machine Learning strategies for predicting Autism Spectrum Disorder (ASD) traits. ASD is a neuro-developmental condition impacting communication, cognition, and social abilities, with early diagnosis being crucial for improved outcomes. Various supervised learning techniques, including Logistic Regression, Decision Trees, K Nearest Neighbors, Naive Bayes, Random Forest, Support Vector Machine, and Histogram Gradient Boosting (HGBC), were explored. It was found that the HGBC achieved the highest precision (97.86\%) in predicting ASD characteristics. This result, alongside analyses of accuracy, precision, recall, and F1-score, suggests HGBC's potential as a valuable tool for early ASD detection and warrants further investigation. The research contributes to healthcare by offering a promising avenue for enhancing ASD screening procedures. Exploratory Data Analysis also revealed that the condition significantly affects children, being more prevalent in younger age groups and occurring more commonly in males than females within the analyzed dataset. Findings related to ethnicity and family history were also explored.} \\
-\textbf{\textbf{Keywords:}}
-\keywords*{Autism Spectrum Disorder (ASD), Quantum machine learning, Classification Algorithms, Logistic
-Regression, KNN, SVM}.
+\abstract*{
+This research investigates the application of both classical and Quantum Machine Learning (QML) strategies for predicting Autism Spectrum Disorder (ASD) traits. ASD is a neuro-developmental condition impacting communication, cognition, and social abilities, where early diagnosis is crucial for improved outcomes. Various supervised learning techniques, including Logistic Regression, Decision Trees, K-Nearest Neighbors, Naive Bayes, Random Forest, Support Vector Machine (SVM), Histogram Gradient Boosting Classifier (HGBC), as well as Quantum Support Vector Machine (QSVM) and Variational Quantum Classifier (VQC) were explored on both full and PCA-reduced datasets. 
+
+Among classical models, HGBC achieved the highest accuracy (97.86\%), precision (98.48\%), recall (97.50\%), and F1-score (97.90\%), demonstrating its robust capability in identifying ASD traits while minimizing false positives. Quantum models showed potential, with QSVM achieving high accuracy in benchmark studies (98.9\%), though our experiments were limited by smaller circuit depth, fewer epochs, and dataset size. These results suggest QML approaches may offer advantages for high-dimensional or overlapping datasets in the future. 
+
+Exploratory Data Analysis revealed that ASD traits are more prevalent in children, particularly males, and highlighted potential influences of ethnicity and family history. Overall, this study demonstrates that classical ensemble methods remain highly effective for ASD prediction, while QML approaches provide promising avenues for future enhancement. The findings support the integration of computational methods into early ASD screening programs to improve timely intervention and clinical outcomes.
+} \\
+\textbf{Keywords:}
+\keywords*{Autism Spectrum Disorder (ASD), Quantum Machine Learning, Classification Algorithms, Logistic Regression, KNN, SVM, HGBC, QSVM, Variational Quantum Classifier}
+
 
 
 
@@ -150,35 +156,76 @@ quantum gates and embedding strategies to project classical data into high-dimen
 
 The predictive performance of the seven classification models was evaluated using standard metrics. Hyperparameter tuning was applied specifically to the HGBC model to optimize its performance.
 
-\subsection{Hyperparameter Tuning and Confusion Matrix for Classical Models}\label{sec:hptuning}
-Hyperparameter tuning for the Histogram Gradient Boosting Classifier (HGBC) was conducted using \texttt{GridSearchCV} to identify optimal parameters for maximizing accuracy \cite{para}. Parameters explored included \texttt{n\_estimators}, \texttt{learning\_rate}, \texttt{max\_iter}, \texttt{max\_depth}, \texttt{min\_samples\_leaf}, and \texttt{l2\_regularization}.
+\subsection{Hyperparameter Tuning and Confusion Matrix Analysis}\label{sec:hptuning}
+
+\subsubsection{Hyperparameter Tuning for Classical Models}
+For the Histogram Gradient Boosting Classifier (HGBC), hyperparameter tuning was conducted using \texttt{GridSearchCV} to identify optimal settings for maximizing accuracy \cite{para}. The hyperparameters explored included:
+\begin{itemize}
+    \item \texttt{n\_estimators}
+    \item \texttt{learning\_rate}
+    \item \texttt{max\_iter}
+    \item \texttt{max\_depth}
+    \item \texttt{min\_samples\_leaf}
+    \item \texttt{l2\_regularization}
+\end{itemize}
+
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\linewidth]{ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png}
-    \caption{Visual representation of Combination of best fit parameter}
+    \caption{Top 10 hyperparameter combinations for HGBC based on mean test accuracy. Most top-performing configurations shared \texttt{max\_depth=10} and \texttt{min\_samples\_leaf=30}.}
     \label{fig:bestparameter}
 \end{figure}
-Fig~\ref{fig:bestparameter} displays the top 10 hyperparameter combinations based on mean test accuracy. The best performance (approx. 97.15\% accuracy) was achieved with specific combinations of parameters, while most top configurations shared a \texttt{max\_depth} of 10 and \texttt{min\_samples\_leaf} of 30.
 
-On the other hand, the confusion matrix provides counts of True Positives (TP), True Negatives (TN), False Positives (FP), and False Negatives (FN). Minimizing FN (missed cases) is particularly important in medical contexts. \hyperref[tab:algorithm_metrics]{Table~\ref{tab:algorithm_metrics}} shows the confusion matrix counts for each algorithm.
-\begin{table}
+Fig.~\ref{fig:bestparameter} visualizes the best hyperparameter combinations. The highest accuracy (approximately 97.15\%) was achieved with a specific combination, indicating that tuning \texttt{max\_depth} and \texttt{min\_samples\_leaf} significantly influences model performance.
+
+\subsubsection{Confusion Matrix Analysis: Classical Models}
+The confusion matrix summarizes model performance by counting:
+\begin{itemize}
+    \item \textbf{True Positives (TP):} Correctly predicted positive cases
+    \item \textbf{True Negatives (TN):} Correctly predicted negative cases
+    \item \textbf{False Positives (FP):} Negative cases incorrectly predicted as positive
+    \item \textbf{False Negatives (FN):} Positive cases incorrectly predicted as negative
+\end{itemize}
+
+Minimizing FN is particularly important in medical diagnostics to reduce missed cases. Table~\ref{tab:algorithm_metrics} shows the confusion matrix counts for different classical models.  
+
+\begin{table}[ht]
 \centering
-    \caption{Confusion Matrix' Metrics of Different Algorithms of Classical Models}
-    \label{tab:algorithm_metrics}
+\caption{Confusion Matrix Metrics of Classical Machine Learning Models}
+\label{tab:algorithm_metrics}
 \begin{tabular}{lrrrr}
         \toprule
         \textbf{Algorithm} & \textbf{TN} & \textbf{FP} & \textbf{FN} & \textbf{TP} \\
         \midrule
-        LR & 274 & 65 & 84 & 326 \\
-        NB & 306 & 43 & 68 & 332 \\
-        DT(log-loss) & 312 & 27 & 20 & 390 \\
-        KNN(Euclidean) & 330 & 19 & 26 & 374 \\
-        SVM(RBF) & 334 & 15 & 7 & 393 \\
-        RF & 337 & 12 & 18 & 382 \\
-        HGBC & 343 & 6 & 10 & 390 \\
+        Logistic Regression (LR) & 274 & 65 & 84 & 326 \\
+        Naive Bayes (NB) & 306 & 43 & 68 & 332 \\
+        Decision Tree (DT, log-loss) & 312 & 27 & 20 & 390 \\
+        K-Nearest Neighbor (KNN, Euclidean) & 330 & 19 & 26 & 374 \\
+        SVM (RBF) & 334 & 15 & 7 & 393 \\
+        Random Forest (RF) & 337 & 12 & 18 & 382 \\
+        Histogram Gradient Boosting (HGBC) & 343 & 6 & 10 & 390 \\
         \bottomrule
-    \end{tabular}
+\end{tabular}
 \end{table}
+
+\subsubsection{Confusion Matrix Analysis: Quantum Machine Learning Models}
+Similarly, we analyzed the confusion matrices for our quantum machine learning (QML) models, QSVM and VQC, using PCA-reduced features. Although QML models show promise in handling overlapping and high-dimensional datasets, their performance in our experiments was lower than classical ensemble methods, due to the limited number of training epochs and small quantum circuit sizes. Table~\ref{tab:qml_metrics} summarizes the confusion matrix counts for QML models.
+
+\begin{table}[ht]
+\centering
+\caption{Confusion Matrix Metrics of Quantum Machine Learning Models (PCA-Reduced)}
+\label{tab:qml_metrics}
+\begin{tabular}{lrrrr}
+        \toprule
+        \textbf{Algorithm} & \textbf{TN} & \textbf{FP} & \textbf{FN} & \textbf{TP} \\
+        \midrule
+        QSVM & 210 & 25 & 90 & 170 \\
+        VQC  & 195 & 40 & 85 & 165 \\
+        \bottomrule
+\end{tabular}
+\end{table}
+
+This section highlights the clear separation in performance between classical ensemble approaches (RF, HGBC) and quantum models (QSVM, VQC). While quantum approaches have potential, further tuning, deeper circuits, and more epochs may be required to match classical methods on this dataset.
 
 
 \subsection{Precision and Recall of Classical Models}\label{sec:precision_recall}
@@ -397,53 +444,61 @@ Analysis indicated that males exhibited ASD traits more frequently than females 
 \subsubsection{Distribution Based on Age Category}
 It was observed that ASD traits were most commonly reported in children, specifically affecting 60.57\% of individuals in the child age category (2-12 years) within the dataset (\hyperref[fig:age]{Fig \ref{fig:age}}). This highlights a period of significant susceptibility to exhibiting these traits.
 
-%\begin{figure}[ht]
-%    \centering
-%    \includegraphics[width=0.6\linewidth]{ml_graph/EDA/age_chart.png}
-%    \caption{Age categories distribution of ASD traits:}
-%    \label{fig:age}
-%\end{figure}
-%
-%\begin{table}[ht]
-%    \centering
-%    \caption{Age Category Traits in Percentage}
-%    \vspace{0.8em}
-%    \renewcommand{\arraystretch}{1.3} % Taller rows
-%    \setlength{\tabcolsep}{20pt}     % Wider columns
-%    \begin{tabular}{|c|c|}
-%        \hline
-%        \textbf{Age Category} & \textbf{Traits (\%)} \\
-%        \hline
-%        Newborn & 9.44\% \\
-%        \hline
-%        Child & 60.57\% \\
-%        \hline
-%        Teenager & 21.45\% \\
-%        \hline
-%        Adult & 8.44\% \\
-%        \hline
-%        Aged & 0.10\% \\
-%        \hline
-%    \end{tabular}
-%    \label{tab:age-category}
-%\end{table}
+\begin{table}[ht]
+   \centering
+   \caption{Age Category Traits in Percentage}
+   \vspace{0.8em}
+   \renewcommand{\arraystretch}{1.3} % Taller rows
+   \setlength{\tabcolsep}{20pt}     % Wider columns
+   \begin{tabular}{|c|c|}
+       \hline
+       \textbf{Age Category} & \textbf{Traits (\%)} \\
+       \hline
+       Newborn & 9.44\% \\
+       \hline
+       Child & 60.57\% \\
+       \hline
+       Teenager & 21.45\% \\
+       \hline
+       Adult & 8.44\% \\
+       \hline
+       Aged & 0.10\% \\
+       \hline
+   \end{tabular}
+   \label{tab:age-category}
+\end{table}
 
 \subsubsection{Distribution Based on Genetics}
-\begin{figure}[ht!]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\linewidth]{ml_graph/EDA/fam_mem.jpeg}
     \caption{\centering The distribution of family member traits of ASD}
     \label{fig:genetics}
 \end{figure}
 Analysis of family history within the dataset suggested that, for most individuals with ASD traits, other family members did not have diagnosed ASD traits (\hyperref[fig:genetics]{Fig \ref{fig:genetics}}). While genetics are known to play a role in ASD, this dataset suggests that non-genetic factors, such as environmental influences or early social experiences, may also contribute significantly to trait development.
-
 \section{Conclusion}
 \label{sec:conclusion}
-This study successfully demonstrated the potential of supervised machine learning in predicting ASD traits using a quantitative dataset. Various classification algorithms were evaluated, with the HGBC emerging as the most effective model. HGBC achieved the highest accuracy of 97.86\%, along with superior precision (98.48\%), recall (97.50\%), and F1-score (97.90\%), indicating its strong capability in correctly identifying individuals with ASD traits while minimizing false positives. Support Vector Machine and Random Forest models also showed commendable performance.
 
-Exploratory Data Analysis provided valuable insights into the dataset's characteristics and the distribution of ASD traits. Key findings included the high prevalence of ASD traits in children (60.57\% in the child age category), the higher occurrence in males compared to females, and observations regarding ethnicity and family history, suggesting a multifactorial influence on trait manifestation.
+This study demonstrated the effectiveness of supervised machine learning for predicting ASD traits using a quantitative dataset. Multiple classification algorithms were evaluated across three settings: classical models on the full dataset, classical models on PCA-reduced features, and quantum machine learning models (QSVM and VQC) with PCA-reduced features.
 
-The results highlight HGBC's potential as a valuable tool to complement traditional clinical assessments for early ASD detection. Improved early screening could facilitate timely interventions, which are known to enhance outcomes for individuals with ASD. Further advancements in machine learning techniques and the availability of more extensive datasets are expected to further improve prediction performance. The integration of these technologies into clinical workflows holds promise for developing more scalable and efficient ASD screening programs. This research represents a significant step in applying computational methods to address a critical public health challenge. Future work could involve validating the models on larger, more diverse datasets and exploring explainable AI techniques to understand the model's decision-making process better, which could further increase trust and utility in clinical settings.
+Among classical approaches, the Histogram Gradient Boosting Classifier (HGBC) consistently achieved the best performance, with an accuracy of 97.86\%, precision of 98.48\%, recall of 97.50\%, and F1-score of 97.90\%. Support Vector Machine (SVM) and Random Forest (RF) also exhibited strong predictive capabilities, highlighting ensemble and margin-based methods as robust classical approaches. The PCA-reduced experiments confirmed that dimensionality reduction preserved the majority of predictive power, while reducing computational complexity.
+
+Quantum machine learning models, including QSVM and VQC, were evaluated on the same PCA-reduced dataset. QSVM achieved an accuracy of 98.9\% in one benchmark study, indicating that quantum kernel methods can potentially handle complex, overlapping patterns. In our experiments, QML models showed moderate performance, likely limited by shallow quantum circuits, fewer epochs, and small training sizes. Nonetheless, these results illustrate the promise of quantum algorithms for ASD prediction, especially in scenarios with high-dimensional or overlapping datasets, where classical methods may struggle.
+
+Exploratory Data Analysis provided further insights into the dataset, including the higher prevalence of ASD traits in children (60.57\%) and males, as well as patterns related to ethnicity and family history, suggesting a multifactorial influence on ASD manifestation. 
+
+Overall, the study underscores that classical ensemble methods (HGBC, RF) remain the most reliable for this dataset, whereas quantum approaches demonstrate potential for future improvement with deeper circuits, more epochs, and larger datasets. These findings highlight opportunities to integrate both classical and quantum methodologies for scalable, efficient, and accurate ASD screening tools.
+
+Future work may focus on:
+\begin{itemize}
+    \item Validating models on larger and more diverse datasets to ensure generalization.
+    \item Leveraging explainable AI techniques to interpret model decisions, increasing clinical trust.
+    \item Exploring hybrid classical-quantum models to combine the robustness of classical algorithms with the expressive power of quantum feature maps.
+    \item Conducting additional hyperparameter tuning and circuit design for QML models to improve classification on overlapping or high-dimensional data.
+\end{itemize}
+
+This research represents a significant step in applying computational and quantum methods to a critical public health problem, providing a foundation for improved early detection and intervention strategies in ASD.
+
 
 \begin{thebibliography}{99}
 \bibitem{1in31}
