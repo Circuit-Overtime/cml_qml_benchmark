@@ -58,65 +58,51 @@
 
 \affil[3]{\orgdiv{Interdisciplinary Centre for Security, Reliability and Trust}, \orgname{University of Luxembourg}, \state{Luxembourg City}, \country{Luxembourg}}
 \maketitle
+
 \begin{center}
 \textbf{Abstract}
 \end{center}
 \abstract*{
-This research investigates the application of both classical and Quantum Machine Learning (QML) strategies for predicting Autism Spectrum Disorder (ASD) traits. ASD is a neuro-developmental condition impacting communication, cognition, and social abilities, where early diagnosis is crucial for improved outcomes. Various supervised learning techniques, including Logistic Regression, Decision Trees, K-Nearest Neighbors, Naive Bayes, Random Forest, Support Vector Machine (SVM), Histogram Gradient Boosting Classifier (HGBC), as well as Quantum Support Vector Machine (QSVM) and Variational Quantum Classifier (VQC) were explored on both full and PCA-reduced datasets. 
+This research compares classical and Quantum Machine Learning (QML) for predicting Autism Spectrum Disorder (ASD) traits, where early diagnosis is critical. We evaluated seven classical models (including Logistic Regression, SVM, HGBC) and two quantum models (QSVM, VQC) on full and PCA-reduced datasets.
 
-Among classical models, HGBC achieved the highest accuracy (97.86\%), precision (98.48\%), recall (97.50\%), and F1-score (97.90\%), demonstrating its robust capability in identifying ASD traits while minimizing false positives. Quantum models showed potential, with QSVM achieving high accuracy in benchmark studies (98.9\%), though our experiments were limited by smaller circuit depth, fewer epochs, and dataset size. These results suggest QML approaches may offer advantages for high-dimensional or overlapping datasets in the future. 
+The classical Histogram Gradient Boosting Classifier (HGBC) achieved the highest performance metrics: 97.86\% Accuracy, 98.48\% Precision, 97.50\% Recall, and 97.90\% F1-score. Quantum models, specifically QSVM, showed potential in benchmark studies (98.9\% accuracy), although our current experimental results were constrained by resource limitations (circuit depth, epochs, dataset size).
 
-Exploratory Data Analysis revealed that ASD traits are more prevalent in children, particularly males, and highlighted potential influences of ethnicity and family history. Overall, this study demonstrates that classical ensemble methods remain highly effective for ASD prediction, while QML approaches provide promising avenues for future enhancement. The findings support the integration of computational methods into early ASD screening programs to improve timely intervention and clinical outcomes.
+Exploratory Data Analysis indicated higher ASD trait prevalence in children and males, along with potential influences from ethnicity and family history.
+
+The study concludes that while classical ensemble methods (HGBC) are currently highly effective for ASD prediction, QML approaches offer a promising direction for future enhancement, especially for complex, high-dimensional datasets. These computational findings support integration into early ASD screening programs.
 } \\
 \textbf{Keywords:}
-\keywords*{Autism Spectrum Disorder (ASD), Quantum Machine Learning, Classification Algorithms, Logistic Regression, KNN, SVM, HGBC, QSVM, Variational Quantum Classifier}
+\keywords*{Autism Spectrum Disorder (ASD), Quantum Machine Learning, Classification Algorithms, HGBC, QSVM, Variational Quantum Classifier}
+
 
 
 
 
 \section{Introduction}\label{sec1}
-ASD is a complex developmental disorder centrally around neural development. Early detection and timely intervention is a very essential step
-for helping in long-term developmental outcomes. Based on the medical methods at the moment in the terms of the traditional scope we have 
-behavioral assessments and clinical observations \cite{ini3}. These leave some space for time consumption and subjectivity. 
+Autism Spectrum Disorder (ASD) is a complex developmental disorder requiring early, objective detection for timely intervention. Current medical methods rely on behavioral assessments and clinical observations \cite{ini3}, which are often time-consuming and subjective.
 
-In the zone of Computer Science we have observed how Machine Learning (ML) methods have demonstrated significant growth in ASD screening methods 
-by leveraging demographic and clinical data \cite{1in31}. Interestingly, we have observed some patterns over the clinically available data, and 
-by the means of selective extraction and cleaning of multiple datasets we have augmented a collection of around 3744 instances with 17 features 
-for the purpose of our research. The data after clearning showed some significant patterns which posed some serious challenge towards the traditional 
-methods of classification using the linear scale. 
+Machine Learning (ML) offers a promising alternative for ASD screening by leveraging demographic and clinical data \cite{1in31}. Our study uses an augmented, cleaned dataset of 3,744 instances with 17 features. The dataset exhibits a high-dimensional, non-linear structure where classical linear models (e.g., Logistic Regression, Naïve Bayes) performed poorly. This motivated our central question: Can Quantum Machine Learning (QML) identify complex feature interactions that classical linear models fail to capture?
 
-Classical linear models such as Logistic Regression, Naïve Bayes, and Linear SVM struggled on this dataset due to the high-dimensional 
-binary structure and non-linear relationships between demographic and behavioral features. This motivated us to raise a question: 
-\enquote{can Quantum Machine Learning (QML) identify complex feature interactions that classical linear models fail to capture?}. 
-Motivated by this, the present work extends traditional ML experimentation by incorporating Quantum ML models using PennyLane + Qiskit 
-hybrid frameworks. Thus enabling us to perform a comparative analysis between classical and quantum approaches for ASD trait prediction.
+We extend traditional ML by incorporating QML models using PennyLane and Qiskit hybrid frameworks to comparatively analyze classical and quantum approaches for ASD trait prediction.
 
-Thus we weave some key contributing points of this research as follows:- 
-
+The key contributions of this research are:
 \begin{itemize}
-\item A supervised ASD prediction framework leveraging demographic and questionnaire-based (AQ) features, serving as a low-cost alternative to neuroimaging-based diagnostic methods.
-\item A comprehensive comparative analysis of seven classical ML algorithms for ASD trait classification, identifying HGBC as the strongest performer on the full dataset.
-\item Introduction of Quantum Machine Learning models (e.g., quantum logistic regression, quantum kernels) trained on PCA-reduced latent spaces to explore whether QML can outperform classical linear models in capturing non-linear feature relationships.
-\item Dataset-specific insights from Exploratory Data Analysis (EDA) highlighting distributions of age, gender, ethnicity, and familial ASD history.
+\item Development of a supervised ASD prediction framework using low-cost demographic and questionnaire-based (AQ) features.
+\item A comprehensive comparative analysis of seven classical ML algorithms, identifying Hist Gradient Boosting Classifier (HGBC) as the strongest performer.
+\item Introduction of Quantum Machine Learning models (quantum logistic regression, quantum kernels) trained on PCA-reduced latent spaces to evaluate QML's performance in capturing non-linear feature relationships.
+\item Presentation of dataset-specific insights from Exploratory Data Analysis (EDA).
 \end{itemize}
 
-
-
 \section{Related Works}\label{sec2}
+Recent ASD diagnosis research has increasingly focused on leveraging Machine Learning (ML) and neuroimaging. Early studies explored ethical and socio-cultural aspects of predictive testing \cite{parlett2023applications} before integrating advanced ML models with neuroimaging (MRI, fMRI) to identify neurological biomarkers and improve diagnostic accuracy \cite{nogay2020machine}. Subsequent work introduced unsupervised learning to uncover hidden patterns \cite{bib3} and evaluated supervised models, naming Random Forest and SVM as effective classifiers on behavioral and clinical data \cite{bib4}. ML combined with fMRI has also detected stable brain network patterns in ASD \cite{bib5}.
 
-Recent research on ASD diagnosis has increasingly focused on leveraging ML and neuroimaging techniques. Parental perspectives on early predictive testing have been explored, highlighting ethical and socio-cultural considerations \cite{parlett2023applications}. As technological advancements progressed, researchers began integrating advanced ML models with neuroimaging data, such as MRI and fMRI, has shown promise in improving diagnostic accuracy by identifying neurological biomarkers, significantly improving diagnostic accuracy \cite{nogay2020machine}.
+Benchmarking studies have shown deep learning models yielding high diagnostic accuracy on neuroimaging data \cite{bib6}, leading to innovative frameworks like those combining GANs and Deep Q-Learning (GARL) to address data scarcity \cite{bib7}. Large-scale ML analyses explored developmental traits and ASD \cite{bib8}. Complementary non-invasive techniques, such as eye-tracking with hybrid ML, achieved high prediction rates \cite{bib10}. Research also focused on identifying behavioral subgroups \cite{bib12} and developing interpretable fMRI-based ML models \cite{bib13}.
 
-Building on these foundations, unsupervised learning techniques like clustering and dimensionality reduction were introduced to uncover hidden patterns within clinical datasets, leading to explore better potential biomarkers within clinical datasets \cite{bib3}. Comparative studies have evaluated various supervised ML models on behavioral and clinical data, identifying Random Forest and SVM as effective classifiers\cite{bib4}. The fussion of Functional MRI data combined with ML has been used to detect stable brain network patterns in individuals with ASD \cite{bib5}.
+In the domain of advanced computational methods, Quantum Machine Learning (QML) has emerged as a promising tool for neurological analysis, with works exploring quantum-enhanced techniques for Electroencephalography (EEG) data. Specifically, \cite{chen2024qeegnet} proposed QEEGNet, a hybrid quantum network for enhanced EEG encoding, and \cite{guler2024schizophrenia} successfully applied the Quantum Support Vector Machine (QSVM) for detecting Schizophrenia from EEG records, demonstrating QML's potential in complex classification tasks.
 
-Benchmarking studies have compared numerous ML models on neuroimaging data, with deep learning models often yielding high diagnostic accuracy \cite{bib6}. Innovative frameworks soon followed approaches combining Generative Adversarial Networks (GANs) and Deep Q-Learning (GARL) have been introduced to address data scarcity and enhance diagnosis using neuroimaging \cite{bib7}. In parallel, Large-scale ML analyses involving tens of thousands of participants have explored the relationship between developmental traits and ASD \cite{bib8}. Complementary to neuroimaging, Non-invasive techniques such as eye-tracking, coupled with hybrid ML models, have achieved high accuracy rates in prediction \cite{bib10}. Research has also focused on identifying behavioral subgroups within ASD to aid tailored treatment approaches \cite{bib12} and developing interpretable ML models for clinical fMRI-based diagnosis \cite{bib13}.
-%Our study’s algorithmic results were compared with several recent publications in the field, which helped highlight prior limitations and illustrate how our approach addressed these issues.
-Authors in \cite{pmcid} reported moderate accuracy (~87 \%) with Random Forest, Naive Bayes, and CVM approaches, but faced dataset imbalance and feature limitations. On the other hand, the authors in \cite{rasul2023evaluation} evaluated SVM, Naive Bayes, Logistic Regression, and others, achieving high performance on smaller or homogeneous child-focused datasets—yet still affected by overfitting and lack of diversity.
+Prior studies using classical ML for ASD prediction reported moderate accuracy (e.g., $\sim 87\%$ with RF, Naive Bayes, CVM) but struggled with dataset imbalance and feature limitations \cite{pmcid}. Other evaluations achieved high performance on smaller, homogeneous datasets but faced overfitting and limited diversity \cite{rasul2023evaluation}. Models also showed struggles with generalizability across populations \cite{aledhari2024equitable} or suffered from high dimensionality despite high accuracy in early-stage detection \cite{8895818}. Furthermore, studies using noisy household data lacked uniform feature representation \cite{nature2023detection}.
 
-Authors in \cite{aledhari2024equitable} conducted comparative experiments using RF, SVM, KNN and Gaussian NB, but the models struggled with generalizability across populations.
-The research work referenced in \cite{8895818} applied machine-learning models to early-stage ASD detection, reaching up to 96 \% accuracy in some configurations, although the models suffered from high dimensionality and limited external validation.
-Lastly, authors in \cite{nature2023detection} tested multiple classifiers across children and adult cohorts using household data features; while offering strong performance, their datasets were noisy and lacked uniform feature representation.
-
-In contrast, our work employed extensive preprocessing, feature selection, and hyperparameter tuning, ensuring balanced data and robust generalization—which led to superior performance across accuracy and F1-score metrics. Building upon the previous work, it help as to say ahead and updated in current date. The following section outlines the methodological framework adopted in this research, which includes data set selection, pre-selection techniques, and model implementation.
+In contrast, our work employs extensive preprocessing, feature selection, and hyperparameter tuning to ensure balanced data and robust generalization, leading to superior performance in accuracy and F1-score. Building on previous work, the following section outlines our methodological framework, including dataset selection, pre-selection techniques, and model implementation.
 
 \section{Methodology}\label{sec3}
 
@@ -467,15 +453,6 @@ It was observed that ASD traits were most commonly reported in children, specifi
    \end{tabular}
    \label{tab:age-category}
 \end{table}
-
-\subsubsection{Distribution Based on Genetics}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.6\linewidth]{ml_graph/EDA/fam_mem.jpeg}
-    \caption{\centering The distribution of family member traits of ASD}
-    \label{fig:genetics}
-\end{figure}
-Analysis of family history within the dataset suggested that, for most individuals with ASD traits, other family members did not have diagnosed ASD traits (\hyperref[fig:genetics]{Fig \ref{fig:genetics}}). While genetics are known to play a role in ASD, this dataset suggests that non-genetic factors, such as environmental influences or early social experiences, may also contribute significantly to trait development.
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -597,6 +574,9 @@ Muhammad Shoaib Farooq, Rabia Tehseen, Maidah Sabir \& Zabihullah Atal
 \bibitem{saranya2025autism}
 Saranya, S. and Menaka, R. (2025) A Quantum‑Based Machine Learning Approach for Autism Detection using Common Spatial Patterns of EEG Signals. \emph{IEEE Access} \textbf{13}, 15739--15750. doi:10.1109/ACCESS.2025.3531979
 
+\bibitem{chen2024qeegnet} Chen, C.-S., Chen, S. Y.-C., Tsai, A. H.-W., and Wei, C.-S. (2024) QEEGNet: Quantum Machine Learning for Enhanced Electroencephalography Encoding. \emph{arXiv preprint} arXiv:2407.19214.
+
+\bibitem{guler2024schizophrenia} Güler, M., Çelik, F., and Açıksöz, S. (2024) Quantum Machine-Based Decision Support System for the Detection of Schizophrenia from EEG Records. \emph{PMC} \textbf{109}(1), 1-13. doi:10.3390/brainsci14030278.
 
 
 \end{thebibliography}

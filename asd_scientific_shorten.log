@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.14)  14 NOV 2025 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.14)  14 NOV 2025 20:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -787,31 +787,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
 
+Package natbib Warning: Citation `schuld2020circuitcentric' on page 4 undefined on input line 137.
+
+
+Package natbib Warning: Citation `havlivcek2019supervised' on page 4 undefined on input line 137.
+
+
+Package natbib Warning: Citation `qnnref' on page 4 undefined on input line 138.
+
+
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-
-Package natbib Warning: Citation `schuld2020circuitcentric' on page 5 undefined on input line 151.
-
-
-Package natbib Warning: Citation `havlivcek2019supervised' on page 5 undefined on input line 151.
-
-
-Package natbib Warning: Citation `qnnref' on page 5 undefined on input line 152.
-
-<ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png, id=156, 716.9184pt x 422.0568pt>
+<ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png, id=165, 716.9184pt x 422.0568pt>
 File: ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png Graphic file (type png)
 <use ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png>
-Package pdftex.def Info: ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png  used on input line 174.
+Package pdftex.def Info: ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png  used on input line 160.
 (pdftex.def)             Requested size: 334.79773pt x 197.09802pt.
 
-Underfull \hbox (badness 3471) in paragraph at lines 175--175
+Underfull \hbox (badness 3471) in paragraph at lines 161--161
 []\T1/cmr/bx/n/10.03749 Fig. 1\T1/cmr/m/n/10.03749 : |Top 10 hyper-pa-ram-e-ter com-bi-na-tions for HGBC based on mean
  []
 
 
-Underfull \hbox (badness 2653) in paragraph at lines 175--175
+Underfull \hbox (badness 2653) in paragraph at lines 161--161
 \T1/cmr/m/n/10.03749 test accu-racy. Most top-performing con-fig-u-ra-tions shared \T1/cmtt/m/n/10.03749 max_depth=10 \T1/cmr/m/n/10.03749 and
  []
 
@@ -820,126 +821,123 @@ Underfull \hbox (badness 2653) in paragraph at lines 175--175
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 196.
+ [5 <./ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png>]
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 182.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 196.
+(Font)              size <5> substituted on input line 182.
 
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png>]
-<ml_graph/pr_re_gh/pre_re_rf.jpeg, id=185, 578.16pt x 433.62pt>
+<ml_graph/pr_re_gh/pre_re_rf.jpeg, id=179, 578.16pt x 433.62pt>
 File: ml_graph/pr_re_gh/pre_re_rf.jpeg Graphic file (type jpg)
 <use ml_graph/pr_re_gh/pre_re_rf.jpeg>
-Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_rf.jpeg  used on input line 239.
+Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_rf.jpeg  used on input line 225.
 (pdftex.def)             Requested size: 169.62994pt x 127.22206pt.
-<ml_graph/pr_re_gh/pre_re_svm.jpeg, id=186, 578.16pt x 433.62pt>
+<ml_graph/pr_re_gh/pre_re_svm.jpeg, id=180, 578.16pt x 433.62pt>
 File: ml_graph/pr_re_gh/pre_re_svm.jpeg Graphic file (type jpg)
 <use ml_graph/pr_re_gh/pre_re_svm.jpeg>
-Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_svm.jpeg  used on input line 246.
+Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_svm.jpeg  used on input line 232.
 (pdftex.def)             Requested size: 169.62994pt x 127.22206pt.
-<ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png, id=187, 505.89pt x 361.35pt>
+<ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png, id=181, 505.89pt x 361.35pt>
 File: ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png Graphic file (type png)
 <use ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png>
-Package pdftex.def Info: ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png  used on input line 253.
+Package pdftex.def Info: ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png  used on input line 239.
 (pdftex.def)             Requested size: 169.62994pt x 121.16464pt.
 
-Underfull \hbox (badness 1577) in paragraph at lines 254--254
+Underfull \hbox (badness 1577) in paragraph at lines 240--240
 []\T1/cmr/bx/n/10.03749 Fig. 4\T1/cmr/m/n/10.03749 : |Pre-ci-sion and Recall (PCA-
  []
 
-<ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png, id=188, 505.89pt x 361.35pt>
+<ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png, id=182, 505.89pt x 361.35pt>
 File: ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png Graphic file (type png)
 <use ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png>
-Package pdftex.def Info: ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png  used on input line 260.
+Package pdftex.def Info: ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png  used on input line 246.
 (pdftex.def)             Requested size: 169.62994pt x 121.16464pt.
 
-Underfull \hbox (badness 1577) in paragraph at lines 261--261
+Underfull \hbox (badness 1577) in paragraph at lines 247--247
 []\T1/cmr/bx/n/10.03749 Fig. 5\T1/cmr/m/n/10.03749 : |Pre-ci-sion and Recall (PCA-
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
-<accuracy.png, id=198, 578.16pt x 361.35pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./ml_graph/pr_re_gh/pre_re_rf.jpeg> <./ml_graph/pr_re_gh/pre_re_svm.jpeg> <./ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png> <./ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png>]
+<accuracy.png, id=211, 578.16pt x 361.35pt>
 File: accuracy.png Graphic file (type png)
 <use accuracy.png>
-Package pdftex.def Info: accuracy.png  used on input line 284.
+Package pdftex.def Info: accuracy.png  used on input line 270.
 (pdftex.def)             Requested size: 164.05272pt x 102.52817pt.
 
+
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 285.
+(caption)                particular \caption on input line 271.
 See the caption package documentation for explanation.
 
-<ml_graph/DS/f1_score.jpeg, id=199, 433.62pt x 289.08pt>
+<ml_graph/DS/f1_score.jpeg, id=212, 433.62pt x 289.08pt>
 File: ml_graph/DS/f1_score.jpeg Graphic file (type jpg)
 <use ml_graph/DS/f1_score.jpeg>
-Package pdftex.def Info: ml_graph/DS/f1_score.jpeg  used on input line 291.
+Package pdftex.def Info: ml_graph/DS/f1_score.jpeg  used on input line 277.
 (pdftex.def)             Requested size: 164.05272pt x 109.37073pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 292.
+(caption)                particular \caption on input line 278.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (9.79411pt too wide) in paragraph at lines 282--295
+Overfull \hbox (9.79411pt too wide) in paragraph at lines 268--281
 []$[]$  $[]$ 
  []
 
 
-Overfull \hbox (15.78369pt too wide) in paragraph at lines 296--341
+Overfull \hbox (15.78369pt too wide) in paragraph at lines 282--327
  [] 
  []
 
 
+LaTeX Warning: Hyper reference `tab:performance_matrix_full' on page 8 undefined on input line 329.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-
-LaTeX Warning: Hyper reference `tab:performance_matrix_full' on page 8 undefined on input line 343.
-
-
-LaTeX Warning: Reference `tab:performance_matrix_full' on page 8 undefined on input line 343.
+LaTeX Warning: Reference `tab:performance_matrix_full' on page 8 undefined on input line 329.
 
 
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8 <./ml_graph/pr_re_gh/pre_re_rf.jpeg> <./ml_graph/pr_re_gh/pre_re_svm.jpeg> <./ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png> <./ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png> <./accuracy.png> <./ml_graph/DS/f1_score.jpeg>]
-Underfull \hbox (badness 6493) in paragraph at lines 375--376
+ [8 <./accuracy.png> <./ml_graph/DS/f1_score.jpeg>]
+Underfull \hbox (badness 6493) in paragraph at lines 361--362
 []|\T1/cmr/m/n/8.03 An Eval-u-a-tion of Machine Learn-ing
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 391--392
+Underfull \hbox (badness 1939) in paragraph at lines 377--378
 \T1/cmr/m/n/8.03 (ASD) in Chil-dren and Adults Using
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
 []|\T1/cmr/m/n/8.03 Quantum-Based Machine Learn-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--398
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
 []|\T1/cmr/m/n/8.03 QSVM (with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 398--398
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
 \T1/cmr/m/n/8.03 enhanced fea-ture
  []
 
 
-Overfull \hbox (6.34824pt too wide) in paragraph at lines 361--403
+Overfull \hbox (6.34824pt too wide) in paragraph at lines 347--389
  [] 
  []
 
@@ -949,57 +947,49 @@ Overfull \hbox (6.34824pt too wide) in paragraph at lines 361--403
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-<ml_graph/EDA/Ethnicity_yes.jpeg, id=243, 722.7pt x 361.35pt>
+<ml_graph/EDA/Ethnicity_yes.jpeg, id=238, 722.7pt x 361.35pt>
 File: ml_graph/EDA/Ethnicity_yes.jpeg Graphic file (type jpg)
 <use ml_graph/EDA/Ethnicity_yes.jpeg>
-Package pdftex.def Info: ml_graph/EDA/Ethnicity_yes.jpeg  used on input line 420.
+Package pdftex.def Info: ml_graph/EDA/Ethnicity_yes.jpeg  used on input line 406.
 (pdftex.def)             Requested size: 334.79773pt x 167.39745pt.
 
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11 <./ml_graph/EDA/Ethnicity_yes.jpeg>]
-<ml_graph/EDA/sex.jpeg, id=253, 433.62pt x 361.35pt>
+ [10]
+<ml_graph/EDA/sex.jpeg, id=248, 433.62pt x 361.35pt>
 File: ml_graph/EDA/sex.jpeg Graphic file (type jpg)
 <use ml_graph/EDA/sex.jpeg>
-Package pdftex.def Info: ml_graph/EDA/sex.jpeg  used on input line 430.
+Package pdftex.def Info: ml_graph/EDA/sex.jpeg  used on input line 416.
 (pdftex.def)             Requested size: 180.46022pt x 150.382pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 432.
+(caption)                particular \caption on input line 418.
 See the caption package documentation for explanation.
 
-<ml_graph/EDA/age_chart.png, id=254, 459.6372pt x 475.5366pt>
+<ml_graph/EDA/age_chart.png, id=249, 459.6372pt x 475.5366pt>
 File: ml_graph/EDA/age_chart.png Graphic file (type png)
 <use ml_graph/EDA/age_chart.png>
-Package pdftex.def Info: ml_graph/EDA/age_chart.png  used on input line 439.
+Package pdftex.def Info: ml_graph/EDA/age_chart.png  used on input line 425.
 (pdftex.def)             Requested size: 164.05272pt x 169.72731pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 440.
+(caption)                particular \caption on input line 426.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (9.79411pt too wide) in paragraph at lines 428--443
+Overfull \hbox (9.79411pt too wide) in paragraph at lines 414--429
 []$[]$   $[]$ 
  []
 
-<ml_graph/EDA/fam_mem.jpeg, id=257, 578.16pt x 433.62pt>
-File: ml_graph/EDA/fam_mem.jpeg Graphic file (type jpg)
-<use ml_graph/EDA/fam_mem.jpeg>
-Package pdftex.def Info: ml_graph/EDA/fam_mem.jpeg  used on input line 474.
-(pdftex.def)             Requested size: 223.20227pt x 167.39745pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./ml_graph/EDA/Ethnicity_yes.jpeg>]
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1009,28 +999,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13 <./ml_graph/EDA/fam_mem.jpeg>]
+ [13]
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
-Underfull \hbox (badness 2150) in paragraph at lines 553--554
+Underfull \hbox (badness 2150) in paragraph at lines 530--531
 []\T1/cmr/m/n/10.03749 Mienye, I. D. and Jere, N. (2024) A Sur-vey of Deci-sion Trees: Con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 553--554
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
 \T1/cmr/m/n/10.03749 cepts, Algo-rithms, and Appli-ca-tions. \T1/cmr/m/it/10.03749 IEEE Access \T1/cmr/bx/n/10.03749 12\T1/cmr/m/n/10.03749 , 86716--86727.
  []
 
 
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
-Underfull \hbox (badness 5504) in paragraph at lines 562--563
+Underfull \hbox (badness 5504) in paragraph at lines 539--540
 []\T1/cmr/m/n/10.03749 Breiman, L. (2001) Ran-dom Forests. \T1/cmr/m/it/10.03749 Machine Learn-ing \T1/cmr/bx/n/10.03749 45\T1/cmr/m/n/10.03749 (1), 5--32.
  []
 
@@ -1039,7 +1024,7 @@ Underfull \hbox (badness 5504) in paragraph at lines 562--563
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]
+ [15]
 
 Package natbib Warning: There were undefined citations.
 
@@ -1048,7 +1033,7 @@ Package natbib Warning: There were undefined citations.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17] (asd_scientific_shorten.aux)
+ [16] (asd_scientific_shorten.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -1062,20 +1047,20 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `asd_scientific_shorten.out' has not changed.
-(rerunfilecheck)             Checksum: A80EAE6434F2DE28B1628AAC884FC729;4120.
+(rerunfilecheck)             Checksum: BDE1EB83D6B55EDB36F64FE58433CA5E;3894.
  ) 
 Here is how much of TeX's memory you used:
- 16868 strings out of 468081
- 260003 string characters out of 5442623
- 702561 words of memory out of 5000000
- 45187 multiletter control sequences out of 15000+600000
+ 16864 strings out of 468081
+ 259908 string characters out of 5442623
+ 696511 words of memory out of 5000000
+ 45184 multiletter control sequences out of 15000+600000
  659281 words of font info for 135 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,13n,93p,988b,754s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,93p,979b,738s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecti1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm0800.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecbx0800.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ectt1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi662\ecbx1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecbx1200.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\tcrm1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi703\ecbx1200.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecbx1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi662\ecrm1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi662\ecrm0700.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm0800.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi592\ecrm1728.pk><F:/miktex/fonts/type1/public/amsfonts/cm/cmr10.pfb><F:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on asd_scientific_shorten.pdf (17 pages, 809396 bytes).
+Output written on asd_scientific_shorten.pdf (16 pages, 779166 bytes).
 PDF statistics:
- 925 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
- 216 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 921 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 
