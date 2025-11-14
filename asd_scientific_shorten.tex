@@ -112,44 +112,6 @@ Lastly, authors in \cite{nature2023detection} tested multiple classifiers across
 
 In contrast, our work employed extensive preprocessing, feature selection, and hyperparameter tuning, ensuring balanced data and robust generalization—which led to superior performance across accuracy and F1-score metrics. Building upon the previous work, it help as to say ahead and updated in current date. The following section outlines the methodological framework adopted in this research, which includes data set selection, pre-selection techniques, and model implementation.
 
-%\hyperref[tab:relatedworks]{Table \ref{tab:relatedworks}} provides a brief summary of these related works.
-
-
-%\begin{table}[ht]
-%\centering
-%\caption{Summary of Related Works in ASD Diagnosis Using machine learning}
-%\label{tab:relatedworks}
-%\begin{tabular}{|p{2.5cm}|p{7.5cm}|p{3.5cm}|} 
-%\hline
-%\textbf{Study} & \textbf{Key Contribution} & \textbf{Technique Used} \\
-%\hline
-%Stevens et al. \cite{bib12} & Identified 16 behavioral ASD subgroups using clustering methods & Gaussian Mixture Models, hierarchical clustering \\
-%\hline
-%Prasad et al. \cite{bib14} & Combined deep learning and novel optimization for ASD detection & Brain MRI, hybrid deep learning \\
-%\hline
-%Parlett et al. \cite{parlett2023applications} & Explored parental perspectives on early ASD testing and ethical implications & Socio-cultural analysis, ethical concerns \\
-%\hline
-%Nogay et al. \cite{nogay2020machine} & Applied ML to MRI/fMRI data to improve ASD diagnosis accuracy & CNN, SVM, neuroimaging \\
-%\hline
-%Parlett-Pelleriti et al. \cite{bib3} & Used unsupervised learning to detect ASD subtypes and hidden patterns & Clustering, dimensionality reduction \\
-%\hline
-%Vakadkar et al. \cite{bib4} & Compared supervised ML models for behavioral ASD diagnosis & Random Forest, SVM, Logistic Regression \\
-%\hline
-%Alves et al. \cite{bib5} & fMRI data analyzed to detect stable brain network clusters in ASD & Functional imaging, clustering \\
-%\hline
-%Mellema et al. \cite{bib6} & Benchmarked 12 ML models on fMRI/sMRI data, favoring deep learning & Deep learning, model comparison \\
-%\hline
-%Zhou et al. \cite{bib7} & Introduced GAN + Deep Q-Learning framework for diagnosis enhancement & Data augmentation, generative models \\
-%\hline
-%Rajagopalan et al. \cite{bib8} & Large-scale ML analysis of 30,000 participants using 28 features & Supervised ML, developmental traits \\
-%\hline
-%Jaradat et al. \cite{bib10} & Used eye-tracking data with hybrid models to achieve high accuracy & Non-invasive diagnosis, hybrid ML \\
-%\hline
-%Eslami et al. \cite{bib13} & Developed interpretable ML for clinical fMRI-based ASD diagnosis & Interpretable ML, scalability \\
-%\hline
-%\end{tabular}
-%\end{table}
-
 \section{Methodology}\label{sec3}
 
 The methodology involved selecting a suitable dataset, followed by essential data preprocessing steps and the application of various supervised machine learning models for classification.
@@ -166,7 +128,8 @@ Data preprocessing was crucial for preparing the raw dataset for model training 
     \item \textbf{Feature Scaling:} Numerical features were normalized using Min-Max Scaling, fitting them to a range between 0 and 1, which is beneficial for distance-sensitive algorithms like KNN and SVM.
     \item \textbf{Data Split:} The dataset was partitioned into training (80\%) and testing (20\%) sets to evaluate model performance on unseen data.
     \item \textbf{Dimensionality Reduction for Quantum ML (QML):} Quantum circuits have hardware and structural limitations, especially concerning input dimensionality. Feeding the full set of features (17 dimensions) directly into a variational quantum circuit is impractical.  
-    Therefore, for QML models, \textbf{Principal Component Analysis (PCA)} was applied to the scaled dataset to reduce it to a low-dimensional latent space. After experimentation, a reduced dimensionality of **4 principal components** was selected, balancing:
+    Therefore, for QML models, \textbf{Principal Component Analysis (PCA)} was applied to the scaled dataset to reduce it to a low-dimensional latent space. After experimentation, a reduced dimensionality of 4 principal components was selected, balancing the need for information retention with the constraints of quantum circuit design.
+
 
 \end{itemize}
 
@@ -226,42 +189,19 @@ On the other hand, the confusion matrix provides counts of True Positives (TP), 
 
 Fig~\ref{fig:bestaccuracy} shows a heatmap of mean test accuracy varying with \texttt{learning\_rate} and \texttt{max\_iter}. Accuracy generally increased with higher learning rates (peaking at 0.2) and increasing \texttt{max\_iter} (stabilizing around 300). The highest accuracy in this slice was achieved with a learning rate of 0.2 and max iterations of 300.
 
-%\subsection{Evaluation Metrics}\label{sec:evalmetrics}
-%
-%Model performance was assessed using metrics derived from the confusion matrix, which summarizes prediction outcomes \cite{mahcine}.
-
-%\begin{table}[ht]
-%    \centering
-%    \caption{Confusion Matrix Metrics of Different Algorithms}
-%    \label{tab:algorithm_metrics}
-%    \begin{tabular}{lrrrr}
-%        \toprule
-%        \textbf{Algorithm} & \textbf{TN} & \textbf{FP} & \textbf{FN} & \textbf{TP} \\
-%        \midrule
-%        LR & 274 & 65 & 84 & 326 \\
-%        NB & 306 & 43 & 68 & 332 \\
-%        DT(log-loss) & 312 & 27 & 20 & 390 \\
-%        KNN(Euclidean) & 330 & 19 & 26 & 374 \\
-%        SVM(RBF) & 334 & 15 & 7 & 393 \\
-%        RF & 337 & 12 & 18 & 382 \\
-%        HGBC & 343 & 6 & 10 & 390 \\
-%        \bottomrule
-%    \end{tabular}
-%\end{table}
-
 \subsection{Precision and Recall}\label{sec:precision_recall}
 Precision (TP / (TP + FP)) and Recall (TP / (TP + FN)) are critical metrics for evaluating the model's ability to correctly identify positive cases and avoid false positives. Graphical representations are provided for illustration.
 \FloatBarrier
 \begin{minipage}{0.48\textwidth}
    \centering
-    \includegraphics[width=0.9\linewidth]{ml_graph/precision and recall ml_graph/pre_re_rf.jpeg}
+    \includegraphics[width=0.9\linewidth]{ml_graph/pr_re_gh/pre_re_rf.jpeg}
     \captionof{figure}{Precision and Recall: RF}
     \label{fig:pre-re-rf}
 \end{minipage}
 \hfill % Adds horizontal space between minipages
    \begin{minipage}{0.48\textwidth}
     \centering
-    \includegraphics[width=0.9\linewidth]{ml_graph/precision and recall ml_graph/pre_re_svm.jpeg}
+    \includegraphics[width=0.9\linewidth]{ml_graph/pr_re_gh/pre_re_svm.jpeg}
     \captionof{figure}{Precision and Recall: SVF}
     \label{fig:pre-re-svm}
 \end{minipage}
