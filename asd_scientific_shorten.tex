@@ -69,24 +69,32 @@ Regression, KNN, SVM}.
 
 
 \section{Introduction}\label{sec1}
+ASD is a complex developmental disorder centrally around neural development. Early detection and timely intervention is a very essential step
+for helping in long-term developmental outcomes. Based on the medical methods at the moment in the terms of the traditional scope we have 
+behavioral assessments and clinical observations \cite{ini3}. These leave some space for time consumption and subjectivity. 
 
-Autism Spectrum Disorder (ASD) is a complex neuro-developmental condition characterized by challenges in social interaction, communication, and restricted or repetitive behaviors. With an estimated prevalence of around 1 in 31 children aged 8 years \cite{1in31}, timely diagnosis and intervention are critical for improving individual outcomes. Traditional diagnostic methods, often reliant on observation and behavioral assessments \cite{ini3}, can be time-consuming, inconsistent, and susceptible to human variability. Machine learning (ML) algorithms offer a promising alternative by analyzing large datasets to identify complex patterns more consistently and effectively.
+In the zone of Computer Science we have observed how Machine Learning (ML) methods have demonstrated significant growth in ASD screening methods 
+by leveraging demographic and clinical data \cite{1in31}. Interestingly, we have observed some patterns over the clinically available data, and 
+by the means of selective extraction and cleaning of multiple datasets we have augmented a collection of around 3744 instances with 17 features 
+for the purpose of our research. The data after clearning showed some significant patterns which posed some serious challenge towards the traditional 
+methods of classification using the linear scale. 
 
-This study explores the application of various supervised machine learning algorithms for the predictive analysis of ASD traits using a publicly available dataset from Kaggle. The dataset includes binary features indicating symptom presence, along with demographic information (age, sex, ethnicity), family history, and results from the Autism Spectrum Quotient (AQ) test. By applying ML models, the aim is to identify patterns associated with ASD, providing insights into contributing factors \cite{bib12}.
+Classical linear models such as Logistic Regression, Naïve Bayes, and Linear SVM struggled on this dataset due to the high-dimensional 
+binary structure and non-linear relationships between demographic and behavioral features. This motivated us to raise a question: 
+\enquote{can Quantum Machine Learning (QML) identify complex feature interactions that classical linear models fail to capture?}. 
+Motivated by this, the present work extends traditional ML experimentation by incorporating Quantum ML models using PennyLane + Qiskit 
+hybrid frameworks. Thus enabling us to perform a comparative analysis between classical and quantum approaches for ASD trait prediction.
 
-The research involves data pre-processing (normalization, train-test splitting, label encoding), training supervised classification algorithms, and evaluating their performance using metrics like confusion matrix, precision, F1 score, recall, and accuracy \cite{bib14}. Hyperparameter tuning was also performed for the best-performing model to enhance its robustness.
+Thus we weave some key contributing points of this research as follows:- 
 
-Key contributions of this research include:
 \begin{itemize}
-   \item This work is supervised using demographic and questionnaire-based data (e.g., AQ score, age, sex). As a low-cost alternative to MRI-based neuroimaging diagnostics, a method has been proposed that can be implemented without specialized imaging infrastructure.
-    \item A comprehensive comparative analysis of seven supervised ML algorithms for ASD trait prediction. Identification of the Histogram Gradient Boosting Classifier (HGBC) as the superior model for this dataset has been done.
-    %\item Demonstration of hyperparameter tuning to optimize HGBC performance.
-    \item Dataset-specific insights derived from Exploratory Data Analysis (EDA), highlighting age, gender, ethnicity, and family history distributions.
-    %\item Advocacy for the integration of advanced ML techniques like HGBC into clinical ASD screening workflows.
+\item A supervised ASD prediction framework leveraging demographic and questionnaire-based (AQ) features, serving as a low-cost alternative to neuroimaging-based diagnostic methods.
+\item A comprehensive comparative analysis of seven classical ML algorithms for ASD trait classification, identifying HGBC as the strongest performer on the full dataset.
+\item Introduction of Quantum Machine Learning models (e.g., quantum logistic regression, quantum kernels) trained on PCA-reduced latent spaces to explore whether QML can outperform classical linear models in capturing non-linear feature relationships.
+\item Dataset-specific insights from Exploratory Data Analysis (EDA) highlighting distributions of age, gender, ethnicity, and familial ASD history.
 \end{itemize}
 
-The paper structure includes a review of \hyperref[sec2]{Related Works}, detailing the \hyperref[sec3]{Methodology} (dataset, pre-processing, models), presenting the \hyperref[sec4]{Performance Analysis} (tuning, metrics, results) including graphical results in \hyperref[sec:results]{Comparison Study}, providing \hyperref[sec:data_analysis]{Exploratory Data Analysis} insights, and concluding with a summary and future directions in \hyperref[sec:conclusion]{Conclusion \ref{sec:conclusion}}.
-To build upon the motivation and contribution outline above, it is important to understand and contextualize this study within the existing body of literature.The following section has proper research on the existing work in this domain.
+
 
 \section{Related Works}\label{sec2}
 
@@ -157,12 +165,23 @@ Data preprocessing was crucial for preparing the raw dataset for model training 
     \item \textbf{Categorical Variables Encoding:} Categorical features such as 'sex', 'ethnicity', and 'jaundice' were transformed into numerical values using Label Encoding.
     \item \textbf{Feature Scaling:} Numerical features were normalized using Min-Max Scaling, fitting them to a range between 0 and 1, which is beneficial for distance-sensitive algorithms like KNN and SVM.
     \item \textbf{Data Split:} The dataset was partitioned into training (80\%) and testing (20\%) sets to evaluate model performance on unseen data.
+    \item \textbf{Dimensionality Reduction for Quantum ML (QML):} Quantum circuits have hardware and structural limitations, especially concerning input dimensionality. Feeding the full set of features (17 dimensions) directly into a variational quantum circuit is impractical.  
+    Therefore, for QML models, \textbf{Principal Component Analysis (PCA)} was applied to the scaled dataset to reduce it to a low-dimensional latent space. After experimentation, a reduced dimensionality of **4 principal components** was selected, balancing:
+
 \end{itemize}
 
 
 \subsection{Machine Learning Models Used}\label{sec3.4}
 
-Several supervised machine learning algorithms were applied for binary classification to predict the presence of ASD traits. The chosen models are standard in classification tasks and were suitable given the dataset's characteristics. These include Logistic Regression \cite{hosmer2000applied}, Decision Trees \cite{decision}, K-Nearest Neighbors (KNN) \cite{KNN}, Naïve Bayes \cite{naive}, Random Forest \cite{rand}, Support Vector Machine (SVM) \cite{svm}, and Histogram Gradient Boosting Classifier (HGBC) \cite{hist}.
+Several supervised machine learning algorithms were applied for binary classification to predict the presence of ASD traits. 
+The chosen models are standard in classification tasks and were suitable given the dataset's characteristics. 
+These include Logistic Regression \cite{hosmer2000applied}, Decision Trees \cite{decision}, K-Nearest Neighbors (KNN) \cite{KNN}, 
+Naïve Bayes \cite{naive}, Random Forest \cite{rand}, Support Vector Machine (SVM) \cite{svm}, and 
+Histogram Gradient Boosting Classifier (HGBC) \cite{hist}.
+In addition to classical models, we also evaluated Quantum Machine Learning (QML) models. This included a Variational Quantum Classifier (VQC)
+\cite{schuld2020circuitcentric}, a Quantum Support Vector Machine (QSVM) using quantum kernel estimation \cite{havlivcek2019supervised}, 
+and a Quantum Neural Network (QNN) implemented via parameterized rotation circuits \cite{qnnref}. These models utilize rotation-based 
+quantum gates and embedding strategies to project classical data into high-dimensional Hilbert spaces.
     
 \section{Performance Analysis}\label{sec4}
 
@@ -172,7 +191,7 @@ The predictive performance of the seven classification models was evaluated usin
 Hyperparameter tuning for the Histogram Gradient Boosting Classifier (HGBC) was conducted using \texttt{GridSearchCV} to identify optimal parameters for maximizing accuracy \cite{para}. Parameters explored included \texttt{n\_estimators}, \texttt{learning\_rate}, \texttt{max\_iter}, \texttt{max\_depth}, \texttt{min\_samples\_leaf}, and \texttt{l2\_regularization}.
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\linewidth]{Graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png}
+    \includegraphics[width=0.9\linewidth]{ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png}
     \caption{Visual representation of Combination of best fit parameter}
     \label{fig:bestparameter}
 \end{figure}
@@ -235,14 +254,14 @@ Precision (TP / (TP + FP)) and Recall (TP / (TP + FN)) are critical metrics for 
 \FloatBarrier
 \begin{minipage}{0.48\textwidth}
    \centering
-    \includegraphics[width=0.9\linewidth]{Graph/precision and recall graph/pre_re_rf.jpeg}
+    \includegraphics[width=0.9\linewidth]{ml_graph/precision and recall ml_graph/pre_re_rf.jpeg}
     \captionof{figure}{Precision and Recall: RF}
     \label{fig:pre-re-rf}
 \end{minipage}
 \hfill % Adds horizontal space between minipages
    \begin{minipage}{0.48\textwidth}
     \centering
-    \includegraphics[width=0.9\linewidth]{Graph/precision and recall graph/pre_re_svm.jpeg}
+    \includegraphics[width=0.9\linewidth]{ml_graph/precision and recall ml_graph/pre_re_svm.jpeg}
     \captionof{figure}{Precision and Recall: SVF}
     \label{fig:pre-re-svm}
 \end{minipage}
@@ -270,7 +289,7 @@ The F1 Score is the harmonic mean of precision and recall, offering a balanced m
 \hfill
 \begin{minipage}{0.49\textwidth}
   \centering
-    \includegraphics[width=0.9\linewidth]{Graph/DS/f1_score.jpeg}
+    \includegraphics[width=0.9\linewidth]{ml_graph/DS/f1_score.jpeg}
     \captionof{figure}{\centering F1-score of all the classification models}
     \label{fig:f1_score}
 \end{minipage}
@@ -353,7 +372,7 @@ Exploratory Data Analysis (EDA) was conducted to understand the distribution of 
 \subsubsection{\textbf{Distribution Based on Ethnicity}}
 \begin{figure}[ht!]
   \centering
-    \includegraphics[width=0.9\linewidth]{Graph/EDA/Ethnicity_yes.jpeg}
+    \includegraphics[width=0.9\linewidth]{ml_graph/EDA/Ethnicity_yes.jpeg}
     \captionof{figure}{The ethnics with the ASD traits as \enquote{YES}}
     \label{fig:ethni}
 \end{figure}
@@ -363,7 +382,7 @@ Analysis indicated that males exhibited ASD traits more frequently than females 
 
 \begin{minipage}{0.49\textwidth}
     \centering
-    \includegraphics[width=0.99\linewidth]{Graph/EDA/sex.jpeg}
+    \includegraphics[width=0.99\linewidth]{ml_graph/EDA/sex.jpeg}
      \vspace{10pt}
     \captionof{figure}{\centering Gender distribution with ASD traits as \enquote{YES}}
     \label{fig:gen}
@@ -372,7 +391,7 @@ Analysis indicated that males exhibited ASD traits more frequently than females 
 \hfill
 \begin{minipage}{0.49\textwidth}
     \centering
-     \includegraphics[width=0.9\linewidth]{Graph/EDA/age_chart.png}
+     \includegraphics[width=0.9\linewidth]{ml_graph/EDA/age_chart.png}
     \captionof{figure}{\centering Age categories distribution of ASD traits:}
     \label{fig:age}
 \end{minipage}
@@ -382,7 +401,7 @@ It was observed that ASD traits were most commonly reported in children, specifi
 
 %\begin{figure}[ht]
 %    \centering
-%    \includegraphics[width=0.6\linewidth]{Graph/EDA/age_chart.png}
+%    \includegraphics[width=0.6\linewidth]{ml_graph/EDA/age_chart.png}
 %    \caption{Age categories distribution of ASD traits:}
 %    \label{fig:age}
 %\end{figure}
@@ -414,7 +433,7 @@ It was observed that ASD traits were most commonly reported in children, specifi
 \subsubsection{Distribution Based on Genetics}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.6\linewidth]{Graph/EDA/fam_mem.jpeg}
+    \includegraphics[width=0.6\linewidth]{ml_graph/EDA/fam_mem.jpeg}
     \caption{\centering The distribution of family member traits of ASD}
     \label{fig:genetics}
 \end{figure}

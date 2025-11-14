@@ -770,9 +770,6 @@
     %%{\ifx\@motto\empty\else\@motto\fi}%
     \removelastskip\vskip36pt\vskip0pt}%
 
-\usepackage{cuted}%
-\@ifpackageloaded{cuted}{\gdef\@setmarks{}}{}%
-
 %% Printing Article Header
 \newdimen\firstpagehtcheck
 
