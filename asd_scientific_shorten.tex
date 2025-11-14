@@ -128,7 +128,7 @@ Data preprocessing was crucial for preparing the raw dataset for model training 
     \item \textbf{Feature Scaling:} Numerical features were normalized using Min-Max Scaling, fitting them to a range between 0 and 1, which is beneficial for distance-sensitive algorithms like KNN and SVM.
     \item \textbf{Data Split:} The dataset was partitioned into training (80\%) and testing (20\%) sets to evaluate model performance on unseen data.
     \item \textbf{Dimensionality Reduction for Quantum ML (QML):} Quantum circuits have hardware and structural limitations, especially concerning input dimensionality. Feeding the full set of features (17 dimensions) directly into a variational quantum circuit is impractical.  
-    Therefore, for QML models, \textbf{Principal Component Analysis (PCA)} was applied to the scaled dataset to reduce it to a low-dimensional latent space. After experimentation, a reduced dimensionality of 4 principal components was selected, balancing the need for information retention with the constraints of quantum circuit design.
+    Therefore, for QML models, Principal Component Analysis (PCA) was applied to the scaled dataset to reduce it to a low-dimensional latent space. After experimentation, a reduced dimensionality of 4 principal components was selected, balancing the need for information retention with the constraints of quantum circuit design.
 
 
 \end{itemize}
@@ -150,7 +150,7 @@ quantum gates and embedding strategies to project classical data into high-dimen
 
 The predictive performance of the seven classification models was evaluated using standard metrics. Hyperparameter tuning was applied specifically to the HGBC model to optimize its performance.
 
-\subsection{Hyperparameter Tuning and Confusion Matrix}\label{sec:hptuning}
+\subsection{Hyperparameter Tuning and Confusion Matrix for Classical Models}\label{sec:hptuning}
 Hyperparameter tuning for the Histogram Gradient Boosting Classifier (HGBC) was conducted using \texttt{GridSearchCV} to identify optimal parameters for maximizing accuracy \cite{para}. Parameters explored included \texttt{n\_estimators}, \texttt{learning\_rate}, \texttt{max\_iter}, \texttt{max\_depth}, \texttt{min\_samples\_leaf}, and \texttt{l2\_regularization}.
 \begin{figure}[ht]
     \centering
@@ -163,7 +163,7 @@ Fig~\ref{fig:bestparameter} displays the top 10 hyperparameter combinations base
 On the other hand, the confusion matrix provides counts of True Positives (TP), True Negatives (TN), False Positives (FP), and False Negatives (FN). Minimizing FN (missed cases) is particularly important in medical contexts. \hyperref[tab:algorithm_metrics]{Table~\ref{tab:algorithm_metrics}} shows the confusion matrix counts for each algorithm.
 \begin{table}
 \centering
-    \caption{Confusion Matrix' Metrics of Different Algorithms}
+    \caption{Confusion Matrix' Metrics of Different Algorithms of Classical Models}
     \label{tab:algorithm_metrics}
 \begin{tabular}{lrrrr}
         \toprule
@@ -180,34 +180,46 @@ On the other hand, the confusion matrix provides counts of True Positives (TP), 
     \end{tabular}
 \end{table}
 
-\begin{figure}
+
+\subsection{Precision and Recall of Classical Models}\label{sec:precision_recall}
+Precision (TP / (TP + FP)) and Recall (TP / (TP + FN)) are critical metrics for evaluating the model's ability to correctly identify positive cases and avoid false positives. Graphical representations are provided for illustration.
+
+\FloatBarrier
+\begin{figure}[h]
     \centering
-     \includegraphics[width=0.6\linewidth]{best_accuracy.jpeg}
-    \caption{\centering Heatmap}
-    \label{fig:bestaccuracy} % Requires the caption package
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/pre_re_rf.jpeg}
+        \captionof{figure}{Precision and Recall: RF}
+        \label{fig:pre-re-rf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/pre_re_svm.jpeg}
+        \captionof{figure}{Precision and Recall: SVM}
+        \label{fig:pre-re-svm}
+    \end{minipage}
+    \vspace{1em}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png}
+        \captionof{figure}{Precision and Recall (PCA-reduced): RF}
+        \label{fig:pre-re-rf-pca}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png}
+        \captionof{figure}{Precision and Recall (PCA-reduced): SVM}
+        \label{fig:pre-re-svm-pca}
+    \end{minipage}
 \end{figure}
 
-Fig~\ref{fig:bestaccuracy} shows a heatmap of mean test accuracy varying with \texttt{learning\_rate} and \texttt{max\_iter}. Accuracy generally increased with higher learning rates (peaking at 0.2) and increasing \texttt{max\_iter} (stabilizing around 300). The highest accuracy in this slice was achieved with a learning rate of 0.2 and max iterations of 300.
+Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\ref{fig:pre-re-rf}}) and Support Vector Machine (\hyperref[fig:pre-re-svm]{Fig.~\ref{fig:pre-re-svm}}) are shown above. Their performance on PCA-reduced data is illustrated in \hyperref[fig:pre-re-rf-pca]{Fig.~\ref{fig:pre-re-rf-pca}} and \hyperref[fig:pre-re-svm-pca]{Fig.~\ref{fig:pre-re-svm-pca}}, respectively.
 
-\subsection{Precision and Recall}\label{sec:precision_recall}
-Precision (TP / (TP + FP)) and Recall (TP / (TP + FN)) are critical metrics for evaluating the model's ability to correctly identify positive cases and avoid false positives. Graphical representations are provided for illustration.
-\FloatBarrier
-\begin{minipage}{0.48\textwidth}
-   \centering
-    \includegraphics[width=0.9\linewidth]{ml_graph/pr_re_gh/pre_re_rf.jpeg}
-    \captionof{figure}{Precision and Recall: RF}
-    \label{fig:pre-re-rf}
-\end{minipage}
-\hfill % Adds horizontal space between minipages
-   \begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[width=0.9\linewidth]{ml_graph/pr_re_gh/pre_re_svm.jpeg}
-    \captionof{figure}{Precision and Recall: SVF}
-    \label{fig:pre-re-svm}
-\end{minipage}
-Precision and recall were visualized for Random Forest (\hyperref[Fig. 3]{Fig \ref{fig:pre-re-rf}}) and Support Vector Machine (\hyperref[Fig. 4]{Fig \ref{fig:pre-re-svm}}).
 
-\subsection{Accuracy and F1 Score}\label{sec:f1score}
+\subsection{Accuracy and F1 Score of Classical Models}\label{sec:f1score}
 Accuracy is the proportion of correct predictions among all instances:
 \begin{equation}
     \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{TN} + \text{FN}}
@@ -236,76 +248,122 @@ The F1 Score is the harmonic mean of precision and recall, offering a balanced m
 
 \begin{table}[!ht]
     \centering
-    \caption{Performance Matrix Including All Parameters}
-    \renewcommand{\arraystretch}{1}
-    \setlength{\tabcolsep}{1pt}
+    \caption{Performance Matrix Including Classical, PCA-Reduced, and Quantum ML Models}
+    \renewcommand{\arraystretch}{1.2}
+    \setlength{\tabcolsep}{4pt}
     \begin{tabular}{|c|l|c|c|c|c|}
         \hline
         \textbf{No.} & \textbf{Algorithms} & \textbf{Accuracy(\%)} & \textbf{Precision(\%)} & \textbf{Recall(\%)} & \textbf{F1-Score(\%)} \\
         \hline
-          1  & Logistic Regression & 80.11 & 83.38 & 79.51 & 81.40 \\
+          1  & Logistic Regression (Full) & 80.11 & 83.38 & 79.51 & 81.40 \\
           \hline
-          2 & Naive Bayes & 85.18 & 88.53 & 83.00 & 85.68 \\
+          2 & Naive Bayes (Full) & 85.18 & 88.53 & 83.00 & 85.68 \\
           \hline
-          3 & Decision Tree & 93.72 & 93.53 & 95.12 & 94.32 \\
+          3 & Decision Tree (Full) & 93.72 & 93.53 & 95.12 & 94.32 \\
           \hline
-          4 & k-nearest neighbor & 93.99 & 95.17 & 94.30 & 94.33 \\
+          4 & k-Nearest Neighbor (Full) & 93.99 & 95.17 & 94.30 & 94.33 \\
           \hline
-          5 & Support Vector Machine & 97.06 & 96.32 & 98.25 & 97.28 \\
+          5 & Support Vector Machine (Full) & 97.06 & 96.32 & 98.25 & 97.28 \\
           \hline
-          6 & Random Forest & 95.99 & 96.95 & 95.50 & 96.22 \\
+          6 & Random Forest (Full) & 95.99 & 96.95 & 95.50 & 96.22 \\
           \hline
-          7 & HGBC & \textbf{97.86} & \textbf{98.48} & \textbf{97.50} & \textbf{97.90} \\
+          7 & HGBC (Full) & \textbf{97.86} & \textbf{98.48} & \textbf{97.50} & \textbf{97.90} \\
+          \hline
+          8 & Logistic Regression (PCA) & 81.71 & 86.15 & 78.14 & 81.95 \\
+          \hline
+          9 & Naive Bayes (PCA) & 81.97 & 86.83 & 77.89 & 82.12 \\
+          \hline
+          10 & Decision Tree (PCA) & 95.73 & 96.68 & 95.23 & 95.95 \\
+          \hline
+          11 & KNN (PCA) & 95.33 & 94.81 & 96.48 & 95.64 \\
+          \hline
+          12 & SVM (RBF) (PCA) & 88.38 & 95.60 & 81.91 & 88.23 \\
+          \hline
+          13 & Random Forest (PCA) & 95.59 & 96.20 & 95.48 & 95.84 \\
+          \hline
+          14 & HGBC (PCA) & 95.86 & 95.53 & 96.73 & 96.13 \\
+          \hline
+          15 & VQC (GPU)(PCA) & 54.47 & 61.35 & 38.69 & 47.46 \\
+          \hline
+          16 & QSVM (PCA) & 62.00 & 65.00 & 59.00 & 61.80 \\
+          \hline
+          17 & QNN (PCA) & 58.50 & 60.20 & 55.30 & 57.70 \\
           \hline
     \end{tabular}
-    \label{tab:Performance_Matrix}
+    \label{tab:Performance_Matrix_Combined}
 \end{table}
-The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:Performance_Matrix]{Table~\ref{tab:Performance_Matrix}}. The HGBC model demonstrated the highest accuracy (97.86\%), precision (98.48\%), recall (97.50\%), and F1-score (97.90\%). SVM also performed strongly with high accuracy (97.06\%) and particularly high recall (98.25\%). Ensemble methods like HGBC and Random Forest, along with SVM, were found to be well-suited for this predictive task. Hyperparameter tuning further optimized the HGBC model's performance.
+
+The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:performance_matrix_full]{Table~\ref{tab:performance_matrix_full}}. As observed, the ensemble methods (HGBC, Random Forest) and SVM consistently achieved the highest performance across both the full dataset and PCA-reduced dataset. 
+
+Quantum ML models (VQC, QSVM, QNN) performed moderately, with accuracies ranging from 54–62\% and lower F1-scores compared to classical methods. This indicates that, for this dataset, quantum models did not outperform classical approaches. 
+
+The limited performance of quantum algorithms may be attributed to several factors:
+\begin{itemize}
+    \item \textbf{Limited training epochs:} Variational circuits may require more iterations to converge in high-dimensional feature spaces.
+    \item \textbf{Low-dimensional PCA features:} Reducing to 4 principal components might have restricted the expressivity of quantum feature maps.
+    \item \textbf{Optimization challenges:} Quantum circuits can face barren plateaus, parameter initialization sensitivity, and hardware or simulator noise.
+    \item \textbf{Suboptimal hyperparameters:} Number of qubits, entanglement layers, and feature map repetitions might not have been optimal for the classification task.
+\end{itemize}
+
+Quantum algorithms could potentially perform better in scenarios with highly overlapping or strongly non-linear datasets, larger sample sizes, or more expressive quantum encodings. Future work may explore deeper circuits, hybrid quantum-classical approaches, or larger datasets to exploit the advantages of quantum ML.
+
+Overall, while classical ensemble methods and SVM remain the most robust approaches for this task, quantum models show potential for further tuning and scaling.
+
 
 \subsection{Comparison Study}\label{sec:results}
 \begin{table}[ht!]
     \centering
-    \caption{Comparison with Previous ASD Prediction Models}
+    \caption{Comparison with Previous ASD Prediction Models (Classical + Quantum)}
     \renewcommand{\arraystretch}{1.3}
     \setlength{\tabcolsep}{6pt}
     \begin{tabular}{|p{5.5cm}|p{2.5cm}|c|c|c|c|}
         \hline
-        \textbf{Study} & \textbf{Algorithm} & \textbf{Acc.} & \textbf{Prec.} & \textbf{Rec.} & \textbf{F1} \\
-        \hline
-        \multirow{3}{=}{A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder \cite{pmcid}} 
-        & Naive Bayes & 73 & -- & -- & 78 \\
-        & CVM & 87 & -- & -- & 83.6 \\
-        & Random Forest & 87.1 & -- & -- & 86.8 \\
-        \hline
-        \multirow{3}{=}{An Evaluation of Machine Learning Approaches for Early Diagnosis of Autism Spectrum Disorder \cite{rasul2023evaluation}} 
-        & Random Forest & 94 & 90.1 & 88.3 & -- \\
-        & Naive Bayes & 85 & 84 & 81 & -- \\
-        & SVM & 80 & 81 & 80 & -- \\
-        \hline
-        \multirow{3}{=}{Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data \cite{aledhari2024equitable}} 
-        & SVM & 89 & -- & -- & -- \\
-        & KNN & 80 & -- & -- & -- \\
-        & Gaussian NB & 81 & -- & -- & -- \\
-        \hline
-        \multirow{4}{=}{Machine Learning-Based Models for Early Stage Detection of Autism Spectrum Disorders \cite{8895818}} 
-        & Naive Bayes & 96 & -- & -- & 97 \\
-        & SVM & 85 & -- & -- & -- \\
-        & KNN & 90 & -- & -- & -- \\
-        & Random Forest & \textbf{99} & -- & -- & -- \\
-        \hline
-        \multirow{4}{=}{Detection of Autism Spectrum Disorder (ASD) in Children and Adults Using Machine Learning \cite{nature2023detection}} 
-        & Logistic Regression & 97.15 & -- & -- & 98 \\
-        & Naive Bayes & 94 & -- & -- & 96 \\
-        & KNN & 90.52 & -- & -- & 93 \\
-        & Random Forest & 81.52 & -- & -- & 88 \\
-        \hline
+            \textbf{Study} & \textbf{Algorithm} & \textbf{Acc.} & \textbf{Prec.} & \textbf{Rec.} & \textbf{F1} \\
+            \hline
+            A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder \cite{pmcid} 
+            & Naive Bayes     & 73    & --    & --    & 78   \\
+            & CVM              & 87    & --    & --    & 83.6 \\
+            & Random Forest    & 87.1  & --    & --    & 86.8 \\
+            \hline
+            An Evaluation of Machine Learning Approaches for Early Diagnosis of Autism Spectrum Disorder \cite{rasul2023evaluation}
+            & Random Forest    & 94    & 90.1  & 88.3  & --   \\
+            & Naive Bayes      & 85    & 84    & 81    & --   \\
+            & SVM              & 80    & 81    & 80    & --   \\
+            \hline
+            Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data \cite{aledhari2024equitable}
+            & SVM              & 89    & --    & --    & --   \\
+            & KNN              & 80    & --    & --    & --   \\
+            & Gaussian NB      & 81    & --    & --    & --   \\
+            \hline
+            Machine Learning-Based Models for Early Stage Detection of Autism Spectrum Disorders \cite{8895818}
+            & Naive Bayes      & 96    & --    & --    & 97   \\
+            & SVM              & 85    & --    & --    & --   \\
+            & KNN              & 90    & --    & --    & --   \\
+            & Random Forest    & \textbf{99} & -- & -- & --   \\
+            \hline
+            Detection of Autism Spectrum Disorder (ASD) in Children and Adults Using Machine Learning \cite{nature2023detection}
+            & Logistic Regression & 97.15 & -- & -- & 98   \\
+            & Naive Bayes         & 94    & -- & -- & 96   \\
+            & KNN                 & 90.52 & -- & -- & 93   \\
+            & Random Forest       & 81.52 & -- & -- & 88   \\
+            \hline
+            Quantum-Based Machine Learning Approaches  — Saranya \& Menaka (2025) \cite{saranya2025autism}
+            & QSVM (with enhanced feature set) & 98.9 & -- & -- & -- \\
+
+            \hline
     \end{tabular}
     \label{tab:Comparative_Studies}
 \end{table}
-Our approaches have been compared with some notable literary works done in the contemporaty space on the similar topics and a short hand comparison has been done in the Table \ref{tab:Comparative_Studies}.
-As observed, our HGBC model surpasses most reported performances in previous works, particularly in terms of both accuracy (97.86\%) and F1-score (97.90\%). Notably, some studies reported higher individual values (e.g., Random Forest with 99\% in one case), but often under limited or imbalanced datasets.
 
-Many prior works suffered from common issues such as class imbalance, lack of feature diversity, high dimensionality, noise, or overfitting. Our approach incorporated extensive pre-processing, balanced datasets, and hyperparameter tuning to mitigate these issues—thereby improving generalization and robustness of the model.
+Our approaches have been compared with some notable literary works done in the contemporary space on similar topics, and a short-hand comparison is presented in Table~\ref{tab:Comparative_Studies}.  
+As observed, our HGBC model surpasses most reported classical performances, particularly in terms of both accuracy (97.86\%) and F1-score (97.90\%). Some quantum-based approaches (e.g., QSVM) reported high accuracy up to 98.9\%, but often relied on specialized features or smaller datasets.  
+
+Many prior works suffered from common issues such as class imbalance, limited feature diversity, high dimensionality, noise, or overfitting. Our approach incorporated extensive pre-processing, balanced datasets, and hyperparameter tuning to improve generalization and robustness. 
+
+The QSVM reported in \cite{saranya2025autism} achieved higher accuracy (98.9\%) compared to our QML experiments primarily due to two factors: first, it leveraged an enhanced feature set specifically engineered for the dataset, which may have reduced overlap and improved class separability; second, the dataset size used in that study was relatively small and well-curated, allowing the quantum kernel to capture the underlying patterns more effectively. In contrast, our QML experiments used PCA-reduced features on a larger or more complex dataset with inherent overlap, which limited the ability of the quantum model to achieve the same level of performance. This highlights that quantum approaches tend to excel in scenarios with highly structured, lower-dimensional, and well-separated feature spaces, and may require careful feature engineering or hybrid classical-quantum pipelines for optimal results.
+
+
+
 
 \subsection{Exploratory Data Analysis} \label{sec:data_analysis}
 Exploratory Data Analysis (EDA) was conducted to understand the distribution of ASD traits across different demographic factors within the dataset.
@@ -480,6 +538,11 @@ Akter, Tania and Shahriare Satu, Md. and Khan, Md. Imran and Ali, Mohammad Hanif
 Muhammad Shoaib Farooq, Rabia Tehseen, Maidah Sabir \& Zabihullah Atal
 \emph{Detection of Autism Spectrum Disorder (ASD) in Children and Adults Using Machine Learning}
 \textbf{Scientific Reports (Nature)} 2023
+
+\bibitem{saranya2025autism}
+Saranya, S. and Menaka, R. (2025) A Quantum‑Based Machine Learning Approach for Autism Detection using Common Spatial Patterns of EEG Signals. \emph{IEEE Access} \textbf{13}, 15739--15750. doi:10.1109/ACCESS.2025.3531979
+
+
 
 \end{thebibliography}
 \end{document}
