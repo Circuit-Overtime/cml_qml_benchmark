@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1763223950.51504 "f:/elixpo_series/ASD/asd_scientific_shorten.tex" "asd_scientific_shorten.pdf" "asd_scientific_shorten" 1763223952.5848 0
+["pdflatex"] 1763224525.10472 "f:/elixpo_series/ASD/asd_scientific_shorten.tex" "asd_scientific_shorten.pdf" "asd_scientific_shorten" 1763224527.26381 0
   "C:/Users/ayush/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1763123213 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/ayush/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi592/ecrm1728.pk" 1763123240 42052 e33655d6efa0b80238bc22c81882ccfb ""
   "C:/Users/ayush/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi602/ecbx0800.pk" 1763123225 19900 5a01795a2ca28e2ea16c42f7e4b11a47 ""
@@ -153,10 +153,10 @@
   "F:/miktex/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "F:/miktex/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "accuracy.png" 1763109444 32651 c3129d1230ad9d9dea7b115ed4e0cde2 ""
-  "asd_scientific_shorten.aux" 1763223952 10360 b5f10f9cb233aff7da46be8932dcbd7f "pdflatex"
-  "asd_scientific_shorten.out" 1763223952 3894 bde1eb83d6b55edb36f64fe58433ca5e "pdflatex"
-  "asd_scientific_shorten.tex" 1763223949 41550 4e7def4d52903781a6beb3f6cafd307b ""
-  "f:/elixpo_series/ASD/asd_scientific_shorten.tex" 1763223949 41550 4e7def4d52903781a6beb3f6cafd307b ""
+  "asd_scientific_shorten.aux" 1763224526 9008 bdddd58e540ed241f8441b98686052b7 "pdflatex"
+  "asd_scientific_shorten.out" 1763224526 3894 bde1eb83d6b55edb36f64fe58433ca5e "pdflatex"
+  "asd_scientific_shorten.tex" 1763224525 34001 180f430fb0fb2462e97c29774287e7bb ""
+  "f:/elixpo_series/ASD/asd_scientific_shorten.tex" 1763224525 34001 180f430fb0fb2462e97c29774287e7bb ""
   "ml_graph/DS/f1_score.jpeg" 1763125240 41325 19943c4c03caee35383a372d9ff490de ""
   "ml_graph/EDA/Ethnicity_yes.jpeg" 1763125240 34699 528212b296a5a66b3ad60b8de11346a7 ""
   "ml_graph/EDA/age_chart.png" 1763125240 40033 bc6a9d2d37f9cd064a4bd70bd6113629 ""

@@ -79,9 +79,9 @@ The study concludes that while classical ensemble methods (HGBC) are currently h
 
 
 \section{Introduction}\label{sec1}
-Autism Spectrum Disorder (ASD) is a complex developmental disorder requiring early, objective detection for timely intervention. Current medical methods rely on behavioral assessments and clinical observations \cite{ini3}, which are often time-consuming and subjective.
+Autism Spectrum Disorder (ASD) is a complex developmental disorder requiring early, objective detection for timely intervention. Current medical methods rely on behavioral assessments and clinical observations \cite{lord1994}, which are often time-consuming and subjective.
 
-Machine Learning (ML) offers a promising alternative for ASD screening by leveraging demographic and clinical data \cite{1in31}. Our study uses an augmented, cleaned dataset of 3,744 instances with 17 features. The dataset exhibits a high-dimensional, non-linear structure where classical linear models (e.g., Logistic Regression, Naïve Bayes) performed poorly. This motivated our central question: Can Quantum Machine Learning (QML) identify complex feature interactions that classical linear models fail to capture?
+Machine Learning (ML) offers a promising alternative for ASD screening by leveraging demographic and clinical data \cite{vakadkar2021}. Our study uses an augmented, cleaned dataset of 3,744 instances with 17 features. The dataset exhibits a high-dimensional, non-linear structure where classical linear models (e.g., Logistic Regression, Naïve Bayes) performed poorly. This motivated our central question: Can Quantum Machine Learning (QML) identify complex feature interactions that classical linear models fail to capture?
 
 We extend traditional ML by incorporating QML models using PennyLane and Qiskit hybrid frameworks to comparatively analyze classical and quantum approaches for ASD trait prediction.
 
@@ -94,13 +94,11 @@ The key contributions of this research are:
 \end{itemize}
 
 \section{Related Works}\label{sec2}
-Recent ASD diagnosis research has increasingly focused on leveraging Machine Learning (ML) and neuroimaging. Early studies explored ethical and socio-cultural aspects of predictive testing \cite{parlett2023applications} before integrating advanced ML models with neuroimaging (MRI, fMRI) to identify neurological biomarkers and improve diagnostic accuracy \cite{nogay2020machine}. Subsequent work introduced unsupervised learning to uncover hidden patterns \cite{bib3} and evaluated supervised models, naming Random Forest and SVM as effective classifiers on behavioral and clinical data \cite{bib4}. ML combined with fMRI has also detected stable brain network patterns in ASD \cite{bib5}.
+Recent ASD diagnosis research has increasingly focused on leveraging Machine Learning (ML) and neuroimaging. Studies have explored neuroimaging (MRI, fMRI) to identify neurological biomarkers and improve diagnostic accuracy \cite{nogay2020}. Subsequent work evaluated supervised models, naming Random Forest and SVM as effective classifiers on behavioral and clinical data \cite{vakadkar2021}.
 
-Benchmarking studies have shown deep learning models yielding high diagnostic accuracy on neuroimaging data \cite{bib6}, leading to innovative frameworks like those combining GANs and Deep Q-Learning (GARL) to address data scarcity \cite{bib7}. Large-scale ML analyses explored developmental traits and ASD \cite{bib8}. Complementary non-invasive techniques, such as eye-tracking with hybrid ML, achieved high prediction rates \cite{bib10}. Research also focused on identifying behavioral subgroups \cite{bib12} and developing interpretable fMRI-based ML models \cite{bib13}.
+In the domain of advanced computational methods, Quantum Machine Learning (QML) has emerged as a promising tool for neurological analysis \cite{saranya2025}, demonstrating QML's potential in complex classification tasks.
 
-In the domain of advanced computational methods, Quantum Machine Learning (QML) has emerged as a promising tool for neurological analysis, with works exploring quantum-enhanced techniques for Electroencephalography (EEG) data. Specifically, \cite{chen2024qeegnet} proposed QEEGNet, a hybrid quantum network for enhanced EEG encoding, and \cite{guler2024schizophrenia} successfully applied the Quantum Support Vector Machine (QSVM) for detecting Schizophrenia from EEG records, demonstrating QML's potential in complex classification tasks.
-
-Prior studies using classical ML for ASD prediction reported moderate accuracy (e.g., $\sim 87\%$ with RF, Naive Bayes, CVM) but struggled with dataset imbalance and feature limitations \cite{pmcid}. Other evaluations achieved high performance on smaller, homogeneous datasets but faced overfitting and limited diversity \cite{rasul2023evaluation}. Models also showed struggles with generalizability across populations \cite{aledhari2024equitable} or suffered from high dimensionality despite high accuracy in early-stage detection \cite{8895818}. Furthermore, studies using noisy household data lacked uniform feature representation \cite{nature2023detection}.
+Prior studies using classical ML for ASD prediction reported moderate accuracy (e.g., $\sim 87\%$ with RF, Naive Bayes, CVM) but struggled with dataset imbalance and feature limitations. Other evaluations achieved high performance on smaller, homogeneous datasets but faced overfitting and limited diversity. Models also showed struggles with generalizability across populations or suffered from high dimensionality despite high accuracy in early-stage detection. Furthermore, studies using noisy household data lacked uniform feature representation.
 
 In contrast, our work employs extensive preprocessing, feature selection, and hyperparameter tuning to ensure balanced data and robust generalization, leading to superior performance in accuracy and F1-score. Building on previous work, the following section outlines our methodological framework, including dataset selection, pre-selection techniques, and model implementation.
 
@@ -112,7 +110,7 @@ The methodology involved selecting a suitable dataset, followed by essential dat
 A publicly available dataset from Kaggle, compiled by Afarin Bargrizan, was selected due to its relevance to ASD trait prediction and inclusion of diverse features. The dataset utilized is based on a quantitative checklist for autism. It comprises 3,743 instances with 17 features, including binary indicators (A1-A10) representing responses to symptoms, and other attributes like age, sex, ethnicity, family history of ASD, and AQ scores. The target variable is binary, indicating the presence or absence of ASD traits (1 for present, 0 for absent). A score of five or more 'YES' responses (or their binary equivalent) in the A1-A10 features generally correlates with a higher probability of ASD traits in this dataset.
 
 \subsection{Data Pre-processing}
-Data preprocessing was crucial for preparing the raw dataset for model training \cite{datapre}. Steps included:
+Data preprocessing was crucial for preparing the raw dataset for model training \cite{kotsiantis2006}. Steps included:
 \begin{itemize}
     \item \textbf{Initial approach:} The dataset, containing categorical and binary attributes, required conversion to numerical form. Label Encoding was used for this purpose.
     \item \textbf{Handling Missing Data:} No missing values were present, so imputation was not required.
@@ -130,12 +128,12 @@ Data preprocessing was crucial for preparing the raw dataset for model training 
 
 Several supervised machine learning algorithms were applied for binary classification to predict the presence of ASD traits. 
 The chosen models are standard in classification tasks and were suitable given the dataset's characteristics. 
-These include Logistic Regression \cite{hosmer2000applied}, Decision Trees \cite{decision}, K-Nearest Neighbors (KNN) \cite{KNN}, 
-Naïve Bayes \cite{naive}, Random Forest \cite{rand}, Support Vector Machine (SVM) \cite{svm}, and 
-Histogram Gradient Boosting Classifier (HGBC) \cite{hist}.
+These include Logistic Regression \cite{hosmer2000}, Decision Trees, K-Nearest Neighbors (KNN), 
+Naïve Bayes, Random Forest \cite{breiman2001}, Support Vector Machine (SVM) \cite{hearst1998}, and 
+Histogram Gradient Boosting Classifier (HGBC).
 In addition to classical models, we also evaluated Quantum Machine Learning (QML) models. This included a Variational Quantum Classifier (VQC)
-\cite{schuld2020circuitcentric}, a Quantum Support Vector Machine (QSVM) using quantum kernel estimation \cite{havlivcek2019supervised}, 
-and a Quantum Neural Network (QNN) implemented via parameterized rotation circuits \cite{qnnref}. These models utilize rotation-based 
+\cite{schuld2020}, a Quantum Support Vector Machine (QSVM) using quantum kernel estimation \cite{havlivcek2019}, 
+and a Quantum Neural Network (QNN) implemented via parameterized rotation circuits. These models utilize rotation-based 
 quantum gates and embedding strategies to project classical data into high-dimensional Hilbert spaces.
     
 \section{Performance Analysis}\label{sec4}
@@ -145,7 +143,7 @@ The predictive performance of the seven classification models was evaluated usin
 \subsection{Hyperparameter Tuning and Confusion Matrix Analysis}\label{sec:hptuning}
 
 \subsubsection{Hyperparameter Tuning for Classical Models}
-For the Histogram Gradient Boosting Classifier (HGBC), hyperparameter tuning was conducted using \texttt{GridSearchCV} to identify optimal settings for maximizing accuracy \cite{para}. The hyperparameters explored included:
+For the Histogram Gradient Boosting Classifier (HGBC), hyperparameter tuning was conducted using \texttt{GridSearchCV} to identify optimal settings for maximizing accuracy. The hyperparameters explored included:
 \begin{itemize}
     \item \texttt{n\_estimators}
     \item \texttt{learning\_rate}
@@ -259,7 +257,7 @@ Accuracy is the proportion of correct predictions among all instances:
     \label{eq:acc}
 \end{equation}
 
-The F1 Score is the harmonic mean of precision and recall, offering a balanced measure, especially useful for imbalanced datasets \cite{mahcine}.
+The F1 Score is the harmonic mean of precision and recall, offering a balanced measure, especially useful for imbalanced datasets \cite{bishop2006}.
 \begin{equation}
     \text{F1 Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
     \label{eq:f1}
@@ -353,34 +351,34 @@ Overall, while classical ensemble methods and SVM remain the most robust approac
         \hline
             \textbf{Study} & \textbf{Algorithm} & \textbf{Acc.} & \textbf{Prec.} & \textbf{Rec.} & \textbf{F1} \\
             \hline
-            A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder \cite{pmcid} 
+            A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder \cite{lee2020} 
             & Naive Bayes     & 73    & --    & --    & 78   \\
             & CVM              & 87    & --    & --    & 83.6 \\
             & Random Forest    & 87.1  & --    & --    & 86.8 \\
             \hline
-            An Evaluation of Machine Learning Approaches for Early Diagnosis of Autism Spectrum Disorder \cite{rasul2023evaluation}
+            An Evaluation of Machine Learning Approaches for Early Diagnosis of Autism Spectrum Disorder
             & Random Forest    & 94    & 90.1  & 88.3  & --   \\
             & Naive Bayes      & 85    & 84    & 81    & --   \\
             & SVM              & 80    & 81    & 80    & --   \\
             \hline
-            Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data \cite{aledhari2024equitable}
+            Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data
             & SVM              & 89    & --    & --    & --   \\
             & KNN              & 80    & --    & --    & --   \\
             & Gaussian NB      & 81    & --    & --    & --   \\
             \hline
-            Machine Learning-Based Models for Early Stage Detection of Autism Spectrum Disorders \cite{8895818}
+            Machine Learning-Based Models for Early Stage Detection of Autism Spectrum Disorders
             & Naive Bayes      & 96    & --    & --    & 97   \\
             & SVM              & 85    & --    & --    & --   \\
             & KNN              & 90    & --    & --    & --   \\
             & Random Forest    & \textbf{99} & -- & -- & --   \\
             \hline
-            Detection of Autism Spectrum Disorder (ASD) in Children and Adults Using Machine Learning \cite{nature2023detection}
+            Detection of Autism Spectrum Disorder (ASD) in Children and Adults Using Machine Learning
             & Logistic Regression & 97.15 & -- & -- & 98   \\
             & Naive Bayes         & 94    & -- & -- & 96   \\
             & KNN                 & 90.52 & -- & -- & 93   \\
             & Random Forest       & 81.52 & -- & -- & 88   \\
             \hline
-            Quantum-Based Machine Learning Approaches  — Saranya \& Menaka (2025) \cite{saranya2025autism}
+            Quantum-Based Machine Learning Approaches  — Saranya \& Menaka (2025) \cite{saranya2025}
             & QSVM (with enhanced feature set) & 98.9 & -- & -- & -- \\
 
             \hline
@@ -393,7 +391,7 @@ As observed, our HGBC model surpasses most reported classical performances, part
 
 Many prior works suffered from common issues such as class imbalance, limited feature diversity, high dimensionality, noise, or overfitting. Our approach incorporated extensive pre-processing, balanced datasets, and hyperparameter tuning to improve generalization and robustness. 
 
-The QSVM reported in \cite{saranya2025autism} achieved higher accuracy (98.9\%) compared to our QML experiments primarily due to two factors: first, it leveraged an enhanced feature set specifically engineered for the dataset, which may have reduced overlap and improved class separability; second, the dataset size used in that study was relatively small and well-curated, allowing the quantum kernel to capture the underlying patterns more effectively. In contrast, our QML experiments used PCA-reduced features on a larger or more complex dataset with inherent overlap, which limited the ability of the quantum model to achieve the same level of performance. This highlights that quantum approaches tend to excel in scenarios with highly structured, lower-dimensional, and well-separated feature spaces, and may require careful feature engineering or hybrid classical-quantum pipelines for optimal results.
+The QSVM reported in \cite{saranya2025} achieved higher accuracy (98.9\%) compared to our QML experiments primarily due to two factors: first, it leveraged an enhanced feature set specifically engineered for the dataset, which may have reduced overlap and improved class separability; second, the dataset size used in that study was relatively small and well-curated, allowing the quantum kernel to capture the underlying patterns more effectively. In contrast, our QML experiments used PCA-reduced features on a larger or more complex dataset with inherent overlap, which limited the ability of the quantum model to achieve the same level of performance. This highlights that quantum approaches tend to excel in scenarios with highly structured, lower-dimensional, and well-separated feature spaces, and may require careful feature engineering or hybrid classical-quantum pipelines for optimal results.
 
 
 
@@ -477,115 +475,45 @@ Future work may focus on:
 This research represents a significant step in applying computational and quantum methods to a critical public health problem, providing a foundation for improved early detection and intervention strategies in ASD.
 
 
-\begin{thebibliography}{99}
-\bibitem{1in31}
+\begin{thebibliography}{13}
+\bibitem{cdc2024}
 Centers for Disease Control and Prevention (2024) Autism Spectrum Disorder (ASD) - Data and Statistics. Accessed: 2025-04-20.
 
-\bibitem{ini3}
-Lord, C., Rutter, M. and Le Couteur, A. (1994) Autism Diagnostic Interview-Revised: A revised version of a diagnostic interview for caregivers of individuals with possible pervasive developmental disorders. \emph{Journal of Autism and Developmental Disorders} \textbf{24}(5), 659--685. doi:10.1007/BF02172145
+\bibitem{lord1994}
+Lord, C., Rutter, M. and Le Couteur, A. (1994) Autism Diagnostic Interview-Revised: A revised version of a diagnostic interview for caregivers of individuals with possible pervasive developmental disorders. \emph{Journal of Autism and Developmental Disorders} \textbf{24}(5), 659--685.
 
-\bibitem{bib12}
-Stevens, E., Dixon, D. R., Novack, M. N., Granpeesheh, D., Smith, T. and Linstead, E. (2019) Identification and analysis of behavioral phenotypes in autism spectrum disorder via unsupervised machine learning. \emph{International Journal of Medical Informatics} \textbf{129}, 29--36. doi:10.1016/j.ijmedinf.2019.05.006
+\bibitem{nogay2020}
+Nogay, H. S. and Adeli, H. (2020) Machine learning (ML) for the diagnosis of autism spectrum disorder (ASD) using brain imaging. \emph{Reviews in the Neurosciences} \textbf{31}(8), 825--841.
 
-\bibitem{bib14}
-Prasad, V., Sriramakrishnan, G.V. and Diana Jeba Jingle, I. (2023) Autism spectrum disorder detection using brain MRI image enabled deep learning with hybrid sewing training optimization. \emph{Signal, Image and Video Processing} \textbf{17}, 4001--4008. doi:10.1007/s11760-023-02630-y
+\bibitem{vakadkar2021}
+Vakadkar, K., Purkayastha, D. and Krishnan, D. (2021) Detection of Autism Spectrum Disorder in Children Using Machine Learning Techniques. \emph{SN Computer Science} \textbf{2}, 386.
 
-\bibitem{parlett2023applications}
-Parlett-Pelleriti, C. M., Stevens, E., Dixon, D. et al. (2023) Applications of Unsupervised Machine Learning in Autism Spectrum Disorder Research: a Review. \emph{Review Journal of Autism and Developmental Disorders} \textbf{10}, 406--421. doi:10.1007/s40489-021-00299-y
-
-\bibitem{nogay2020machine}
-Nogay, H. S. and Adeli, H. (2020) Machine learning (ML) for the diagnosis of autism spectrum disorder (ASD) using brain imaging. \emph{Reviews in the Neurosciences} \textbf{31}(8), 825--841. doi:10.1515/revneuro-2020-0043
-
-\bibitem{bib3}
-Parlett-Pelleriti, C. M., Stevens, E., Dixon, D. et al. (2023) Applications of Unsupervised Machine Learning in Autism Spectrum Disorder Research: a Review. \emph{Review Journal of Autism and Developmental Disorders} \textbf{10}, 406--421. doi:10.1007/s40489-021-00299-y
-
-\bibitem{bib4}
-Vakadkar, K., Purkayastha, D. and Krishnan, D. (2021) Detection of Autism Spectrum Disorder in Children Using Machine Learning Techniques. \emph{SN Computer Science} \textbf{2}, 386. doi:10.1007/s42979-021-00776-5
-
-\bibitem{bib5}
-Alves, C. L., Toutain, T. G. L. d. O., de Carvalho Aguiar, P. et al. (2023) Diagnosis of Autism Spectrum Disorder Based on Functional Brain Networks and Machine Learning. \emph{Scientific Reports} \textbf{13}, 8072. doi:10.1038/s41598-023-34650-6
-
-\bibitem{bib6}
-Mellema, C. J., Nguyen, K. P., Treacher, A. et al. (2022) Reproducible Neuroimaging Features for Diagnosis of Autism Spectrum Disorder with Machine Learning. \emph{Scientific Reports} \textbf{12}, 3057. doi:10.1038/s41598-022-06459-2
-
-\bibitem{bib7}
-Zhou, Y., Jia, G., Ren, Y. et al. (2024) Advancing ASD Identification with Neuroimaging: A Novel GARL Methodology Integrating Deep Q-Learning and Generative Adversarial Networks. \emph{BMC Medical Imaging} \textbf{24}, 186. doi:10.1186/s12880-024-01360-y
-
-\bibitem{bib8}
-Rajagopalan, S. S., Zhang, Y. and Yahia, A. (2024) [Title not provided -- please update with article title]. \emph{JAMA Network Open} \textbf{7}(8), e2429229. doi:10.1001/jamanetworkopen.2024.29229
-
-\bibitem{bib10}
-Jaradat, A. S., Wedyan, M., Alomari, S. and Barhoush, M. M. (2025) Using Machine Learning to Diagnose Autism Based on Eye Tracking Technology. \emph{Diagnostics} \textbf{15}(1), 66. doi:10.3390/diagnostics15010066
-
-\bibitem{bib13}
-Eslami, T. and Saeed, F. (2021) Explainable and scalable machine learning algorithms for detection of autism spectrum disorder using fMRI data. In El-Baz, A. S. and Suri, J. S. (eds.) \emph{Neural Engineering Techniques for Autism Spectrum Disorder}, pages 39-54. Academic Press. doi:10.1016/B978-0-12-822822-7.00004-1
-
-\bibitem{datapre}
+\bibitem{kotsiantis2006}
 Kotsiantis, S., Kanellopoulos, D. and Pintelas, P. (2006) Data Preprocessing for Supervised Learning. \emph{International Journal of Computer Science} \textbf{1}, 111--117.
 
-\bibitem{hosmer2000applied}
+\bibitem{hosmer2000}
 Hosmer, D. W. and Lemeshow, S. (2000) \emph{Applied Logistic Regression}. 2nd edition. Wiley, New York.
 
-\bibitem{decision}
-Mienye, I. D. and Jere, N. (2024) A Survey of Decision Trees: Concepts, Algorithms, and Applications. \emph{IEEE Access} \textbf{12}, 86716--86727. doi:10.1109/ACCESS.2024.3416838
+\bibitem{breiman2001}
+Breiman, L. (2001) Random Forests. \emph{Machine Learning} \textbf{45}(1), 5--32.
 
-\bibitem{KNN}
-Taunk, K., De, S., Verma, S. and Swetapadma, A. (2019) A Brief Review of Nearest Neighbor Algorithm for Learning and Classification. In \emph{2019 International Conference on Intelligent Computing and Control Systems (ICCS)}, pages 1255-1260. doi:10.1109/ICCS45141.2019.9065747
+\bibitem{hearst1998}
+Hearst, M. A., Dumais, S. T., Osuna, E., Platt, J. and Scholkopf, B. (1998) Support vector machines. \emph{IEEE Intelligent Systems and their Applications} \textbf{13}(4), 18--28.
 
-\bibitem{naive}
-Chen, H., Hu, S., Hua, R. et al. (2021) Improved naive Bayes classification algorithm for traffic risk management. \emph{EURASIP J. Adv. Signal Process} \textbf{2021}(30).
-
-\bibitem{rand}
-Breiman, L. (2001) Random Forests. \emph{Machine Learning} \textbf{45}(1), 5--32. doi:10.1023/A:1010933404324
-
-\bibitem{svm}
-Hearst, M. A., Dumais, S. T., Osuna, E., Platt, J. and Scholkopf, B. (1998) Support vector machines. \emph{IEEE Intelligent Systems and their Applications} \textbf{13}(4), 18--28. doi:10.1109/5254.708428
-
-\bibitem{hist}
-Maftoun, M., Shadkam, N., Komamardakhi, S. S. S., Mansor, Z. and Joloudari, J. H. (2024) Malicious URL Detection using optimized Hist Gradient Boosting Classifier based on grid search method. arXiv preprint arXiv:2404.13050.
-
-\bibitem{para}
-Ilemobayo, J., Durodola, O., Alade, O., Awotunde, O., Adewumi, T., Falana, O., Ogungbire, A., Osinuga, A., Ogunbiyi, D., Odezuligbo, I., Edu, O. and Ifeanyi, A. (2024) Hyperparameter Tuning in Machine Learning: A Comprehensive Review. \emph{Journal of Engineering Research and Reports} \textbf{26}, 388--395. doi:10.9734/jerr/2024/v26i61188
-
-\bibitem{mahcine}
+\bibitem{bishop2006}
 Bishop, C. M. (2006) \emph{Pattern Recognition and Machine Learning}. Springer, New York, NY.
 
-\bibitem{pmcid}
-Lee, Scott H. and Maenner, Matthew J. and Heilig, Charles M. \emph{A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder} \textbf{Proceedings of IJ-CSE (Atlantis Press)} 10.2991/aer.k.201124.028
+\bibitem{schuld2020}
+Schuld, M., Bocharov, A., Svore, K. M., \& Wiebe, N. (2020). Circuit-centric quantum classifiers. \emph{Physical Review A}, 101(3), 032308.
 
-\bibitem{rasul2023evaluation}
-Rasul, Rownak Ara and Saha, Promy and Bala, Diponkor and Karim, S.M. Rakib Ul and Abdullah, Md. Ibrahim and Saha, Bishwajit
-\emph{An Evaluation of Machine Learning Approaches for Early Diagnosis of Autism Spectrum Disorder}
+\bibitem{havlivcek2019}
+Havlíček, V., Córcoles, A. D., Temme, K., Harrow, A. W., Kandala, A., Chow, J. M., \& Gambetta, J. M. (2019). Supervised learning with quantum-enhanced feature spaces. \emph{Nature}, 567(7747), 209–212.
 
-\bibitem{aledhari2024equitable}
-Aledhari, Mohammed and Rahouti, Mohamed and Alfatemi, Ali
-\emph{Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data}
+\bibitem{lee2020}
+Lee, Scott H. and Maenner, Matthew J. and Heilig, Charles M. (2020) A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder. \emph{Proceedings of IJ-CSE}, Atlantis Press.
 
-\bibitem{8895818}
-Akter, Tania and Shahriare Satu, Md. and Khan, Md. Imran and Ali, Mohammad Hanif and Uddin, Shahadat and Lió, Pietro and Quinn, Julian M. W. and Moni, Mohammad Ali
-\emph{Machine Learning-Based Models for Early Stage Detection of Autism Spectrum Disorders}
-\textbf{IEEE Access} 2019 166509-166527
-
-\bibitem{nature2023detection}
-Muhammad Shoaib Farooq, Rabia Tehseen, Maidah Sabir \& Zabihullah Atal
-\emph{Detection of Autism Spectrum Disorder (ASD) in Children and Adults Using Machine Learning}
-\textbf{Scientific Reports (Nature)} 2023
-
-\bibitem{saranya2025autism}
-Saranya, S. and Menaka, R. (2025) A Quantum‑Based Machine Learning Approach for Autism Detection using Common Spatial Patterns of EEG Signals. \emph{IEEE Access} \textbf{13}, 15739--15750. doi:10.1109/ACCESS.2025.3531979
-
-\bibitem{chen2024qeegnet} Chen, C.-S., Chen, S. Y.-C., Tsai, A. H.-W., and Wei, C.-S. (2024) QEEGNet: Quantum Machine Learning for Enhanced Electroencephalography Encoding. \emph{arXiv preprint} arXiv:2407.19214.
-
-\bibitem{guler2024schizophrenia} Güler, M., Çelik, F., and Açıksöz, S. (2024) Quantum Machine-Based Decision Support System for the Detection of Schizophrenia from EEG Records. \emph{PMC} \textbf{109}(1), 1-13. doi:10.3390/brainsci14030278.
-\bibitem{schuld2020circuitcentric}
-Schuld, M., Bocharov, A., Svore, K. M., \& Wiebe, N. (2020). Circuit-centric quantum classifiers. \emph{Physical Review A}, 101(3), 032308. doi:10.1103/PhysRevA.101.032308
-
-\bibitem{qnnref}
-Farhi, E., \& Neven, H. (2018). Classification with quantum neural networks on near term processors. \emph{arXiv preprint} arXiv:1802.06002.
-
-\bibitem{havlivcek2019supervised}
-Havlíček, V., Córcoles, A. D., Temme, K., Harrow, A. W., Kandala, A., Chow, J. M., \& Gambetta, J. M. (2019). Supervised learning with quantum-enhanced feature spaces. \emph{Nature}, 567(7747), 209–212. doi:10.1038/s41586-019-0980-2
-
+\bibitem{saranya2025}
+Saranya, S. and Menaka, R. (2025) A Quantum‑Based Machine Learning Approach for Autism Detection using Common Spatial Patterns of EEG Signals. \emph{IEEE Access} \textbf{13}, 15739--15750.
 
 \end{thebibliography}
 \end{document}
