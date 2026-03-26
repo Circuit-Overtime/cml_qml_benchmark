@@ -1,140 +1,191 @@
-\documentclass[pdflatex,sn-nature]{sn-jnl}
+\documentclass[runningheads]{llncs}
 \usepackage[T1]{fontenc}
-
-\usepackage{graphicx}%
-\usepackage{multirow}%
-\usepackage{amsmath,amssymb,amsfonts}%
-\usepackage{amsthm}%
-\usepackage{mathrsfs}%
-\usepackage[title]{appendix}%
-\usepackage{xcolor}%
-\usepackage{textcomp}%
-\usepackage{manyfoot}%
-\usepackage{booktabs}%
-\usepackage{algorithm}%
-\usepackage{algorithmicx}%
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{appendix} 
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{manyfoot}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
 \usepackage{tabularx}
-\usepackage{algpseudocode}%
-\usepackage{listings}%
+\usepackage{algpseudocode}
+\usepackage{listings}
 \usepackage{csquotes}
 \usepackage{placeins}
+\usepackage{float}
 \usepackage{caption}
-%\usepackage{float} % sn-nature class might include this or similar functionality - Keeping as requested not to remove sections/packages
 
-\theoremstyle{thmstyleone}%
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{thmstyletwo}%
-\newtheorem{example}{Example}%
-\newtheorem{remark}{Remark}%
-\theoremstyle{thmstylethree}%
-\newtheorem{definition}{Definition}%
-\raggedbottom
+
 \begin{document}
 
-\title[Article Title]{Predictive Analysis of Autism Spectrum Disorder Traits: Integrating Quantum Machine Learning and Exploratory Data Insights}
+\title{Predictive Analysis of Autism Spectrum Disorder Traits: Integrating Quantum Machine Learning and Exploratory Data Insights}
+\author{Subhra Kolay\inst{1}\orcidID{0009-0002-4625-5941} \and
+Srijan Samaddar\inst{2}\orcidID{0009-0001-5799-016X} \and
+Ayushman Bhattacharya\inst{1}\orcidID{0009-0006-5960-6308} \and
+Bidisha Bhabani\inst{1}\orcidID{0000-0003-4261-1849}\and
+Tanaya Das\inst{1}\orcidID{0000-0001-9196-973} \and
+Sohrab Siddique\inst{1}\orcidID{0009-0000-5743-6882} \and
+Ilora Maity\inst{3}\orcidID{0000-0002-8042-4123}}
 
+\institute{Department of Computer Science and Engineering, JIS University,\
+Kolkata, West Bengal, India\\
+\email{subhrokolay2@gmail.com, bhattacharyaa599@gmail.com,\\
+        bidisha035810@gmail.com, tanaya.das@jisuniversity.ac.in,\\
+        sksohrabsiddique123@gmail.com}
+\and
+Department of Information Technology, Netaji Subhash Engineering College, West Bengal, India\\
+\email{srijansamaddar04@gmail.com}
+\and
+Interdisciplinary Centre for Security, Reliability and Trust (SnT),\\
+University of Luxembourg, Luxembourg City, Luxembourg\\
+\email{ilora.maity@uni.lu}}
 
-\author[1]{\fnm{Subhra} \sur{Kolay}}\email{subhrokolay2@gmail.com}
-
-\author[2]{\fnm{Srijan} \sur{Samaddar}}\email{srijansamaddar04@gmail.com}
-%\equalcont{These authors contributed equally to this work.}
-
-\author[1]{\fnm{Ayushman} \sur{Bhattacharya}}\email{bhattacharyaa599@gmail.com}
-%\equalcont{These authors contributed equally to this work.}
-
-\author*[1]{\fnm{Bidisha} \sur{Bhabani}}\email{bidisha035810@gmail.com}
-%\equalcont{These authors contributed equally to this work.}
-
-\author[1]{\fnm{Tanaya} \sur{Das}}\email{tanaya.das@jisuniversity.ac.in}
-
-\author[1]{\fnm{Sohrab} \sur{Siddique}}\email{sksohrabsiddique123@gmail.com}
-
-\author[3]{\fnm{Ilora} \sur{Maity}}\email{ilora.maity@uni.lu}
-
-\affil*[1]{\orgdiv{CSE}, \orgname{JIS University}, \state{West Bengal}, \country{India}}
-
-\affil[2]{\orgdiv{IT}, \orgname{NSCE}, \state{West Bengal}, \country{India}}
-
-\affil[3]{\orgdiv{Interdisciplinary Centre for Security, Reliability and Trust}, \orgname{University of Luxembourg}, \state{Luxembourg City}, \country{Luxembourg}}
 \maketitle
-
+\raggedbottom
 \begin{center}
 \textbf{Abstract}
 \end{center}
-\abstract*{
-This research compares classical and Quantum Machine Learning (QML) for predicting Autism Spectrum Disorder (ASD) traits, where early diagnosis is critical. We evaluated seven classical models (including Logistic Regression, SVM, HGBC) and two quantum models (QSVM, VQC) on full and PCA-reduced datasets.
-
-The classical Histogram Gradient Boosting Classifier (HGBC) achieved the highest performance metrics: 97.86\% Accuracy, 98.48\% Precision, 97.50\% Recall, and 97.90\% F1-score. Quantum models, specifically QSVM, showed potential in benchmark studies (98.9\% accuracy), although our current experimental results were constrained by resource limitations (circuit depth, epochs, dataset size).
-
-Exploratory Data Analysis indicated higher ASD trait prevalence in children and males, along with potential influences from ethnicity and family history.
-
-The study concludes that while classical ensemble methods (HGBC) are currently highly effective for ASD prediction, QML approaches offer a promising direction for future enhancement, especially for complex, high-dimensional datasets. These computational findings support integration into early ASD screening programs.
+\abstract{
+This research compares classical and Quantum Machine Learning (QML) for 
+predicting Autism Spectrum Disorder (ASD) traits, where early diagnosis 
+is critical. We evaluated seven classical models (including Logistic 
+Regression, SVM, HGBC) and two quantum models (VQLR, QFMNB) on our dataset
+and a few Classical models on PCA-reduced datasets.
+The classical Histogram Gradient Boosting Classifier (HGBC) achieved the
+highest performance metrics: 97.86\% Accuracy, 98.48\% Precision,
+97.50\% Recall, and 97.90\% F1-score. For Quantum models we have used
+Variational Quantum Logistic Regression (VQLR), 
+Quantum Feature Map for Naive Bayes (QFMNB) and Quantum Support Vector Machine (QSVM) in the project.
+Exploratory Data Analysis indicated higher ASD trait prevalence in
+children and males, along with potential influences from ethnicity
+and family history.
+The study concludes that while classical ensemble methods (HGBC)
+are currently highly effective for ASD prediction, QML approaches
+offer a promising direction for future enhancement, especially
+for complex, high-dimensional datasets. These computational 
+findings support integration into early ASD screening programs.
 } \\
 \textbf{Keywords:}
-\keywords*{Autism Spectrum Disorder (ASD), Quantum Machine Learning, Classification Algorithms, HGBC, QSVM, Variational Quantum Classifier}
-
-
-
+\keywords{Autism Spectrum Disorder (ASD), Quantum Machine Learning, Classification Algorithms, HGBC, QSVM, Variational Quantum Classifier}
 
 
 \section{Introduction}\label{sec1}
-Autism Spectrum Disorder (ASD) is a complex developmental disorder requiring early, objective detection for timely intervention. Current medical methods rely on behavioral assessments and clinical observations \cite{lord1994}, which are often time-consuming and subjective.
-
-Machine Learning (ML) offers a promising alternative for ASD screening by leveraging demographic and clinical data \cite{vakadkar2021}. Our study uses an augmented, cleaned dataset of 3,744 instances with 17 features. The dataset exhibits a high-dimensional, non-linear structure where classical linear models (e.g., Logistic Regression, Naïve Bayes) performed poorly. This motivated our central question: Can Quantum Machine Learning (QML) identify complex feature interactions that classical linear models fail to capture?
-
-We extend traditional ML by incorporating QML models using PennyLane and Qiskit hybrid frameworks to comparatively analyze classical and quantum approaches for ASD trait prediction.
+Autism Spectrum Disorder (ASD) \cite{cdc2024} is a complex developmental disorder requiring early, objective detection for timely intervention. Current medical methods rely on behavioral assessments and clinical observations \cite{lord1994}, which are often time-consuming and subjective.
+Machine Learning (ML) offers a promising alternative for ASD screening by leveraging demographic and clinical data \cite{vakadkar2021}. 
+The paper uses an augmented  dataset of 3,744 instances with 17 features upon which 9 are clinical binary questions and the others are 
+for exploratory analysis. The dataset exhibits a high-dimensional, non-linear structure where classical linear models 
+(e.g., Logistic Regression, Na\"{i}ve Bayes) performed poorly. Taking the same in account we wanted to check how the two methods or LR and NB 
+when applied with the principles of Quantum Machine Learning (QML) would perform on the same dataset. We inherit QML by incorporating
+PennyLane and Qiskit hybrid frameworks to compare the performance of both.
 
 The key contributions of this research are:
 \begin{itemize}
-\item Development of a supervised ASD prediction framework using low-cost demographic and questionnaire-based (AQ) features.
-\item A comprehensive comparative analysis of seven classical ML algorithms, identifying Hist Gradient Boosting Classifier (HGBC) as the strongest performer.
-\item Introduction of Quantum Machine Learning models (quantum logistic regression, quantum kernels) trained on PCA-reduced latent spaces to evaluate QML's performance in capturing non-linear feature relationships.
-\item Presentation of dataset-specific insights from Exploratory Data Analysis (EDA).
+\item The work is supervised using demographic and questionnaire based data to predict ASD without neuroimaging and MRI based diagnostics.
+\item A comparative analysis of 7 supervised ML algorithms for ASD trait prediction. Identification of Histogram Gradient Boosting Classifier (HGBC) as the best classical model and Q->NB as the best Quantum Model has been analysed.
+\item Introduction of Quantum Machine Learning models (quantum logistic regression, quantum kernels) QML's performance in capturing non-linear feature relationships.
+\item Dataset-specific insights derived from Exploratory Data Analysis (EDA) highlighting age, gender and family history distributions.
 \end{itemize}
 
 \section{Related Works}\label{sec2}
-Recent ASD diagnosis research has increasingly focused on leveraging Machine Learning (ML) and neuroimaging. Studies have explored neuroimaging (MRI, fMRI) to identify neurological biomarkers and improve diagnostic accuracy \cite{nogay2020}. Subsequent work evaluated supervised models, naming Random Forest and SVM as effective classifiers on behavioral and clinical data \cite{vakadkar2021}.
+The recent works in ASD diagnosis research have shown a strong shift from purely neuro-imaging-based pipelines and costly MRI procedures towards more scalable, data-driven Machine Learning (ML) approaches. This transition is largely motivated by the high financial and logistical costs associated with MRI acquisition, as well as its limited accessibility in many clinical settings. Consequently, several studies have investigated behavioral, demographic, and questionnaire-based features as viable alternatives or complements to neuro-imaging, demonstrating that such modalities can yield competitive diagnostic performance when combined with modern ML techniques.
 
-In the domain of advanced computational methods, Quantum Machine Learning (QML) has emerged as a promising tool for neurological analysis \cite{saranya2025}, demonstrating QML's potential in complex classification tasks.
 
-Prior studies using classical ML for ASD prediction reported moderate accuracy (e.g., $\sim 87\%$ with RF, Naive Bayes, CVM) but struggled with dataset imbalance and feature limitations. Other evaluations achieved high performance on smaller, homogeneous datasets but faced overfitting and limited diversity. Models also showed struggles with generalizability across populations or suffered from high dimensionality despite high accuracy in early-stage detection. Furthermore, studies using noisy household data lacked uniform feature representation.
+Within the classical Machine Learning (CML) domain, supervised models such as Random Forest (RF) and Support Vector Machines (SVM) have repeatedly been reported to perform well on ASD classification tasks \cite{vakadkar2021}. These algorithms are particularly attractive due to their robustness to noisy features, ability to model non-linear decision boundaries, and relatively straightforward compared to deep neural networks. However, when scaled to large sample sizes or very high-dimensional feature spaces, many classical models exhibit computational complexities on the order of $O(N^2)$ or $O(N^3)$ in the number of data points $N$, leading to substantial training and inference times and limiting their applicability to truly large-scale clinical datasets.
 
-In contrast, our work employs extensive preprocessing, feature selection, and hyperparameter tuning to ensure balanced data and robust generalization, leading to superior performance in accuracy and F1-score. Building on previous work, the following section outlines our methodological framework, including dataset selection, pre-selection techniques, and model implementation.
+On the other hand Quantum Machine Learning (QML) has also shown some promising results in overcoming some shortcomings of the scaling limitations. Recent theoretical works have suggested that certain QML models can achieve runtime scaling as $O(\text{poly}(\log N) \cdot \text{poly}(D))$, where $D$ denotes the feature dimension, thereby offering a polynomial improvement in terms of the dependence on the dataset size compared to many classical counterparts \cite{saranya2025}. 
 
+Having seen these advances, several methodological challenges still persists in the existing detection of clinical ADS via the means of ML architechture. Some prior works rely on relatively small or imbalanced datasets, which can bias classifiers toward majority classes and lead to inflated performance metrics that do not generalize well to real-world populations \cite{lee2020}.
+
+Our work addresses these gaps by utilizing a balanced, diverse dataset with systematic pre-processing and feature engineering, aiming to mitigate the issues of class imbalance and restricted feature spaces highlighted in prior studies \cite{lee2020}. This joint, carefully controlled evaluation on a heterogeneous and better-balanced dataset allows us to more rigorously assess the practical benefits and limitations of QML for ASD diagnosis, while situating our contributions within and extending the existing body of work on ASD-focused ML and QML methods \cite{vakadkar2021,saranya2025,lee2020,nogay2020}.
+
+% ---------------------------------------------------------------
+% SECTION 3: METHODOLOGY
+% Fix 1: Removed \FloatBarrier before the workflow figure and
+%         changed [H] to [!htbp] so LaTeX can place the figure
+%         naturally at the top of the page, eliminating the gap
+%         that appeared between the section heading and the figure.
+% ---------------------------------------------------------------
 \section{Methodology}\label{sec3}
 
-The methodology involved selecting a suitable dataset, followed by essential data preprocessing steps and the application of various supervised machine learning models for classification.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\linewidth]{workflow.jpg}
+    \caption{Brief workflow for our execution across all the 3 categories for benchmarking.}
+    \label{fig:workflow}
+\end{figure}
+
+The core and basic first step towards the paper was to find and cultivate relevant data across multiple ASD datasets suited with related 
+features and attributes.
 
 \subsection{Dataset Analysis}
-A publicly available dataset from Kaggle, compiled by Afarin Bargrizan, was selected due to its relevance to ASD trait prediction and inclusion of diverse features. The dataset utilized is based on a quantitative checklist for autism. It comprises 3,743 instances with 17 features, including binary indicators (A1-A10) representing responses to symptoms, and other attributes like age, sex, ethnicity, family history of ASD, and AQ scores. The target variable is binary, indicating the presence or absence of ASD traits (1 for present, 0 for absent). A score of five or more 'YES' responses (or their binary equivalent) in the A1-A10 features generally correlates with a higher probability of ASD traits in this dataset.
+
+Publicly available discrete datasets were taken in having some common binary questionnaire parameters. This was then augmented together 
+into a single dataset with A1 to A9 columns as the binary responses to the clinical questions. 
+These were the determining factors behind the response of both the datasets and the response in the last column \texttt{ASD\_Trait}
+which was our target variable. Alongside to this we had other attributes like age, sex, ethnicity, family history of ASD, and AQ scores. 
+The target variable \texttt{ASD\_Trait} was binary, indicating the presence (1) or absence (0) of ASD traits based on clinical questionnaire responses.
 
 \subsection{Data Pre-processing}
-Data preprocessing was crucial for preparing the raw dataset for model training \cite{kotsiantis2006}. Steps included:
+
+Data pre-processing was crucial for preparing the raw dataset for model training \cite{kotsiantis2006}. Steps included:
 \begin{itemize}
-    \item \textbf{Initial approach:} The dataset, containing categorical and binary attributes, required conversion to numerical form. Label Encoding was used for this purpose.
-    \item \textbf{Handling Missing Data:} No missing values were present, so imputation was not required.
-    \item \textbf{Categorical Variables Encoding:} Categorical features such as 'sex', 'ethnicity', and 'jaundice' were transformed into numerical values using Label Encoding.
-    \item \textbf{Feature Scaling:} Numerical features were normalized using Min-Max Scaling, fitting them to a range between 0 and 1, which is beneficial for distance-sensitive algorithms like KNN and SVM.
-    \item \textbf{Data Split:} The dataset was partitioned into training (80\%) and testing (20\%) sets to evaluate model performance on unseen data.
-    \item \textbf{Dimensionality Reduction for Quantum ML (QML):} Quantum circuits have hardware and structural limitations, especially concerning input dimensionality. Feeding the full set of features (17 dimensions) directly into a variational quantum circuit is impractical.  
-    Therefore, for QML models, Principal Component Analysis (PCA) was applied to the scaled dataset to reduce it to a low-dimensional latent space. After experimentation, a reduced dimensionality of 4 principal components was selected, balancing the need for information retention with the constraints of quantum circuit design.
-
-
+    \item \textbf{Initial approach:} The responses were in the form of "YES" or "NO" strings and they were encoded to numerical labels.
+    \item \textbf{Categorical Variables Encoding:} Label-based encoding was applied to categorical attributes for mathematical consistency.
+    \item \textbf{Feature Scaling:} Numerical features were normalized using Min-Max Scaling to the range [0,1].
+    \item \textbf{Data Split:} The dataset was divided into training (80\%) and testing (20\%) subsets.
+    \item \textbf{Dimensionality Reduction for Classical ML (CML):} PCA was evaluated experimentally to analyze model performance under reduced feature representations.
 \end{itemize}
 
-
+% ---------------------------------------------------------------
+% Fix 2: Removed \FloatBarrier before the three QML circuit
+%         figures. Changed the enclosing environment from a
+%         plain figure[H] (which forced placement and created
+%         a gap when the figures did not fit) to figure[!htbp],
+%         allowing LaTeX to float the group gracefully to the
+%         next page when needed, with no blank space left behind.
+% ---------------------------------------------------------------
 \subsection{Machine Learning Models Used}\label{sec3.4}
+\vspace{-1em}
 
 Several supervised machine learning algorithms were applied for binary classification to predict the presence of ASD traits. 
 The chosen models are standard in classification tasks and were suitable given the dataset's characteristics. 
 These include Logistic Regression \cite{hosmer2000}, Decision Trees, K-Nearest Neighbors (KNN), 
-Naïve Bayes, Random Forest \cite{breiman2001}, Support Vector Machine (SVM) \cite{hearst1998}, and 
+Na\"{i}ve Bayes, Random Forest \cite{breiman2001}, Support Vector Machine (SVM) \cite{hearst1998}, and 
 Histogram Gradient Boosting Classifier (HGBC).
 In addition to classical models, we also evaluated Quantum Machine Learning (QML) models. This included a Variational Quantum Classifier (VQC)
-\cite{schuld2020}, a Quantum Support Vector Machine (QSVM) using quantum kernel estimation \cite{havlivcek2019}, 
-and a Quantum Neural Network (QNN) implemented via parameterized rotation circuits. These models utilize rotation-based 
-quantum gates and embedding strategies to project classical data into high-dimensional Hilbert spaces.
+\cite{schuld2020}, a Quantum Support Vector Machine (QSVM) using quantum kernel estimation \cite{havlivcek2019}. These models utilize
+rotation-based quantum gates and embedding strategies to project classical data into high-dimensional Hilbert spaces.
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=0.9\linewidth]{VQC.jpg}
+\caption{Quantum circuit representing a 4-qubit Variational Quantum Classifier (VQC).}
+\label{fig:VQC}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=0.95\linewidth]{QSVM.jpg}
+\caption{Quantum circuit representing a 4-qubit Quantum Support Vector Machine (QSVM).}
+\label{fig:QSVM}
+\end{minipage}
+
+\vspace{0.5em}
+
+\begin{minipage}{0.6\textwidth}
+\centering
+\includegraphics[width=\linewidth]{QNB.jpg}
+\caption{Quantum circuit representing the Quantum Hybrid Naive Bayes model.}
+\label{fig:QNB}
+\end{minipage}
+\end{figure}
     
 \section{Performance Analysis}\label{sec4}
 
@@ -163,13 +214,8 @@ For the Histogram Gradient Boosting Classifier (HGBC), hyperparameter tuning was
 Fig.~\ref{fig:bestparameter} visualizes the best hyperparameter combinations. The highest accuracy (approximately 97.15\%) was achieved with a specific combination, indicating that tuning \texttt{max\_depth} and \texttt{min\_samples\_leaf} significantly influences model performance.
 
 \subsubsection{Confusion Matrix Analysis: Classical Models}
-The confusion matrix summarizes model performance by counting:
-\begin{itemize}
-    \item \textbf{True Positives (TP):} Correctly predicted positive cases
-    \item \textbf{True Negatives (TN):} Correctly predicted negative cases
-    \item \textbf{False Positives (FP):} Negative cases incorrectly predicted as positive
-    \item \textbf{False Negatives (FN):} Positive cases incorrectly predicted as negative
-\end{itemize}
+The confusion matrix summarizes model performance by counting 
+True Positives, True Negatives, False Positives, False Negatives.
 
 Minimizing FN is particularly important in medical diagnostics to reduce missed cases. Table~\ref{tab:algorithm_metrics} shows the confusion matrix counts for different classical models.  
 
@@ -195,28 +241,32 @@ Minimizing FN is particularly important in medical diagnostics to reduce missed 
 \subsubsection{Confusion Matrix Analysis: Quantum Machine Learning Models}
 Similarly, we analyzed the confusion matrices for our quantum machine learning (QML) models, QSVM and VQC, using PCA-reduced features. Although QML models show promise in handling overlapping and high-dimensional datasets, their performance in our experiments was lower than classical ensemble methods, due to the limited number of training epochs and small quantum circuit sizes. Table~\ref{tab:qml_metrics} summarizes the confusion matrix counts for QML models.
 
+
 \begin{table}[ht]
 \centering
 \caption{Confusion Matrix Metrics of Quantum Machine Learning Models (PCA-Reduced)}
 \label{tab:qml_metrics}
 \begin{tabular}{lrrrr}
-        \toprule
-        \textbf{Algorithm} & \textbf{TN} & \textbf{FP} & \textbf{FN} & \textbf{TP} \\
-        \midrule
-        QSVM & 210 & 25 & 90 & 170 \\
-        VQC  & 195 & 40 & 85 & 165 \\
-        \bottomrule
+\toprule
+\textbf{Algorithm} & \textbf{TN} & \textbf{FP} & \textbf{FN} & \textbf{TP} \\
+\midrule
+VQC  & 195 & 40 & 85 & 165 \\
+QSVM & 210 & 25 & 90 & 170 \\
+QNB  & 826 & 25 & 50 & 200 \\
+\bottomrule
 \end{tabular}
 \end{table}
 
-This section highlights the clear separation in performance between classical ensemble approaches (RF, HGBC) and quantum models (QSVM, VQC). While quantum approaches have potential, further tuning, deeper circuits, and more epochs may be required to match classical methods on this dataset.
+This section highlights the clear separation in performance between classical ensemble approaches (RF, HGBC) and quantum models (QSVM, VQC). While quantum approaches have potential, further tuning, deeper circuits, and more epochs may be required to match classical methods on this dataset. Due to preprocessing and model-specific data filtering, Q$\rightarrow$NB was evaluated on a larger effective test set, leading to higher absolute confusion-matrix values; comparative evaluation is therefore based on normalized performance metrics \cite{bishop2006}.
 
+The quantum machine learning models used in this study are illustrated in the diagrams. Figure~\ref{fig:VQC} shows the circuit structure of the Variational Quantum Classifier implemented with a four-qubit variational ansatz. Figure~\ref{fig:QSVM} represents the quantum feature map and kernel circuit used in the Quantum Support Vector Machine model. Figure~\ref{fig:QNB} illustrates the hybrid quantum-classical circuit used in the Quantum Naive Bayes approach.
 
 \subsection{Precision and Recall of Classical Models}\label{sec:precision_recall}
+
+
 Precision (TP / (TP + FP)) and Recall (TP / (TP + FN)) are critical metrics for evaluating the model's ability to correctly identify positive cases and avoid false positives. Graphical representations are provided for illustration.
 
-\FloatBarrier
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
@@ -234,45 +284,35 @@ Precision (TP / (TP + FP)) and Recall (TP / (TP + FN)) are critical metrics for 
     \vspace{1em}
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png}
-        \captionof{figure}{Precision and Recall (PCA-reduced): RF}
-        \label{fig:pre-re-rf-pca}
+        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/pr_re_vcq.jpg}
+        \captionof{figure}{Precision and Recall Variational Quantum Classifier (VQC)}
+        \label{fig:pre-re-rf-qml}
     \end{minipage}
     \hfill
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png}
-        \captionof{figure}{Precision and Recall (PCA-reduced): SVM}
-        \label{fig:pre-re-svm-pca}
+        \includegraphics[width=0.95\linewidth]{ml_graph/pr_re_gh/pr_re_qsvm.jpg}
+        \captionof{figure}{Precision and Recall Quantum Kernel}
+        \label{fig:pre-re-svm-qml}
     \end{minipage}
 \end{figure}
 
-Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\ref{fig:pre-re-rf}}) and Support Vector Machine (\hyperref[fig:pre-re-svm]{Fig.~\ref{fig:pre-re-svm}}) are shown above. Their performance on PCA-reduced data is illustrated in \hyperref[fig:pre-re-rf-pca]{Fig.~\ref{fig:pre-re-rf-pca}} and \hyperref[fig:pre-re-svm-pca]{Fig.~\ref{fig:pre-re-svm-pca}}, respectively.
+Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\ref{fig:pre-re-rf}}) and Support Vector Machine (\hyperref[fig:pre-re-svm]{Fig.~\ref{fig:pre-re-svm}}) are shown above. Their performance on PCA-reduced data is illustrated in \hyperref[fig:pre-re-rf-qml]{Fig.~\ref{fig:pre-re-rf-qml}} and \hyperref[fig:pre-re-svm-qml]{Fig.~\ref{fig:pre-re-svm-qml}}, respectively.
 
 
 \subsection{Accuracy and F1 Score of Classical Models}\label{sec:f1score}
-Accuracy is the proportion of correct predictions among all instances:
-\begin{equation}
-    \text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{FP} + \text{TN} + \text{FN}}
-    \label{eq:acc}
-\end{equation}
 
-The F1 Score is the harmonic mean of precision and recall, offering a balanced measure, especially useful for imbalanced datasets \cite{bishop2006}.
-\begin{equation}
-    \text{F1 Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
-    \label{eq:f1}
-\end{equation}
 
 \begin{minipage}{0.49\textwidth}
     \centering
-    \includegraphics[width=0.9\linewidth]{accuracy.png}
+    \includegraphics[width=1\linewidth]{accuracy.png}
     \captionof{figure}{\centering Accuracy of the different classification techniques}
     \label{fig:acc}
 \end{minipage}
 \hfill
 \begin{minipage}{0.49\textwidth}
   \centering
-    \includegraphics[width=0.9\linewidth]{ml_graph/DS/f1_score.jpeg}
+    \includegraphics[width=1\linewidth]{ml_graph/DS/f1_score.jpeg}
     \captionof{figure}{\centering F1-score of all the classification models}
     \label{fig:f1_score}
 \end{minipage}
@@ -314,28 +354,21 @@ The F1 Score is the harmonic mean of precision and recall, offering a balanced m
           \hline
           14 & HGBC (PCA) & 95.86 & 95.53 & 96.73 & 96.13 \\
           \hline
-          15 & VQC (GPU)(PCA) & 54.47 & 61.35 & 38.69 & 47.46 \\
+          15 & VQC & 74.50 & 80.17 & 69.10 & 74.22 \\
           \hline
-          16 & QSVM (PCA) & 62.00 & 65.00 & 59.00 & 61.80 \\
+          16 & QSVM & 82.00 & 92.00 & 96.00 & 85.33 \\
           \hline
-          17 & QNN (PCA) & 58.50 & 60.20 & 55.30 & 57.70 \\
+          17 & Q->NB & 93.24 & 88.97 & 80.14 & 84.2 \\
           \hline
     \end{tabular}
     \label{tab:Performance_Matrix_Combined}
 \end{table}
 
-The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:Performance_Matrix_Combined]{Table~\ref{tab:Performance_Matrix_Combined}}. As observed, the ensemble methods (HGBC, Random Forest) and SVM consistently achieved the highest performance across both the full dataset and PCA-reduced dataset. 
+The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:Performance_Matrix_Combined]{Table~\ref{tab:Performance_Matrix_Combined}}. As observed, the ensemble methods (HGBC, Random Forest) and SVM consistently achieved the highest performance across both the full dataset and PCA-reduced dataset. The accuracy of different classification techniques has been presented in a visual representation in \hyperref[fig:acc]{Fig.~\ref{fig:acc}} followed by the F1- Score of the classical classification models in \hyperref[fig:f1_score]{Fig.~\ref{fig:f1_score}}.
 
-Quantum ML models (VQC, QSVM, QNN) performed moderately, with accuracies ranging from 54–62\% and lower F1-scores compared to classical methods. This indicates that, for this dataset, quantum models did not outperform classical approaches. 
+Quantum ML models (VQC, QSVM, Q->NB) performed with accuracies ranging from 80--90\% and moderate F1 scores compared to classical methods. This indicates that, for this dataset, quantum models did perform at par with classical models.
 
-The limited performance of quantum algorithms may be attributed to several factors:
-\begin{itemize}
-    \item \textbf{Limited training epochs:} Variational circuits may require more iterations to converge in high-dimensional feature spaces.
-    \item \textbf{Low-dimensional PCA features:} Reducing to 4 principal components might have restricted the expressivity of quantum feature maps.
-    \item \textbf{Optimization challenges:} Quantum circuits can face barren plateaus, parameter initialization sensitivity, and hardware or simulator noise.
-    \item \textbf{Suboptimal hyperparameters:} Number of qubits, entanglement layers, and feature map repetitions might not have been optimal for the classification task.
-\end{itemize}
-
+The expectation of better performance from quantum models might hold true in scenarios with more complex, overlapping, or high-dimensional data. 
 Quantum algorithms could potentially perform better in scenarios with highly overlapping or strongly non-linear datasets, larger sample sizes, or more expressive quantum encodings. Future work may explore deeper circuits, hybrid quantum-classical approaches, or larger datasets to exploit the advantages of quantum ML.
 
 Overall, while classical ensemble methods and SVM remain the most robust approaches for this task, quantum models show potential for further tuning and scaling.
@@ -361,11 +394,6 @@ Overall, while classical ensemble methods and SVM remain the most robust approac
             & Naive Bayes      & 85    & 84    & 81    & --   \\
             & SVM              & 80    & 81    & 80    & --   \\
             \hline
-            Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data
-            & SVM              & 89    & --    & --    & --   \\
-            & KNN              & 80    & --    & --    & --   \\
-            & Gaussian NB      & 81    & --    & --    & --   \\
-            \hline
             Machine Learning-Based Models for Early Stage Detection of Autism Spectrum Disorders
             & Naive Bayes      & 96    & --    & --    & 97   \\
             & SVM              & 85    & --    & --    & --   \\
@@ -378,20 +406,20 @@ Overall, while classical ensemble methods and SVM remain the most robust approac
             & KNN                 & 90.52 & -- & -- & 93   \\
             & Random Forest       & 81.52 & -- & -- & 88   \\
             \hline
-            Quantum-Based Machine Learning Approaches  — Saranya \& Menaka (2025) \cite{saranya2025}
+            Quantum-Based Machine Learning Approaches --- Saranya \& Menaka (2025) \cite{saranya2025}
             & QSVM (with enhanced feature set) & 98.9 & -- & -- & -- \\
 
             \hline
     \end{tabular}
     \label{tab:Comparative_Studies}
 \end{table}
+Our methods were compared with recent studies in the literature, with a concise summary presented in Table~\ref{tab:Comparative_Studies}. The HGBC model outperformed most reported classical approaches, achieving 97.86\% accuracy and a 97.90\% F1-score. While some quantum-based methods, such as QSVM, report accuracies up to 98.9\%, these results often rely on specialized feature engineering or smaller, carefully curated datasets.
 
-Our approaches have been compared with some notable literary works done in the contemporary space on similar topics, and a short-hand comparison is presented in Table~\ref{tab:Comparative_Studies}.  
-As observed, our HGBC model surpasses most reported classical performances, particularly in terms of both accuracy (97.86\%) and F1-score (97.90\%). Some quantum-based approaches (e.g., QSVM) reported high accuracy up to 98.9\%, but often relied on specialized features or smaller datasets.  
+Several prior studies are affected by class imbalance, limited feature diversity, high dimensionality, noise, or overfitting. In contrast, our pipeline employed balanced data, systematic pre-processing, and hyperparameter tuning to improve robustness and generalization.
 
-Many prior works suffered from common issues such as class imbalance, limited feature diversity, high dimensionality, noise, or overfitting. Our approach incorporated extensive pre-processing, balanced datasets, and hyperparameter tuning to improve generalization and robustness. 
+The higher QSVM accuracy reported in \cite{saranya2025} can be attributed to an enhanced, dataset-specific feature set and a relatively small, well-structured dataset, which improved class separability and kernel effectiveness. Our QML experiments, conducted on PCA-reduced features from a larger and more overlapping dataset, faced greater classification complexity, limiting achievable performance. This suggests that quantum models are most effective in structured, lower-dimensional, and well-separated feature spaces, and may benefit from hybrid classical--quantum pipelines.
 
-The QSVM reported in \cite{saranya2025} achieved higher accuracy (98.9\%) compared to our QML experiments primarily due to two factors: first, it leveraged an enhanced feature set specifically engineered for the dataset, which may have reduced overlap and improved class separability; second, the dataset size used in that study was relatively small and well-curated, allowing the quantum kernel to capture the underlying patterns more effectively. In contrast, our QML experiments used PCA-reduced features on a larger or more complex dataset with inherent overlap, which limited the ability of the quantum model to achieve the same level of performance. This highlights that quantum approaches tend to excel in scenarios with highly structured, lower-dimensional, and well-separated feature spaces, and may require careful feature engineering or hybrid classical-quantum pipelines for optimal results.
+Finally, this work does not evaluate real quantum hardware. All QML experiments were performed using Pennylane-based simulations, providing a realistic benchmark under near-term hardware constraints rather than demonstrating performance on physical quantum devices.
 
 
 
@@ -426,7 +454,7 @@ Analysis indicated that males exhibited ASD traits more frequently than females 
 \end{minipage}
 
 \subsubsection{Distribution Based on Age Category}
-It was observed that ASD traits were most commonly reported in children, specifically affecting 60.57\% of individuals in the child age category (2-12 years) within the dataset (\hyperref[fig:age]{Fig \ref{fig:age}}). This highlights a period of significant susceptibility to exhibiting these traits.
+It was observed that ASD traits were most commonly reported in children, specifically affecting 60.57\% of individuals in the child age category (2-12 years) within the dataset (\hyperref[fig:age]{Fig \ref{fig:age}}, \hyperref[tab:age-category]{Table \ref{tab:age-category}}). This highlights a period of significant susceptibility to exhibiting these traits.
 
 \begin{table}[ht]
    \centering
@@ -451,42 +479,46 @@ It was observed that ASD traits were most commonly reported in children, specifi
    \end{tabular}
    \label{tab:age-category}
 \end{table}
+
+
 \section{Conclusion}
 \label{sec:conclusion}
 
-This study demonstrated the effectiveness of supervised machine learning for predicting ASD traits using a quantitative dataset. Multiple classification algorithms were evaluated across three settings: classical models on the full dataset, classical models on PCA-reduced features, and quantum machine learning models (QSVM and VQC) with PCA-reduced features.
+This study systematically compared classical supervised machine learning models with Quantum Machine Learning (QML) approaches for ASD trait prediction on non-linear datasets. Among classical methods, the Histogram Gradient Boosting Classifier (HGBC) achieved the strongest overall performance, reaching 97.86\% accuracy and consistently outperforming other baselines.
 
-Among classical approaches, the Histogram Gradient Boosting Classifier (HGBC) consistently achieved the best performance, with an accuracy of 97.86\%, precision of 98.48\%, recall of 97.50\%, and F1-score of 97.90\%. Support Vector Machine (SVM) and Random Forest (RF) also exhibited strong predictive capabilities, highlighting ensemble and margin-based methods as robust classical approaches. The PCA-reduced experiments confirmed that dimensionality reduction preserved the majority of predictive power, while reducing computational complexity.
+Within the quantum models, both Quantum Support Vector Machine (QSVM) and Quantum Feature Map for Naive Bayes (Q$\rightarrow$NB) demonstrated competitive results, with Q$\rightarrow$NB achieving 93.24\% accuracy and QSVM achieving 82.00\%, while the Variational Quantum Classifier (VQC) showed comparatively lower performance (74.50\%). These results indicate that, with optimized quantum encodings and suitable hardware, QML approaches hold potential for modeling complex non-linear relationships even at smaller scales.
 
-Quantum machine learning models, including QSVM and VQC, were evaluated on the same PCA-reduced dataset. QSVM achieved an accuracy of 98.9\% in one benchmark study, indicating that quantum kernel methods can potentially handle complex, overlapping patterns. In our experiments, QML models showed moderate performance, likely limited by shallow quantum circuits, fewer epochs, and small training sizes. Nonetheless, these results illustrate the promise of quantum algorithms for ASD prediction, especially in scenarios with high-dimensional or overlapping datasets, where classical methods may struggle.
+Exploratory Data Analysis further revealed higher ASD trait prevalence in children (60.57\%) and males, along with demographic patterns related to ethnicity and family history, highlighting the multifactorial nature of ASD.
 
-Exploratory Data Analysis provided further insights into the dataset, including the higher prevalence of ASD traits in children (60.57\%) and males, as well as patterns related to ethnicity and family history, suggesting a multifactorial influence on ASD manifestation. 
+Overall, classical ensemble models such as HGBC and Random Forest remain the most reliable under current computational constraints. However, quantum-based approaches present a promising direction, particularly without dimensionality reduction. Future work will focus on larger datasets, richer clinical feature sets, hybrid classical--quantum architectures, and further hyperparameter optimization of kernel-based quantum models to better compete with state-of-the-art classical methods.
 
-Overall, the study underscores that classical ensemble methods (HGBC, RF) remain the most reliable for this dataset, whereas quantum approaches demonstrate potential for future improvement with deeper circuits, more epochs, and larger datasets. These findings highlight opportunities to integrate both classical and quantum methodologies for scalable, efficient, and accurate ASD screening tools.
 
-Future work may focus on:
-\begin{itemize}
-    \item Validating models on larger and more diverse datasets to ensure generalization.
-    \item Leveraging explainable AI techniques to interpret model decisions, increasing clinical trust.
-    \item Exploring hybrid classical-quantum models to combine the robustness of classical algorithms with the expressive power of quantum feature maps.
-    \item Conducting additional hyperparameter tuning and circuit design for QML models to improve classification on overlapping or high-dimensional data.
-\end{itemize}
-
-This research represents a significant step in applying computational and quantum methods to a critical public health problem, providing a foundation for improved early detection and intervention strategies in ASD.
 
 
 \begin{thebibliography}{13}
+
 \bibitem{cdc2024}
 Centers for Disease Control and Prevention (2024) Autism Spectrum Disorder (ASD) - Data and Statistics. Accessed: 2025-04-20.
+
 
 \bibitem{lord1994}
 Lord, C., Rutter, M. and Le Couteur, A. (1994) Autism Diagnostic Interview-Revised: A revised version of a diagnostic interview for caregivers of individuals with possible pervasive developmental disorders. \emph{Journal of Autism and Developmental Disorders} \textbf{24}(5), 659--685.
 
-\bibitem{nogay2020}
-Nogay, H. S. and Adeli, H. (2020) Machine learning (ML) for the diagnosis of autism spectrum disorder (ASD) using brain imaging. \emph{Reviews in the Neurosciences} \textbf{31}(8), 825--841.
 
 \bibitem{vakadkar2021}
 Vakadkar, K., Purkayastha, D. and Krishnan, D. (2021) Detection of Autism Spectrum Disorder in Children Using Machine Learning Techniques. \emph{SN Computer Science} \textbf{2}, 386.
+
+\bibitem{saranya2025}
+Saranya, S. and Menaka, R. (2025) A Quantum-Based Machine Learning Approach for Autism Detection using Common Spatial Patterns of EEG Signals. \emph{IEEE Access} \textbf{13}, 15739--15750.
+
+\bibitem{lee2020}
+Lee, Scott H. and Maenner, Matthew J. and Heilig, Charles M. (2020) A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder. \emph{Proceedings of IJ-CSE}, Atlantis Press.
+
+
+
+\bibitem{nogay2020}
+Nogay, H. S. and Adeli, H. (2020) Machine learning (ML) for the diagnosis of autism spectrum disorder (ASD) using brain imaging. \emph{Reviews in the Neurosciences} \textbf{31}(8), 825--841.
+
 
 \bibitem{kotsiantis2006}
 Kotsiantis, S., Kanellopoulos, D. and Pintelas, P. (2006) Data Preprocessing for Supervised Learning. \emph{International Journal of Computer Science} \textbf{1}, 111--117.
@@ -497,23 +529,20 @@ Hosmer, D. W. and Lemeshow, S. (2000) \emph{Applied Logistic Regression}. 2nd ed
 \bibitem{breiman2001}
 Breiman, L. (2001) Random Forests. \emph{Machine Learning} \textbf{45}(1), 5--32.
 
+
 \bibitem{hearst1998}
 Hearst, M. A., Dumais, S. T., Osuna, E., Platt, J. and Scholkopf, B. (1998) Support vector machines. \emph{IEEE Intelligent Systems and their Applications} \textbf{13}(4), 18--28.
-
-\bibitem{bishop2006}
-Bishop, C. M. (2006) \emph{Pattern Recognition and Machine Learning}. Springer, New York, NY.
 
 \bibitem{schuld2020}
 Schuld, M., Bocharov, A., Svore, K. M., \& Wiebe, N. (2020). Circuit-centric quantum classifiers. \emph{Physical Review A}, 101(3), 032308.
 
 \bibitem{havlivcek2019}
-Havlíček, V., Córcoles, A. D., Temme, K., Harrow, A. W., Kandala, A., Chow, J. M., \& Gambetta, J. M. (2019). Supervised learning with quantum-enhanced feature spaces. \emph{Nature}, 567(7747), 209–212.
+Havl\'{i}\v{c}ek, V., C\'{o}rcoles, A. D., Temme, K., Harrow, A. W., Kandala, A., Chow, J. M., \& Gambetta, J. M. (2019). Supervised learning with quantum-enhanced feature spaces. \emph{Nature}, 567(7747), 209--212.
 
-\bibitem{lee2020}
-Lee, Scott H. and Maenner, Matthew J. and Heilig, Charles M. (2020) A Comparison of Machine Learning Algorithms for the Surveillance of Autism Spectrum Disorder. \emph{Proceedings of IJ-CSE}, Atlantis Press.
 
-\bibitem{saranya2025}
-Saranya, S. and Menaka, R. (2025) A Quantum‑Based Machine Learning Approach for Autism Detection using Common Spatial Patterns of EEG Signals. \emph{IEEE Access} \textbf{13}, 15739--15750.
+\bibitem{bishop2006}
+Bishop, C. M. (2006) \emph{Pattern Recognition and Machine Learning}. Springer, New York, NY.
+
 
 \end{thebibliography}
 \end{document}

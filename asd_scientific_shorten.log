@@ -1,1015 +1,1016 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.14)  15 NOV 2025 22:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.23)  26 MAR 2026 16:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**f:/elixpo_series/ASD/asd_scientific_shorten.tex
-(f:/elixpo_series/ASD/asd_scientific_shorten.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
-(sn-jnl.cls
-Document Class: sn-jnl 2019/11/18 v0.1: An authoring template for Springer Journal articles
-(F:\miktex\tex/latex/base\article.cls
-Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(F:\miktex\tex/latex/base\fleqn.clo
-File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
-\mathindent=\skip49
-Applying: [2015/01/01] Make \[ robust on input line 50.
-LaTeX Info: Redefining \[ on input line 51.
-Already applied: [0000/00/00] Make \[ robust on input line 62.
-Applying: [2015/01/01] Make \] robust on input line 74.
-LaTeX Info: Redefining \] on input line 75.
-Already applied: [0000/00/00] Make \] robust on input line 83.
-) (F:\miktex\tex/latex/base\size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+**c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex
+(c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(D:\miktex\tex/latex/llncs\llncs.cls
+Document Class: llncs 2025/02/25 v2.26 
+ LaTeX document class for Lecture Notes in Computer Science
+(D:\miktex\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(D:\miktex\tex/latex/base\size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@section=\count276
-\c@subsection=\count277
-\c@subsubsection=\count278
-\c@paragraph=\count279
-\c@subparagraph=\count280
-\c@figure=\count281
-\c@table=\count282
-\abovecaptionskip=\skip50
-\belowcaptionskip=\skip51
-\bibindent=\dimen148
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (D:\miktex\tex/latex/tools\multicol.sty
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count195
+\mult@box=\box51
+\multicol@leftmargin=\dimen141
+\c@unbalance=\count196
+\c@collectmore=\count197
+\doublecol@number=\count198
+\multicoltolerance=\count199
+\multicolpretolerance=\count266
+\full@width=\dimen142
+\page@free=\dimen143
+\premulticols=\dimen144
+\postmulticols=\dimen145
+\multicolsep=\skip50
+\multicolbaselineskip=\skip51
+\partial@page=\box52
+\last@line=\box53
+\mc@boxedresult=\box54
+\maxbalancingoverflow=\dimen146
+\mult@rightbox=\box55
+\mult@grightbox=\box56
+\mult@firstbox=\box57
+\mult@gfirstbox=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\c@minrows=\count267
+\c@columnbadness=\count268
+\c@finalcolumnbadness=\count269
+\last@try=\dimen147
+\multicolovershoot=\dimen148
+\multicolundershoot=\dimen149
+\mult@nat@firstbox=\box95
+\colbreak@box=\box96
+\mc@col@check@num=\count270
+) (D:\miktex\tex/latex/oberdiek\aliascnt.sty
+Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
 )
-LaTeX Info: Redefining \rm on input line 146.
-LaTeX Info: Redefining \sf on input line 147.
-LaTeX Info: Redefining \tt on input line 148.
-LaTeX Info: Redefining \bf on input line 149.
-LaTeX Info: Redefining \it on input line 150.
-LaTeX Info: Redefining \sl on input line 151.
-LaTeX Info: Redefining \sc on input line 152.
-LaTeX Info: Redefining \cal on input line 153.
-LaTeX Info: Redefining \mit on input line 154.
-LaTeX Info: Redefining \textsubscript on input line 212.
-\columnhsize=\skip52
- (F:\miktex\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
- (F:\miktex\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks17
-) (F:\miktex\tex/generic/iftex\ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (F:\miktex\tex/generic/iftex\iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-))
-\Gm@cnth=\count283
-\Gm@cntv=\count284
-\c@Gm@tempcnt=\count285
-\Gm@bindingoffset=\dimen149
-\Gm@wd@mp=\dimen150
-\Gm@odd@mp=\dimen151
-\Gm@even@mp=\dimen152
-\Gm@layoutwidth=\dimen153
-\Gm@layoutheight=\dimen154
-\Gm@layouthoffset=\dimen155
-\Gm@layoutvoffset=\dimen156
-\Gm@dimlist=\toks18
- (F:\miktex\tex/latex/geometry\geometry.cfg))
-\artcatbox=\box53
-\aucount=\count286
-\corraucount=\count287
-\punctcount=\count288
-\emailcnt=\count289
-\c@affn=\count290
-\addcount=\count291
-\PacsCount=\count292
-\PacsTmpCnt=\count293
-\FMremarkdim=\dimen157
-\fmremarkbox=\box54
-\firstpagehtcheck=\dimen158
-\labelwidthi=\dimen159
-\labelwidthii=\dimen160
-\labelwidthiii=\dimen161
-\labelwidthiv=\dimen162
-\figwidth=\dimen163
-\figheight=\dimen164
-\sidecapwidth=\dimen165
-\wrapcapline=\dimen166
-\totalwrapline=\dimen167
-\wraptotline=\dimen168
-\figurebox=\box55
-\wrapfigcapbox=\box56
-\figcapbox=\box57
-\capbox=\box58
-\headwidthskip=\skip53
-\tabcapbox=\box59
-\temptbox=\box60
-\tempdime=\dimen169
-\tabhtdime=\dimen170
- (F:\miktex\tex/latex/graphics\rotating.sty
-Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
- (F:\miktex\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (F:\miktex\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (F:\miktex\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (F:\miktex\tex/latex/graphics-cfg\graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 106.
- (F:\miktex\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen171
-\Gin@req@width=\dimen172
-) (F:\miktex\tex/latex/base\ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-)
-\c@r@tfl@t=\count294
-\rotFPtop=\skip54
-\rotFPbot=\skip55
-\rot@float@box=\box61
-\rot@mess@toks=\toks19
-) (F:\miktex\tex/latex/threeparttable\threeparttable.sty
-Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box62
-) (F:\miktex\tex/latex/appendix\appendix.sty
-Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count295
-\c@@ppsavesec=\count296
-\c@@ppsaveapp=\count297
-) (F:\miktex\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
- (F:\miktex\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (F:\miktex\tex/generic/kvdefinekeys\kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (F:\miktex\tex/generic/pdfescape\pdfescape.sty
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (F:\miktex\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (F:\miktex\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (F:\miktex\tex/generic/infwarerr\infwarerr.sty
+\c@chapter=\count271
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 379.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 380.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 381.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 382.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 383.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 384.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 385.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 386.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 387.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 388.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 389.
+LaTeX Info: Redefining \vec on input line 394.
+\tocchpnum=\dimen150
+\tocsecnum=\dimen151
+\tocsectotal=\dimen152
+\tocsubsecnum=\dimen153
+\tocsubsectotal=\dimen154
+\tocsubsubsecnum=\dimen155
+\tocsubsubsectotal=\dimen156
+\tocparanum=\dimen157
+\tocparatotal=\dimen158
+\tocsubparanum=\dimen159
+\@tempcntc=\count272
+\fnindent=\dimen160
+\c@@inst=\count273
+\c@@auth=\count274
+\c@auco=\count275
+\instindent=\dimen161
+\authrun=\box97
+\authorrunning=\toks17
+\tocauthor=\toks18
+\titrun=\box98
+\titlerunning=\toks19
+\toctitle=\toks20
+\c@theorem=\count276
+\c@case=\count277
+\c@conjecture=\count278
+\c@corollary=\count279
+\c@definition=\count280
+\c@example=\count281
+\c@exercise=\count282
+\c@lemma=\count283
+\c@note=\count284
+\c@problem=\count285
+\c@property=\count286
+\c@proposition=\count287
+\c@question=\count288
+\c@solution=\count289
+\c@remark=\count290
+\headlineindent=\dimen162
+) (D:\miktex\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (D:\miktex\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+ (D:\miktex\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (D:\miktex\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
+) (D:\miktex\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+) (D:\miktex\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (D:\miktex\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (D:\miktex\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (D:\miktex\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (D:\miktex\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (F:\miktex\tex/latex/hycolor\hycolor.sty
+)) (D:\miktex\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (F:\miktex\tex/latex/hyperref\nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
- (F:\miktex\tex/latex/refcount\refcount.sty
+) (D:\miktex\tex/latex/letltxmacro\letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (D:\miktex\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (D:\miktex\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (D:\miktex\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (F:\miktex\tex/generic/gettitlestring\gettitlestring.sty
+) (D:\miktex\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (F:\miktex\tex/latex/kvoptions\kvoptions.sty
+ (D:\miktex\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count298
-) (F:\miktex\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count299
-) (F:\miktex\tex/generic/stringenc\stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+\c@section@level=\count291
+) (D:\miktex\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count292
 )
-\@linkdim=\dimen173
-\Hy@linkcounter=\count300
-\Hy@pagecounter=\count301
- (F:\miktex\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen163
+\Hy@linkcounter=\count293
+\Hy@pagecounter=\count294
+ (D:\miktex\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (F:\miktex\tex/generic/intcalc\intcalc.sty
+) (D:\miktex\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count302
- (F:\miktex\tex/latex/hyperref\puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count295
+ (D:\miktex\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count303
- (F:\miktex\tex/latex/url\url.sty
-\Urlmuskip=\muskip17
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count296
+ (D:\miktex\tex/latex/url\url.sty
+\Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen174
- (F:\miktex\tex/generic/bitset\bitset.sty
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen164
+ (D:\miktex\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (F:\miktex\tex/generic/bigintcalc\bigintcalc.sty
+ (D:\miktex\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count304
-\Field@Width=\dimen175
-\Fld@charsize=\dimen176
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count305
-\c@Item=\count306
-\c@Hfootnote=\count307
+\Fld@menulength=\count297
+\Field@Width=\dimen165
+\Fld@charsize=\dimen166
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+ (D:\miktex\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count298
+\c@Item=\count299
+\c@Hfootnote=\count300
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (F:\miktex\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count308
-\c@bookmark@seq@number=\count309
- (F:\miktex\tex/latex/rerunfilecheck\rerunfilecheck.sty
-Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (F:\miktex\tex/generic/uniquecounter\uniquecounter.sty
+ (D:\miktex\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+ (D:\miktex\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count301
+\c@bookmark@seq@number=\count302
+ (D:\miktex\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (D:\miktex\tex/generic/uniquecounter\uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip56
+\Hy@SectionHShift=\skip52
+) (D:\miktex\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (D:\miktex\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (D:\miktex\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (D:\miktex\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 1468.
-Package hyperref Info: Option `breaklinks' set `true' on input line 1468.
-Package hyperref Info: Option `plainpages' set `false' on input line 1468.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 1468.
-Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 1468.
- (F:\miktex\tex/latex/wrapfig\wrapfig.sty
-\wrapoverhang=\dimen177
-\WF@size=\dimen178
-\c@WF@wrappedlines=\count310
-\WF@box=\box63
-\WF@everypar=\toks20
-Package: wrapfig 2003/01/31  v 3.6
-)
-\wraplines=\count311
-\@authorfigbox=\box64
-\@authorfigboxdim=\skip57
-\biofigadjskip=\skip58
- (F:\miktex\tex/latex/amscls\amsthm.sty
-Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks21
-\thm@bodyfont=\toks22
-\thm@headfont=\toks23
-\thm@notefont=\toks24
-\thm@headpunct=\toks25
-\thm@preskip=\skip59
-\thm@postskip=\skip60
-\thm@headsep=\skip61
-\dth@everypar=\toks26
-) (F:\miktex\tex/latex/base\fix-cm.sty
-Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
- (F:\miktex\tex/latex/base\ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
-LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1) on input line 49.
-LaTeX Encoding Info:    Redeclaring text command \capitalogonek (encoding TS1) on input line 52.
-LaTeX Encoding Info:    Redeclaring text command \capitalgrave (encoding TS1) on input line 55.
-LaTeX Encoding Info:    Redeclaring text command \capitalacute (encoding TS1) on input line 56.
-LaTeX Encoding Info:    Redeclaring text command \capitalcircumflex (encoding TS1) on input line 57.
-LaTeX Encoding Info:    Redeclaring text command \capitaltilde (encoding TS1) on input line 58.
-LaTeX Encoding Info:    Redeclaring text command \capitaldieresis (encoding TS1) on input line 59.
-LaTeX Encoding Info:    Redeclaring text command \capitalhungarumlaut (encoding TS1) on input line 60.
-LaTeX Encoding Info:    Redeclaring text command \capitalring (encoding TS1) on input line 61.
-LaTeX Encoding Info:    Redeclaring text command \capitalcaron (encoding TS1) on input line 62.
-LaTeX Encoding Info:    Redeclaring text command \capitalbreve (encoding TS1) on input line 63.
-LaTeX Encoding Info:    Redeclaring text command \capitalmacron (encoding TS1) on input line 64.
-LaTeX Encoding Info:    Redeclaring text command \capitaldotaccent (encoding TS1) on input line 65.
-LaTeX Encoding Info:    Redeclaring text command \t (encoding TS1) on input line 66.
-LaTeX Encoding Info:    Redeclaring text command \capitaltie (encoding TS1) on input line 67.
-LaTeX Encoding Info:    Redeclaring text command \newtie (encoding TS1) on input line 68.
-LaTeX Encoding Info:    Redeclaring text command \capitalnewtie (encoding TS1) on input line 69.
-LaTeX Encoding Info:    Redeclaring text symbol \textcapitalcompwordmark (encoding TS1) on input line 70.
-LaTeX Encoding Info:    Redeclaring text symbol \textascendercompwordmark (encoding TS1) on input line 71.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightbase (encoding TS1) on input line 72.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightdblbase (encoding TS1) on input line 73.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwelveudash (encoding TS1) on input line 74.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequartersemdash (encoding TS1) on input line 75.
-LaTeX Encoding Info:    Redeclaring text symbol \textleftarrow (encoding TS1) on input line 76.
-LaTeX Encoding Info:    Redeclaring text symbol \textrightarrow (encoding TS1) on input line 77.
-LaTeX Encoding Info:    Redeclaring text symbol \textblank (encoding TS1) on input line 78.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollar (encoding TS1) on input line 79.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 80.
-LaTeX Encoding Info:    Redeclaring text command \textasteriskcentered (encoding TS1) on input line 81.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphen (encoding TS1) on input line 92.
-LaTeX Encoding Info:    Redeclaring text symbol \textfractionsolidus (encoding TS1) on input line 93.
-LaTeX Encoding Info:    Redeclaring text symbol \textzerooldstyle (encoding TS1) on input line 94.
-LaTeX Encoding Info:    Redeclaring text symbol \textoneoldstyle (encoding TS1) on input line 95.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwooldstyle (encoding TS1) on input line 96.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreeoldstyle (encoding TS1) on input line 97.
-LaTeX Encoding Info:    Redeclaring text symbol \textfouroldstyle (encoding TS1) on input line 98.
-LaTeX Encoding Info:    Redeclaring text symbol \textfiveoldstyle (encoding TS1) on input line 99.
-LaTeX Encoding Info:    Redeclaring text symbol \textsixoldstyle (encoding TS1) on input line 100.
-LaTeX Encoding Info:    Redeclaring text symbol \textsevenoldstyle (encoding TS1) on input line 101.
-LaTeX Encoding Info:    Redeclaring text symbol \texteightoldstyle (encoding TS1) on input line 102.
-LaTeX Encoding Info:    Redeclaring text symbol \textnineoldstyle (encoding TS1) on input line 103.
-LaTeX Encoding Info:    Redeclaring text symbol \textlangle (encoding TS1) on input line 104.
-LaTeX Encoding Info:    Redeclaring text symbol \textminus (encoding TS1) on input line 105.
-LaTeX Encoding Info:    Redeclaring text symbol \textrangle (encoding TS1) on input line 106.
-LaTeX Encoding Info:    Redeclaring text symbol \textmho (encoding TS1) on input line 107.
-LaTeX Encoding Info:    Redeclaring text symbol \textbigcircle (encoding TS1) on input line 108.
-LaTeX Encoding Info:    Redeclaring text command \textcircled (encoding TS1) on input line 109.
-LaTeX Encoding Info:    Redeclaring text symbol \textohm (encoding TS1) on input line 115.
-LaTeX Encoding Info:    Redeclaring text symbol \textlbrackdbl (encoding TS1) on input line 116.
-LaTeX Encoding Info:    Redeclaring text symbol \textrbrackdbl (encoding TS1) on input line 117.
-LaTeX Encoding Info:    Redeclaring text symbol \textuparrow (encoding TS1) on input line 118.
-LaTeX Encoding Info:    Redeclaring text symbol \textdownarrow (encoding TS1) on input line 119.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciigrave (encoding TS1) on input line 120.
-LaTeX Encoding Info:    Redeclaring text symbol \textborn (encoding TS1) on input line 121.
-LaTeX Encoding Info:    Redeclaring text symbol \textdivorced (encoding TS1) on input line 122.
-LaTeX Encoding Info:    Redeclaring text symbol \textdied (encoding TS1) on input line 123.
-LaTeX Encoding Info:    Redeclaring text symbol \textleaf (encoding TS1) on input line 124.
-LaTeX Encoding Info:    Redeclaring text symbol \textmarried (encoding TS1) on input line 125.
-LaTeX Encoding Info:    Redeclaring text symbol \textmusicalnote (encoding TS1) on input line 126.
-LaTeX Encoding Info:    Redeclaring text symbol \texttildelow (encoding TS1) on input line 127.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphenchar (encoding TS1) on input line 128.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciibreve (encoding TS1) on input line 129.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciicaron (encoding TS1) on input line 130.
-LaTeX Encoding Info:    Redeclaring text symbol \textacutedbl (encoding TS1) on input line 131.
-LaTeX Encoding Info:    Redeclaring text symbol \textgravedbl (encoding TS1) on input line 132.
-LaTeX Encoding Info:    Redeclaring text symbol \textdagger (encoding TS1) on input line 133.
-LaTeX Encoding Info:    Redeclaring text symbol \textdaggerdbl (encoding TS1) on input line 134.
-LaTeX Encoding Info:    Redeclaring text symbol \textbardbl (encoding TS1) on input line 135.
-LaTeX Encoding Info:    Redeclaring text symbol \textperthousand (encoding TS1) on input line 136.
-LaTeX Encoding Info:    Redeclaring text symbol \textbullet (encoding TS1) on input line 137.
-LaTeX Encoding Info:    Redeclaring text symbol \textcelsius (encoding TS1) on input line 138.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollaroldstyle (encoding TS1) on input line 139.
-LaTeX Encoding Info:    Redeclaring text symbol \textcentoldstyle (encoding TS1) on input line 140.
-LaTeX Encoding Info:    Redeclaring text symbol \textflorin (encoding TS1) on input line 141.
-LaTeX Encoding Info:    Redeclaring text symbol \textcolonmonetary (encoding TS1) on input line 142.
-LaTeX Encoding Info:    Redeclaring text symbol \textwon (encoding TS1) on input line 143.
-LaTeX Encoding Info:    Redeclaring text symbol \textnaira (encoding TS1) on input line 144.
-LaTeX Encoding Info:    Redeclaring text symbol \textguarani (encoding TS1) on input line 145.
-LaTeX Encoding Info:    Redeclaring text symbol \textpeso (encoding TS1) on input line 146.
-LaTeX Encoding Info:    Redeclaring text symbol \textlira (encoding TS1) on input line 147.
-LaTeX Encoding Info:    Redeclaring text symbol \textrecipe (encoding TS1) on input line 148.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobang (encoding TS1) on input line 149.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobangdown (encoding TS1) on input line 150.
-LaTeX Encoding Info:    Redeclaring text symbol \textdong (encoding TS1) on input line 151.
-LaTeX Encoding Info:    Redeclaring text symbol \texttrademark (encoding TS1) on input line 152.
-LaTeX Encoding Info:    Redeclaring text symbol \textpertenthousand (encoding TS1) on input line 153.
-LaTeX Encoding Info:    Redeclaring text symbol \textpilcrow (encoding TS1) on input line 154.
-LaTeX Encoding Info:    Redeclaring text symbol \textbaht (encoding TS1) on input line 155.
-LaTeX Encoding Info:    Redeclaring text symbol \textnumero (encoding TS1) on input line 156.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiscount (encoding TS1) on input line 157.
-LaTeX Encoding Info:    Redeclaring text symbol \textestimated (encoding TS1) on input line 158.
-LaTeX Encoding Info:    Redeclaring text symbol \textopenbullet (encoding TS1) on input line 159.
-LaTeX Encoding Info:    Redeclaring text symbol \textservicemark (encoding TS1) on input line 160.
-LaTeX Encoding Info:    Redeclaring text symbol \textlquill (encoding TS1) on input line 161.
-LaTeX Encoding Info:    Redeclaring text symbol \textrquill (encoding TS1) on input line 162.
-LaTeX Encoding Info:    Redeclaring text symbol \textcent (encoding TS1) on input line 163.
-LaTeX Encoding Info:    Redeclaring text symbol \textsterling (encoding TS1) on input line 164.
-LaTeX Encoding Info:    Redeclaring text symbol \textcurrency (encoding TS1) on input line 165.
-LaTeX Encoding Info:    Redeclaring text symbol \textyen (encoding TS1) on input line 166.
-LaTeX Encoding Info:    Redeclaring text symbol \textbrokenbar (encoding TS1) on input line 167.
-LaTeX Encoding Info:    Redeclaring text symbol \textsection (encoding TS1) on input line 168.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciidieresis (encoding TS1) on input line 169.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyright (encoding TS1) on input line 170.
-LaTeX Encoding Info:    Redeclaring text symbol \textordfeminine (encoding TS1) on input line 171.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyleft (encoding TS1) on input line 172.
-LaTeX Encoding Info:    Redeclaring text symbol \textlnot (encoding TS1) on input line 173.
-LaTeX Encoding Info:    Redeclaring text symbol \textcircledP (encoding TS1) on input line 174.
-LaTeX Encoding Info:    Redeclaring text symbol \textregistered (encoding TS1) on input line 175.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciimacron (encoding TS1) on input line 176.
-LaTeX Encoding Info:    Redeclaring text symbol \textdegree (encoding TS1) on input line 177.
-LaTeX Encoding Info:    Redeclaring text symbol \textpm (encoding TS1) on input line 178.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwosuperior (encoding TS1) on input line 179.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreesuperior (encoding TS1) on input line 180.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciiacute (encoding TS1) on input line 181.
-LaTeX Encoding Info:    Redeclaring text symbol \textmu (encoding TS1) on input line 182.
-LaTeX Encoding Info:    Redeclaring text symbol \textparagraph (encoding TS1) on input line 183.
-LaTeX Encoding Info:    Redeclaring text symbol \textperiodcentered (encoding TS1) on input line 184.
-LaTeX Encoding Info:    Redeclaring text symbol \textreferencemark (encoding TS1) on input line 185.
-LaTeX Encoding Info:    Redeclaring text symbol \textonesuperior (encoding TS1) on input line 186.
-LaTeX Encoding Info:    Redeclaring text symbol \textordmasculine (encoding TS1) on input line 187.
-LaTeX Encoding Info:    Redeclaring text symbol \textsurd (encoding TS1) on input line 188.
-LaTeX Encoding Info:    Redeclaring text symbol \textonequarter (encoding TS1) on input line 189.
-LaTeX Encoding Info:    Redeclaring text symbol \textonehalf (encoding TS1) on input line 190.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequarters (encoding TS1) on input line 191.
-LaTeX Encoding Info:    Redeclaring text symbol \texteuro (encoding TS1) on input line 192.
-LaTeX Encoding Info:    Redeclaring text symbol \texttimes (encoding TS1) on input line 193.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on input line 194.
-)) (F:\miktex\tex/latex/natbib\natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip62
-\bibsep=\skip63
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count312
-)) (F:\miktex\tex/latex/base\fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
-) (F:\miktex\tex/latex/multirow\multirow.sty
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (D:\miktex\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen167
+\Gin@req@width=\dimen168
+) (D:\miktex\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip64
-\multirow@cntb=\count313
-\multirow@dima=\skip65
-\bigstrutjot=\dimen179
-) (F:\miktex\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
-\@mathmargin=\skip66
+\multirow@colwidth=\skip53
+\multirow@cntb=\count303
+\multirow@dima=\skip54
+\bigstrutjot=\dimen169
+) (D:\miktex\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip55
 
 For additional information on amsmath, use the `?' option.
-(F:\miktex\tex/latex/amsmath\amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
- (F:\miktex\tex/latex/amsmath\amsgen.sty
+(D:\miktex\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (D:\miktex\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks27
-\ex@=\dimen180
-)) (F:\miktex\tex/latex/amsmath\amsbsy.sty
+\@emptytoks=\toks22
+\ex@=\dimen170
+)) (D:\miktex\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen181
-) (F:\miktex\tex/latex/amsmath\amsopn.sty
+\pmbraise@=\dimen171
+) (D:\miktex\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count314
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count315
-\leftroot@=\count316
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count317
-\DOTSCASE@=\count318
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box65
-\strutbox@=\box66
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen182
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count319
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count320
-\dotsspace@=\muskip18
-\c@parentequation=\count321
-\dspbrk@lvl=\count322
-\tag@help=\toks28
-\row@=\count323
-\column@=\count324
-\maxfields@=\count325
-\andhelp@=\toks29
-\eqnshift@=\dimen183
-\alignsep@=\dimen184
-\tagshift@=\dimen185
-\tagwidth@=\dimen186
-\totwidth@=\dimen187
-\lineht@=\dimen188
-\@envbody=\toks30
-\multlinegap=\skip67
-\multlinetaggap=\skip68
-\mathdisplay@stack=\toks31
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
-) (F:\miktex\tex/latex/amsfonts\amssymb.sty
+\inf@bad=\count304
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count305
+\leftroot@=\count306
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count307
+\DOTSCASE@=\count308
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box99
+\strutbox@=\box100
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen172
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+
+
+Package amsmath Warning: Unable to redefine math accent \vec.
+
+\macc@depth=\count309
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count310
+\dotsspace@=\muskip17
+\c@parentequation=\count311
+\dspbrk@lvl=\count312
+\tag@help=\toks23
+\row@=\count313
+\column@=\count314
+\maxfields@=\count315
+\andhelp@=\toks24
+\eqnshift@=\dimen173
+\alignsep@=\dimen174
+\tagshift@=\dimen175
+\tagwidth@=\dimen176
+\totwidth@=\dimen177
+\lineht@=\dimen178
+\@envbody=\toks25
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks26
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (D:\miktex\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (F:\miktex\tex/latex/amsfonts\amsfonts.sty
+ (D:\miktex\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (F:\miktex\tex/latex/jknappen\mathrsfs.sty
+)) (D:\miktex\tex/latex/jknappen\mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
-) (F:\miktex\tex/latex/xcolor\xcolor.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (F:\miktex\tex/latex/graphics-cfg\color.cfg
+) (D:\miktex\tex/latex/appendix\appendix.sty
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count316
+\c@@ppsavesec=\count317
+\c@@ppsaveapp=\count318
+) (D:\miktex\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (D:\miktex\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (F:\miktex\tex/latex/graphics\mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (F:\miktex\tex/latex/base\textcomp.sty
-Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-) (F:\miktex\tex/latex/ncctools\manyfoot.sty
+ (D:\miktex\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (D:\miktex\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (D:\miktex\tex/latex/ncctools\manyfoot.sty
 Package: manyfoot 2019/08/03 v1.11 Many Footnote Levels Package (NCC)
- (F:\miktex\tex/latex/ncctools\nccfoots.sty
+ (D:\miktex\tex/latex/ncctools\nccfoots.sty
 Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
 )
-\MFL@columnwidth=\dimen189
-) (F:\miktex\tex/latex/booktabs\booktabs.sty
+\MFL@columnwidth=\dimen179
+) (D:\miktex\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen190
-\lightrulewidth=\dimen191
-\cmidrulewidth=\dimen192
-\belowrulesep=\dimen193
-\belowbottomsep=\dimen194
-\aboverulesep=\dimen195
-\abovetopsep=\dimen196
-\cmidrulesep=\dimen197
-\cmidrulekern=\dimen198
-\defaultaddspace=\dimen199
-\@cmidla=\count326
-\@cmidlb=\count327
-\@aboverulesep=\dimen256
-\@belowrulesep=\dimen257
-\@thisruleclass=\count328
-\@lastruleclass=\count329
-\@thisrulewidth=\dimen258
-) (F:\miktex\tex/latex/algorithms\algorithm.sty
+\heavyrulewidth=\dimen180
+\lightrulewidth=\dimen181
+\cmidrulewidth=\dimen182
+\belowrulesep=\dimen183
+\belowbottomsep=\dimen184
+\aboverulesep=\dimen185
+\abovetopsep=\dimen186
+\cmidrulesep=\dimen187
+\cmidrulekern=\dimen188
+\defaultaddspace=\dimen189
+\@cmidla=\count319
+\@cmidlb=\count320
+\@aboverulesep=\dimen190
+\@belowrulesep=\dimen191
+\@thisruleclass=\count321
+\@lastruleclass=\count322
+\@thisrulewidth=\dimen192
+) (D:\miktex\tex/latex/algorithms\algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- (F:\miktex\tex/latex/float\float.sty
+ (D:\miktex\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count330
-\float@exts=\toks32
-\float@box=\box67
-\@float@everytoks=\toks33
-\@floatcapt=\box68
+\c@float@type=\count323
+\float@exts=\toks27
+\float@box=\box101
+\@float@everytoks=\toks28
+\@floatcapt=\box102
+) (D:\miktex\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks34
-\c@algorithm=\count331
-) (F:\miktex\tex/latex/algorithmicx\algorithmicx.sty
+\@float@every@algorithm=\toks29
+\c@algorithm=\count324
+) (D:\miktex\tex/latex/algorithmicx\algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count332
-\c@ALG@rem=\count333
-\c@ALG@nested=\count334
-\ALG@tlm=\skip69
-\ALG@thistlm=\skip70
-\c@ALG@Lnr=\count335
-\c@ALG@blocknr=\count336
-\c@ALG@storecount=\count337
-\c@ALG@tmpcounter=\count338
-\ALG@tmplength=\skip71
-) (F:\miktex\tex/latex/tools\tabularx.sty
-Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
- (F:\miktex\tex/latex/tools\array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
-\col@sep=\dimen259
-\ar@mcellbox=\box69
-\extrarowheight=\dimen260
-\NC@list=\toks35
-\extratabsurround=\skip72
-\backup@length=\skip73
-\ar@cellbox=\box70
+\c@ALG@line=\count325
+\c@ALG@rem=\count326
+\c@ALG@nested=\count327
+\ALG@tlm=\skip58
+\ALG@thistlm=\skip59
+\c@ALG@Lnr=\count328
+\c@ALG@blocknr=\count329
+\c@ALG@storecount=\count330
+\c@ALG@tmpcounter=\count331
+\ALG@tmplength=\skip60
+) (D:\miktex\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+ (D:\miktex\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen193
+\ar@mcellbox=\box103
+\extrarowheight=\dimen194
+\NC@list=\toks30
+\extratabsurround=\skip61
+\backup@length=\skip62
+\ar@cellbox=\box104
 )
-\TX@col@width=\dimen261
-\TX@old@table=\dimen262
-\TX@old@col=\dimen263
-\TX@target=\dimen264
-\TX@delta=\dimen265
-\TX@cols=\count339
-\TX@ftn=\toks36
-) (F:\miktex\tex/latex/algorithmicx\algpseudocode.sty
+\TX@col@width=\dimen195
+\TX@old@table=\dimen196
+\TX@old@col=\dimen197
+\TX@target=\dimen198
+\TX@delta=\dimen199
+\TX@cols=\count332
+\TX@ftn=\toks31
+) (D:\miktex\tex/latex/algorithmicx\algpseudocode.sty
 Package: algpseudocode 
 
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (F:\miktex\tex/latex/listings\listings.sty
-\lst@mode=\count340
-\lst@gtempboxa=\box71
-\lst@token=\toks37
-\lst@length=\count341
-\lst@currlwidth=\dimen266
-\lst@column=\count342
-\lst@pos=\count343
-\lst@lostspace=\dimen267
-\lst@width=\dimen268
-\lst@newlines=\count344
-\lst@lineno=\count345
-\lst@maxwidth=\dimen269
- (F:\miktex\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
-) (F:\miktex\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count346
-\lst@skipnumbers=\count347
-\lst@framebox=\box72
-) (F:\miktex\tex/latex/listings\listings.cfg
-File: listings.cfg 2024/09/23 1.10c listings configuration
+) (D:\miktex\tex/latex/listings\listings.sty
+\lst@mode=\count333
+\lst@gtempboxa=\box105
+\lst@token=\toks32
+\lst@length=\count334
+\lst@currlwidth=\dimen256
+\lst@column=\count335
+\lst@pos=\count336
+\lst@lostspace=\dimen257
+\lst@width=\dimen258
+\lst@newlines=\count337
+\lst@lineno=\count338
+\lst@maxwidth=\dimen259
+ (D:\miktex\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count339
+\lst@skipnumbers=\count340
+\lst@framebox=\box106
+) (D:\miktex\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
- (F:\miktex\tex/latex/csquotes\csquotes.sty
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (D:\miktex\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count348
-\csq@gtype=\count349
-\csq@glevel=\count350
-\csq@qlevel=\count351
-\csq@maxlvl=\count352
-\csq@tshold=\count353
-\csq@ltx@everypar=\toks38
- (F:\miktex\tex/latex/csquotes\csquotes.def
+\csq@reset=\count341
+\csq@gtype=\count342
+\csq@glevel=\count343
+\csq@qlevel=\count344
+\csq@maxlvl=\count345
+\csq@tshold=\count346
+\csq@ltx@everypar=\toks33
+ (D:\miktex\tex/latex/csquotes\csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
- (F:\miktex\tex/latex/csquotes\csquotes.cfg
+ (D:\miktex\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
-)) (F:\miktex\tex/latex/placeins\placeins.sty
+)) (D:\miktex\tex/latex/placeins\placeins.sty
 Package: placeins 2005/04/18  v 2.2
-) (F:\miktex\tex/latex/caption\caption.sty
+) (D:\miktex\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (F:\miktex\tex/latex/caption\caption3.sty
+ (D:\miktex\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen270
-\captionmargin=\dimen271
-\caption@leftmargin=\dimen272
-\caption@rightmargin=\dimen273
-\caption@width=\dimen274
-\caption@indent=\dimen275
-\caption@parindent=\dimen276
-\caption@hangindent=\dimen277
+\caption@tempdima=\dimen260
+\captionmargin=\dimen261
+\caption@leftmargin=\dimen262
+\caption@rightmargin=\dimen263
+\caption@width=\dimen264
+\caption@indent=\dimen265
+\caption@parindent=\dimen266
+\caption@hangindent=\dimen267
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
-Package caption Info: \@makecaption = \long macro:#1#2->\ifx \FigName \@captype \vskip \abovecaptionskip \@figurecaption {#1}{#2} \else \@tablecaption {#1}{#2} \vskip \belowcaptionskip \fi  on input line 1175.
+Package caption Info: \@makecaption = \long macro:#1#2->\small \vskip \abovecaptionskip \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsize {\bfseries #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempboxa \hfil }\fi \vskip \belowcaptionskip  on input line 1175.
 )
 
 Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count354
-\c@continuedfloat=\count355
+\c@caption@flags=\count347
+\c@continuedfloat=\count348
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
-Package caption Info: rotating package is loaded.
-Package caption Info: threeparttable package is loaded.
-Package caption Info: wrapfig package is loaded.
 )
-\c@theorem=\count356
-\c@example=\count357
-\c@remark=\count358
-\c@definition=\count359
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (F:\miktex\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count360
-) (asd_scientific_shorten.aux)
+ (D:\miktex\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count349
+\l__pdf_internal_box=\box107
+)
+No file asd_scientific_shorten.aux.
 \openout1 = `asd_scientific_shorten.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: custom
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* bindingoffset: 17.07164pt
-* modes: twoside 
-* h-part:(L,W,R)=(83.37448pt, 372.0pt, 125.06175pt)
-* v-part:(T,H,B)=(73.97716pt, 552.69478pt, 218.37491pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=372.0pt
-* \textheight=552.69478pt
-* \oddsidemargin=28.17613pt
-* \evensidemargin=52.79176pt
-* \topmargin=-19.72638pt
-* \headheight=5.5pt
-* \headsep=15.93355pt
-* \topskip=10.0pt
-* \footskip=28.45274pt
-* \marginparwidth=34.1433pt
-* \marginparsep=14.22636pt
-* \columnsep=14.22636pt
-* \skip\footins=8.0pt plus 4.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
-* \@reversemargintrue
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-(F:\miktex\tex/context/base/mkii\supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count361
-\scratchdimen=\dimen278
-\scratchbox=\box73
-\nofMPsegments=\count362
-\nofMParguments=\count363
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count364
-\MPscratchDim=\dimen279
-\MPnumerator=\count365
-\makeMPintoPDFobject=\count366
-\everyMPtoPDFconversion=\toks40
-) (F:\miktex\tex/latex/epstopdf-pkg\epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (F:\miktex\tex/latex/00miktex\epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))
-LaTeX Info: Redefining \S on input line 33.
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 33.
-LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 33.
-LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 33.
-Package hyperref Info: Link coloring ON on input line 33.
- (asd_scientific_shorten.out) (asd_scientific_shorten.out)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+Package hyperref Info: Link coloring OFF on input line 24.
 \@outlinefile=\write3
 \openout3 = `asd_scientific_shorten.out'.
 
-\c@lstlisting=\count367
+(D:\miktex\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count350
+\scratchdimen=\dimen268
+\scratchbox=\box108
+\nofMPsegments=\count351
+\nofMParguments=\count352
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count353
+\MPscratchDim=\dimen269
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
+\everyMPtoPDFconversion=\toks35
+) (D:\miktex\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (D:\miktex\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+\c@lstlisting=\count356
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 61.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
- (F:\miktex\tex/latex/amsfonts\umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+ (D:\miktex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
- (F:\miktex\tex/latex/amsfonts\umsb.fd
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+ (D:\miktex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 61.
- (F:\miktex\tex/latex/jknappen\ursfs.fd
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 49.
+ (D:\miktex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 49.
+ (D:\miktex\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Title too long for running head. Please supply
+a shorter form with \titlerunning prior to \maketitle
+Names of authors too long for running head. Please supply
+a shorter form with \authorrunning prior to \maketitle
 
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 61.
-
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 61.
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 61.
-
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 61.
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
-
-{C:/Users/ayush/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (7.10133pt too wide) in paragraph at lines 54--74
+[]\T1/cmr/m/n/9 This re-search com-pares clas-si-cal and Quan-tum Ma-chine Learn-
+ []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (5.98447pt too wide) in paragraph at lines 74--75
+\T1/cmr/bx/n/9 Keywords:\T1/cmr/m/n/9 Autism Spec-trum Dis-or-der (ASD), Quan-tum Ma-chine Learn-
+ []
 
- [2]
+
+Overfull \hbox (4.08617pt too wide) in paragraph at lines 74--75
+\T1/cmr/m/n/9 ing, Clas-si-fi-ca-tion Al-go-rithms, HGBC, QSVM, Vari-a-tional Quan-tum Clas-
+ []
+
+[1
+
+{C:/Users/ELIXPO/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+LaTeX Warning: Citation `cdc2024' on page 2 undefined on input line 78.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation `lord1994' on page 2 undefined on input line 78.
 
- [3]
-<ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png, id=120, 716.9184pt x 422.0568pt>
+
+LaTeX Warning: Citation `vakadkar2021' on page 2 undefined on input line 79.
+
+
+LaTeX Warning: Citation `vakadkar2021' on page 2 undefined on input line 98.
+
+[2]
+
+LaTeX Warning: Citation `saranya2025' on page 3 undefined on input line 100.
+
+
+LaTeX Warning: Citation `lee2020' on page 3 undefined on input line 102.
+
+
+LaTeX Warning: Citation `lee2020' on page 3 undefined on input line 104.
+
+
+LaTeX Warning: Citation `vakadkar2021' on page 3 undefined on input line 104.
+
+
+LaTeX Warning: Citation `saranya2025' on page 3 undefined on input line 104.
+
+
+LaTeX Warning: Citation `lee2020' on page 3 undefined on input line 104.
+
+
+LaTeX Warning: Citation `nogay2020' on page 3 undefined on input line 104.
+
+
+LaTeX Warning: File `workflow.jpg' not found on input line 117.
+
+
+c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex:117: Package pdftex.def Error: File `workflow.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...egraphics[width=\linewidth]{workflow.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Citation `kotsiantis2006' on page 3 undefined on input line 135.
+
+[3] [4]
+
+LaTeX Warning: Citation `hosmer2000' on page 5 undefined on input line 157.
+
+
+LaTeX Warning: Citation `breiman2001' on page 5 undefined on input line 158.
+
+
+LaTeX Warning: Citation `hearst1998' on page 5 undefined on input line 158.
+
+
+LaTeX Warning: Citation `schuld2020' on page 5 undefined on input line 161.
+
+
+LaTeX Warning: Citation `havlivcek2019' on page 5 undefined on input line 161.
+
+
+LaTeX Warning: File `VQC.jpg' not found on input line 168.
+
+
+c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex:168: Package pdftex.def Error: File `VQC.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.168 ...udegraphics[width=0.9\linewidth]{VQC.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `QSVM.jpg' not found on input line 175.
+
+
+c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex:175: Package pdftex.def Error: File `QSVM.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 ...egraphics[width=0.95\linewidth]{QSVM.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `QNB.jpg' not found on input line 184.
+
+
+c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex:184: Package pdftex.def Error: File `QNB.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.184 \includegraphics[width=\linewidth]{QNB.jpg}
+                                                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png, id=39, 716.9184pt x 422.0568pt>
 File: ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png Graphic file (type png)
 <use ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png>
-Package pdftex.def Info: ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png  used on input line 158.
-(pdftex.def)             Requested size: 334.79773pt x 197.09802pt.
+Package pdftex.def Info: ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png  used on input line 209.
+(pdftex.def)             Requested size: 312.40906pt x 183.91522pt.
 
-Underfull \hbox (badness 3471) in paragraph at lines 159--159
-[]\T1/cmr/bx/n/10.03749 Fig. 1\T1/cmr/m/n/10.03749 : |Top 10 hyper-pa-ram-e-ter com-bi-na-tions for HGBC based on mean
+Underfull \hbox (badness 1490) in paragraph at lines 210--210
+[]\T1/cmr/m/n/10 Fig.5: |Top 10 hy-per-pa-ram-e-ter com-bi-na-tions for HGBC based on mean
  []
 
 
-Underfull \hbox (badness 2653) in paragraph at lines 159--159
-\T1/cmr/m/n/10.03749 test accu-racy. Most top-performing con-fig-u-ra-tions shared \T1/cmtt/m/n/10.03749 max_depth=10 \T1/cmr/m/n/10.03749 and
- []
+LaTeX Warning: Reference `fig:bestparameter' on page 5 undefined on input line 214.
+
+[5] [6]
+
+LaTeX Warning: Reference `tab:algorithm_metrics' on page 7 undefined on input line 220.
 
 
+LaTeX Warning: Reference `tab:qml_metrics' on page 7 undefined on input line 242.
+
+[7 <./ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png>]
+
+LaTeX Warning: Citation `bishop2006' on page 8 undefined on input line 260.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 180.
+LaTeX Warning: Reference `fig:VQC' on page 8 undefined on input line 262.
 
 
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 180.
+LaTeX Warning: Reference `fig:QSVM' on page 8 undefined on input line 262.
 
 
+LaTeX Warning: Reference `fig:QNB' on page 8 undefined on input line 262.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5 <./ml_graph/hyper parament analysis of histgradient/hyperparameter_combination_line.png>]
-<ml_graph/pr_re_gh/pre_re_rf.jpeg, id=146, 578.16pt x 433.62pt>
+<ml_graph/pr_re_gh/pre_re_rf.jpeg, id=65, 578.16pt x 433.62pt>
 File: ml_graph/pr_re_gh/pre_re_rf.jpeg Graphic file (type jpg)
 <use ml_graph/pr_re_gh/pre_re_rf.jpeg>
-Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_rf.jpeg  used on input line 223.
-(pdftex.def)             Requested size: 169.62994pt x 127.22206pt.
-<ml_graph/pr_re_gh/pre_re_svm.jpeg, id=147, 578.16pt x 433.62pt>
+Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_rf.jpeg  used on input line 273.
+(pdftex.def)             Requested size: 158.2864pt x 118.71324pt.
+<ml_graph/pr_re_gh/pre_re_svm.jpeg, id=66, 578.16pt x 433.62pt>
 File: ml_graph/pr_re_gh/pre_re_svm.jpeg Graphic file (type jpg)
 <use ml_graph/pr_re_gh/pre_re_svm.jpeg>
-Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_svm.jpeg  used on input line 230.
-(pdftex.def)             Requested size: 169.62994pt x 127.22206pt.
-<ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png, id=148, 505.89pt x 361.35pt>
-File: ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png Graphic file (type png)
-<use ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png>
-Package pdftex.def Info: ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png  used on input line 237.
-(pdftex.def)             Requested size: 169.62994pt x 121.16464pt.
+Package pdftex.def Info: ml_graph/pr_re_gh/pre_re_svm.jpeg  used on input line 280.
+(pdftex.def)             Requested size: 158.2864pt x 118.71324pt.
 
-Underfull \hbox (badness 1577) in paragraph at lines 238--238
-[]\T1/cmr/bx/n/10.03749 Fig. 4\T1/cmr/m/n/10.03749 : |Pre-ci-sion and Recall (PCA-
- []
-
-<ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png, id=149, 505.89pt x 361.35pt>
-File: ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png Graphic file (type png)
-<use ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png>
-Package pdftex.def Info: ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png  used on input line 244.
-(pdftex.def)             Requested size: 169.62994pt x 121.16464pt.
-
-Underfull \hbox (badness 1577) in paragraph at lines 245--245
-[]\T1/cmr/bx/n/10.03749 Fig. 5\T1/cmr/m/n/10.03749 : |Pre-ci-sion and Recall (PCA-
- []
+LaTeX Warning: File `ml_graph/pr_re_gh/pr_re_vcq.jpg' not found on input line 287.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex:287: Package pdftex.def Error: File `ml_graph/pr_re_gh/pr_re_vcq.jpg' not found: using draft setting.
 
-<accuracy.png, id=159, 578.16pt x 361.35pt>
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.287 ...newidth]{ml_graph/pr_re_gh/pr_re_vcq.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `ml_graph/pr_re_gh/pr_re_qsvm.jpg' not found on input line 294.
+
+
+c:/Users/ELIXPO/Desktop/asd_research/asd_scientific_shorten.tex:294: Package pdftex.def Error: File `ml_graph/pr_re_gh/pr_re_qsvm.jpg' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.294 ...ewidth]{ml_graph/pr_re_gh/pr_re_qsvm.jpg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Hyper reference `fig:pre-re-rf' on page 8 undefined on input line 300.
+
+
+LaTeX Warning: Reference `fig:pre-re-rf' on page 8 undefined on input line 300.
+
+
+LaTeX Warning: Hyper reference `fig:pre-re-svm' on page 8 undefined on input line 300.
+
+
+LaTeX Warning: Reference `fig:pre-re-svm' on page 8 undefined on input line 300.
+
+
+LaTeX Warning: Hyper reference `fig:pre-re-rf-qml' on page 8 undefined on input line 300.
+
+
+LaTeX Warning: Reference `fig:pre-re-rf-qml' on page 8 undefined on input line 300.
+
+
+LaTeX Warning: Hyper reference `fig:pre-re-svm-qml' on page 8 undefined on input line 300.
+
+
+LaTeX Warning: Reference `fig:pre-re-svm-qml' on page 8 undefined on input line 300.
+
+<accuracy.png, id=67, 578.16pt x 361.35pt>
 File: accuracy.png Graphic file (type png)
 <use accuracy.png>
-Package pdftex.def Info: accuracy.png  used on input line 268.
-(pdftex.def)             Requested size: 164.05272pt x 102.52817pt.
+Package pdftex.def Info: accuracy.png  used on input line 308.
+(pdftex.def)             Requested size: 170.09244pt x 106.3051pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 269.
+(caption)                particular \caption on input line 309.
 See the caption package documentation for explanation.
 
-<ml_graph/DS/f1_score.jpeg, id=160, 433.62pt x 289.08pt>
+<ml_graph/DS/f1_score.jpeg, id=68, 433.62pt x 289.08pt>
 File: ml_graph/DS/f1_score.jpeg Graphic file (type jpg)
 <use ml_graph/DS/f1_score.jpeg>
-Package pdftex.def Info: ml_graph/DS/f1_score.jpeg  used on input line 275.
-(pdftex.def)             Requested size: 164.05272pt x 109.37073pt.
+Package pdftex.def Info: ml_graph/DS/f1_score.jpeg  used on input line 315.
+(pdftex.def)             Requested size: 170.09244pt x 113.39357pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 276.
+(caption)                particular \caption on input line 316.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (9.79411pt too wide) in paragraph at lines 266--279
-[]$[]$  $[]$ 
+Overfull \hbox (52.02188pt too wide) in paragraph at lines 306--319
+$[]$  $[]$ 
  []
 
 
-Overfull \hbox (15.78369pt too wide) in paragraph at lines 280--325
- [] 
+Overfull \hbox (68.82454pt too wide) in paragraph at lines 325--365
+ [][] 
+ []
+
+[8]
+
+LaTeX Warning: Hyper reference `tab:Performance_Matrix_Combined' on page 9 undefined on input line 367.
+
+
+LaTeX Warning: Reference `tab:Performance_Matrix_Combined' on page 9 undefined on input line 367.
+
+
+LaTeX Warning: Hyper reference `fig:acc' on page 9 undefined on input line 367.
+
+
+LaTeX Warning: Reference `fig:acc' on page 9 undefined on input line 367.
+
+
+LaTeX Warning: Hyper reference `fig:f1_score' on page 9 undefined on input line 367.
+
+
+LaTeX Warning: Reference `fig:f1_score' on page 9 undefined on input line 367.
+
+[9 <./ml_graph/pr_re_gh/pre_re_rf.jpeg> <./ml_graph/pr_re_gh/pre_re_svm.jpeg> <./accuracy.png> <./ml_graph/DS/f1_score.jpeg>]
+
+LaTeX Warning: Citation `lee2020' on page 10 undefined on input line 387.
+
+
+Underfull \hbox (badness 2617) in paragraph at lines 392--393
+\T1/cmr/m/n/9 Ap-proaches for Early Di-ag-no-sis of
  []
 
 
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7 <./ml_graph/pr_re_gh/pre_re_rf.jpeg> <./ml_graph/pr_re_gh/pre_re_svm.jpeg> <./ml_graph/pr_re_gh/rf_precision_recall_curve_pca_colored.png> <./ml_graph/pr_re_gh/svm_precision_recall_curve_pca_colored.png> <./accuracy.png> <./ml_graph/DS/f1_score.jpeg>]
-Underfull \hbox (badness 6493) in paragraph at lines 359--360
-[]|\T1/cmr/m/n/8.03 An Eval-u-a-tion of Machine Learn-ing
+Underfull \hbox (badness 1231) in paragraph at lines 397--398
+[]|\T1/cmr/m/n/9 Machine Learning-Based Mod-els for
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 375--376
-\T1/cmr/m/n/8.03 (ASD) in Chil-dren and Adults Using
+Underfull \hbox (badness 7576) in paragraph at lines 404--404
+[]|\T1/cmr/m/n/9 Logistic Re-gres-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
-[]|\T1/cmr/m/n/8.03 Quantum-Based Machine Learn-ing
+LaTeX Warning: Citation `saranya2025' on page 10 undefined on input line 409.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
+[]|\T1/cmr/m/n/9 QSVM (with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
-[]|\T1/cmr/m/n/8.03 QSVM (with
+Overfull \hbox (37.59505pt too wide) in paragraph at lines 383--415
+ [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
-\T1/cmr/m/n/8.03 enhanced fea-ture
- []
+LaTeX Warning: Reference `tab:Comparative_Studies' on page 10 undefined on input line 416.
 
+[10]
 
-Overfull \hbox (6.34824pt too wide) in paragraph at lines 345--387
- [] 
- []
+LaTeX Warning: Citation `saranya2025' on page 11 undefined on input line 420.
 
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
-<ml_graph/EDA/Ethnicity_yes.jpeg, id=200, 722.7pt x 361.35pt>
+[11]
+<ml_graph/EDA/Ethnicity_yes.jpeg, id=96, 722.7pt x 361.35pt>
 File: ml_graph/EDA/Ethnicity_yes.jpeg Graphic file (type jpg)
 <use ml_graph/EDA/Ethnicity_yes.jpeg>
-Package pdftex.def Info: ml_graph/EDA/Ethnicity_yes.jpeg  used on input line 404.
-(pdftex.def)             Requested size: 334.79773pt x 167.39745pt.
+Package pdftex.def Info: ml_graph/EDA/Ethnicity_yes.jpeg  used on input line 432.
+(pdftex.def)             Requested size: 312.40906pt x 156.20453pt.
 
 
+LaTeX Warning: Hyper reference `fig:ethni' on page 12 undefined on input line 436.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10 <./ml_graph/EDA/Ethnicity_yes.jpeg>]
-<ml_graph/EDA/sex.jpeg, id=210, 433.62pt x 361.35pt>
+LaTeX Warning: Reference `fig:ethni' on page 12 undefined on input line 436.
+
+
+LaTeX Warning: Hyper reference `fig:gen' on page 12 undefined on input line 438.
+
+
+LaTeX Warning: Reference `fig:gen' on page 12 undefined on input line 438.
+
+<ml_graph/EDA/sex.jpeg, id=97, 433.62pt x 361.35pt>
 File: ml_graph/EDA/sex.jpeg Graphic file (type jpg)
 <use ml_graph/EDA/sex.jpeg>
-Package pdftex.def Info: ml_graph/EDA/sex.jpeg  used on input line 414.
-(pdftex.def)             Requested size: 180.46022pt x 150.382pt.
-
+Package pdftex.def Info: ml_graph/EDA/sex.jpeg  used on input line 442.
+(pdftex.def)             Requested size: 168.39244pt x 140.32494pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 416.
+(caption)                particular \caption on input line 444.
 See the caption package documentation for explanation.
 
-<ml_graph/EDA/age_chart.png, id=211, 459.6372pt x 475.5366pt>
+<ml_graph/EDA/age_chart.png, id=98, 459.6372pt x 475.5366pt>
 File: ml_graph/EDA/age_chart.png Graphic file (type png)
 <use ml_graph/EDA/age_chart.png>
-Package pdftex.def Info: ml_graph/EDA/age_chart.png  used on input line 423.
-(pdftex.def)             Requested size: 164.05272pt x 169.72731pt.
+Package pdftex.def Info: ml_graph/EDA/age_chart.png  used on input line 451.
+(pdftex.def)             Requested size: 153.08215pt x 158.37877pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 424.
+(caption)                particular \caption on input line 452.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (9.79411pt too wide) in paragraph at lines 412--427
+Overfull \hbox (52.02188pt too wide) in paragraph at lines 440--455
 []$[]$   $[]$ 
  []
 
+[12 <./ml_graph/EDA/Ethnicity_yes.jpeg>]
+
+LaTeX Warning: Hyper reference `fig:age' on page 13 undefined on input line 457.
 
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11 <./ml_graph/EDA/sex.jpeg> <./ml_graph/EDA/age_chart.png>]
+LaTeX Warning: Reference `fig:age' on page 13 undefined on input line 457.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
+LaTeX Warning: Hyper reference `tab:age-category' on page 13 undefined on input line 457.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `tab:age-category' on page 13 undefined on input line 457.
 
- [13] (asd_scientific_shorten.aux)
+
+Overfull \hbox (4.06296pt too wide) in paragraph at lines 489--490
+\T1/cmr/m/n/9 QSVM achiev-ing 82.00%, while the Vari-a-tional Quan-tum Clas-si-fier (VQC)
+ []
+
+[13 <./ml_graph/EDA/sex.jpeg> <./ml_graph/EDA/age_chart.png>] [14] [15] (asd_scientific_shorten.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
  ***********
 
 
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.985pt have occurred.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `asd_scientific_shorten.out' has not changed.
-(rerunfilecheck)             Checksum: BDE1EB83D6B55EDB36F64FE58433CA5E;3894.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `asd_scientific_shorten.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `asd_scientific_shorten.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  C4DD0350C571B8383E3D5530F65FA197;695.
  ) 
 Here is how much of TeX's memory you used:
- 16784 strings out of 468081
- 258719 string characters out of 5442623
- 702206 words of memory out of 5000000
- 45126 multiletter control sequences out of 15000+600000
- 659281 words of font info for 135 fonts, out of 8000000 for 9000
- 1151 hyphenation exceptions out of 8191
- 90i,13n,93p,972b,642s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecti1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm0800.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecbx0800.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ectt1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi662\ecbx1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecbx1200.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\tcrm1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi703\ecbx1200.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecbx1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi662\ecrm1000.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi662\ecrm0700.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi632\ecrm0800.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\ecrm1200.pk> <C:\Users\ayush\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi592\ecrm1728.pk><F:/miktex/fonts/type1/public/amsfonts/cm/cmr10.pfb><F:/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on asd_scientific_shorten.pdf (13 pages, 756233 bytes).
-PDF statistics:
- 837 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 500000)
- 203 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 15578 strings out of 474486
+ 240543 string characters out of 5760167
+ 1951542 words of memory out of 5000000
+ 37581 multiletter control sequences out of 15000+600000
+ 572701 words of font info for 74 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,10n,79p,858b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
