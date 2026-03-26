@@ -1,3 +1,4 @@
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \documentclass[runningheads]{llncs}
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
@@ -5,7 +6,7 @@
 \usepackage{multirow}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{mathrsfs}
-\usepackage{appendix} 
+\usepackage{appendix}
 \usepackage{xcolor}
 \usepackage{textcomp}
 \usepackage{manyfoot}
@@ -116,44 +117,61 @@ Our work addresses these gaps by utilizing a balanced, diverse dataset with syst
 
 \begin{figure}[!htbp]
     \centering
+    \definecolor{boxblue}{RGB}{70,130,180}
+    \definecolor{boxbluefill}{RGB}{220,235,245}
+    \definecolor{boxgreen}{RGB}{60,140,60}
+    \definecolor{boxgreenfill}{RGB}{220,240,220}
+    \definecolor{boxorange}{RGB}{210,140,50}
+    \definecolor{boxorangefill}{RGB}{250,235,210}
+    \definecolor{boxgrayborder}{RGB}{150,150,150}
+    \definecolor{boxgrayfill}{RGB}{230,230,230}
+    \definecolor{arrgray}{RGB}{130,130,130}
+    \definecolor{dashgray}{RGB}{170,170,170}
     \resizebox{\linewidth}{!}{%
     \begin{tikzpicture}[
         node distance=0.55cm and 1.8cm,
         >={Stealth[length=3pt]},
-        box/.style={rectangle, rounded corners=2pt, draw=#1!60, fill=#1!15,
-                     text width=2.6cm, minimum height=0.7cm, align=center,
-                     font=\small},
+        bluebox/.style={rectangle, rounded corners=2pt, draw=boxblue, fill=boxbluefill,
+                     text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
+        greenbox/.style={rectangle, rounded corners=2pt, draw=boxgreen, fill=boxgreenfill,
+                     text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
+        orangebox/.style={rectangle, rounded corners=2pt, draw=boxorange, fill=boxorangefill,
+                     text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
+        blackbox/.style={rectangle, rounded corners=2pt, draw=black, fill=black, text=white,
+                     text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
+        graybox/.style={rectangle, rounded corners=2pt, draw=boxgrayborder, fill=boxgrayfill,
+                     text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
         colhead/.style={font=\bfseries\small, align=center},
-        dashedbox/.style={draw=gray!60, dashed, rounded corners=4pt, inner sep=8pt},
-        arr/.style={->, thick, gray!70},
-        darr/.style={->, dashed, thick, gray!50},
+        dashedbox/.style={draw=dashgray, dashed, rounded corners=4pt, inner sep=8pt},
+        arr/.style={->, thick, arrgray},
+        darr/.style={->, dashed, thick, dashgray},
     ]
 
     % ── Dataset node ──
-    \node[box=blue, text width=2.2cm, minimum height=0.65cm,
+    \node[bluebox, text width=2.2cm, minimum height=0.65cm,
           font=\small\bfseries] (dataset) {Dataset};
 
     % ════════════════  CML column  ════════════════
     \node[colhead, below left=1.2cm and 3.6cm of dataset] (cml-title)
           {\textsf{CML}\\[-1pt]{\scriptsize(Classical ML)}};
-    \node[box=blue!80, below=0.35cm of cml-title]  (cml-raw)  {Raw Features $\mathbb{R}^{n}$};
-    \node[box=green!70!black, below=0.45cm of cml-raw]  (cml-model){Classical Model};
+    \node[bluebox, below=0.35cm of cml-title]  (cml-raw)  {Raw Features $\mathbb{R}^{n}$};
+    \node[greenbox, below=0.45cm of cml-raw]  (cml-model){Classical Model};
 
     % ════════════════  PCA-CML column  ════════════════
     \node[colhead, below=1.2cm of dataset] (pca-title)
           {\textsf{PCA--CML}\\[-1pt]{\scriptsize(PCA + Classical ML)}};
-    \node[box=blue!80, below=0.35cm of pca-title]  (pca-raw)  {Raw Features $\mathbb{R}^{n}$};
-    \node[box=blue!80, below=0.45cm of pca-raw]   (pca-red)  {PCA Reduction};
-    \node[box=green!70!black, below=0.45cm of pca-red]   (pca-model){Classical Model};
+    \node[bluebox, below=0.35cm of pca-title]  (pca-raw)  {Raw Features $\mathbb{R}^{n}$};
+    \node[bluebox, below=0.45cm of pca-raw]   (pca-red)  {PCA Reduction};
+    \node[greenbox, below=0.45cm of pca-red]   (pca-model){Classical Model};
 
     % ════════════════  QML column  ════════════════
     \node[colhead, below right=1.2cm and 3.6cm of dataset] (qml-title)
           {\textsf{QML}\\[-1pt]{\scriptsize(Quantum ML)}};
-    \node[box=blue!80, below=0.35cm of qml-title]  (qml-raw)  {Raw Features $\mathbb{R}^{n}$};
-    \node[box=blue!80, below=0.45cm of qml-raw]   (qml-red)  {PCA Reduction};
-    \node[box=orange, below=0.45cm of qml-red]   (qml-enc)  {Angle Encoding};
-    \node[box=black, text=white, below=0.45cm of qml-enc]   (qml-circ) {Quantum Circuit};
-    \node[box=gray, below=0.45cm of qml-circ]  (qml-meas) {Measurement};
+    \node[bluebox, below=0.35cm of qml-title]  (qml-raw)  {Raw Features $\mathbb{R}^{n}$};
+    \node[bluebox, below=0.45cm of qml-raw]   (qml-red)  {PCA Reduction};
+    \node[orangebox, below=0.45cm of qml-red]   (qml-enc)  {Angle Encoding};
+    \node[blackbox, below=0.45cm of qml-enc]   (qml-circ) {Quantum Circuit};
+    \node[graybox, below=0.45cm of qml-circ]  (qml-meas) {Measurement};
 
     % ── Dashed bounding boxes ──
     \begin{scope}[on background layer]
