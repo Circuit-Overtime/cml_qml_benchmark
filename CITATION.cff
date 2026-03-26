@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Predictive Analysis of Autism Spectrum Disorder Traits: Integrating Quantum Machine Learning and Exploratory Data Insights"
+type: article
+authors:
+  - family-names: Kolay
+    given-names: Subhra
+    orcid: "https://orcid.org/0009-0002-4625-5941"
+  - family-names: Samaddar
+    given-names: Srijan
+    orcid: "https://orcid.org/0009-0001-5799-016X"
+  - family-names: Bhattacharya
+    given-names: Ayushman
+    orcid: "https://orcid.org/0009-0006-5960-6308"
+  - family-names: Bhabani
+    given-names: Bidisha
+    orcid: "https://orcid.org/0000-0003-4261-1849"
+  - family-names: Das
+    given-names: Tanaya
+    orcid: "https://orcid.org/0000-0001-9196-973"
+  - family-names: Siddique
+    given-names: Sohrab
+    orcid: "https://orcid.org/0009-0000-5743-6882"
+  - family-names: Maity
+    given-names: Ilora
+    orcid: "https://orcid.org/0000-0002-8042-4123"
+year: 2025
+keywords:
+  - Autism Spectrum Disorder
+  - Quantum Machine Learning
+  - Classification
+  - HGBC
+  - QSVM
+  - Variational Quantum Classifier

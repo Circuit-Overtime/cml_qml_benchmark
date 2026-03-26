@@ -19,6 +19,8 @@
 \usepackage{placeins}
 \usepackage{float}
 \usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, fit, backgrounds}
 
 
 \begin{document}
@@ -114,7 +116,78 @@ Our work addresses these gaps by utilizing a balanced, diverse dataset with syst
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/workflow.jpg}
+    \resizebox{\linewidth}{!}{%
+    \begin{tikzpicture}[
+        node distance=0.55cm and 1.8cm,
+        >={Stealth[length=3pt]},
+        box/.style={rectangle, rounded corners=2pt, draw=#1!60, fill=#1!15,
+                     text width=2.6cm, minimum height=0.7cm, align=center,
+                     font=\small},
+        colhead/.style={font=\bfseries\small, align=center},
+        dashedbox/.style={draw=gray!60, dashed, rounded corners=4pt, inner sep=8pt},
+        arr/.style={->, thick, gray!70},
+        darr/.style={->, dashed, thick, gray!50},
+    ]
+
+    % ── Dataset node ──
+    \node[box=blue, text width=2.2cm, minimum height=0.65cm,
+          font=\small\bfseries] (dataset) {Dataset};
+
+    % ════════════════  CML column  ════════════════
+    \node[colhead, below left=1.2cm and 3.6cm of dataset] (cml-title)
+          {\textsf{CML}\\[-1pt]{\scriptsize(Classical ML)}};
+    \node[box=blue!80, below=0.35cm of cml-title]  (cml-raw)  {Raw Features $\mathbb{R}^{n}$};
+    \node[box=green!70!black, below=0.45cm of cml-raw]  (cml-model){Classical Model};
+
+    % ════════════════  PCA-CML column  ════════════════
+    \node[colhead, below=1.2cm of dataset] (pca-title)
+          {\textsf{PCA--CML}\\[-1pt]{\scriptsize(PCA + Classical ML)}};
+    \node[box=blue!80, below=0.35cm of pca-title]  (pca-raw)  {Raw Features $\mathbb{R}^{n}$};
+    \node[box=blue!80, below=0.45cm of pca-raw]   (pca-red)  {PCA Reduction};
+    \node[box=green!70!black, below=0.45cm of pca-red]   (pca-model){Classical Model};
+
+    % ════════════════  QML column  ════════════════
+    \node[colhead, below right=1.2cm and 3.6cm of dataset] (qml-title)
+          {\textsf{QML}\\[-1pt]{\scriptsize(Quantum ML)}};
+    \node[box=blue!80, below=0.35cm of qml-title]  (qml-raw)  {Raw Features $\mathbb{R}^{n}$};
+    \node[box=blue!80, below=0.45cm of qml-raw]   (qml-red)  {PCA Reduction};
+    \node[box=orange, below=0.45cm of qml-red]   (qml-enc)  {Angle Encoding};
+    \node[box=black, text=white, below=0.45cm of qml-enc]   (qml-circ) {Quantum Circuit};
+    \node[box=gray, below=0.45cm of qml-circ]  (qml-meas) {Measurement};
+
+    % ── Dashed bounding boxes ──
+    \begin{scope}[on background layer]
+      \node[dashedbox, fit=(cml-title)(cml-raw)(cml-model)] (cml-box) {};
+      \node[dashedbox, fit=(pca-title)(pca-raw)(pca-model)] (pca-box) {};
+      \node[dashedbox, fit=(qml-title)(qml-raw)(qml-meas)]  (qml-box) {};
+    \end{scope}
+
+    % ── Arrows inside columns ──
+    \draw[arr] (cml-raw)  -- (cml-model);
+
+    \draw[arr] (pca-raw)  -- (pca-red);
+    \draw[arr] (pca-red)  -- (pca-model);
+
+    \draw[arr] (qml-raw)  -- (qml-red);
+    \draw[arr] (qml-red)  -- (qml-enc);
+    \draw[arr] (qml-enc)  -- (qml-circ);
+    \draw[arr] (qml-circ) -- (qml-meas);
+
+    % ── Dashed arrows from Dataset ──
+    \draw[darr] (dataset.south) -- (cml-title.north);
+    \draw[darr] (dataset.south) -- (pca-title.north);
+    \draw[darr] (dataset.south) -- (qml-title.north);
+
+    % ── Space labels below columns ──
+    \node[font=\small, below=0.15cm of cml-box]
+          {Euclidean Space $\mathbb{R}^{n}$};
+    \node[font=\small, below=0.15cm of pca-box]
+          {PCA Subspace $\mathbb{R}^{d}$};
+    \node[font=\small, below=0.15cm of qml-box]
+          {Hilbert Space $\mathbb{C}^{2^{d}}$};
+
+    \end{tikzpicture}%
+    }% end resizebox
     \caption{Brief workflow for our execution across all the 3 categories for benchmarking.}
     \label{fig:workflow}
 \end{figure}
