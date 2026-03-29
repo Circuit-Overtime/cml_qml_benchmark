@@ -235,7 +235,7 @@ Figure~\ref{fig:pca_reduced} visualises the PCA-reduced feature space. PC1 alone
 \end{figure}
 
 \subsection{Exploratory Data Analysis} \label{sec:data_analysis}
-Prior to model training, Exploratory Data Analysis (EDA) was conducted using the demographic and categorical attributes described in Section~3.1 (age, sex, ethnicity, family history, etc.) to understand the distribution of ASD traits across different population groups. These demographic features are \emph{not} used as inputs to any of the classification models; they serve solely to characterise the study population and contextualise the prediction results. The nine clinical questionnaire features (A1--A9) are reserved exclusively for the ML and QML pipelines described in the subsequent sections.
+Prior to model training, Exploratory Data Analysis (EDA) was conducted on three demographic attributes---ethnicity, sex, and age category---to understand the distribution of ASD traits across different population groups. These demographic features are \emph{not} used as inputs to any of the classification models; they serve solely to characterise the study population and contextualise the prediction results. The nine clinical questionnaire features (A1--A9) are reserved exclusively for the ML and QML pipelines described in the subsequent sections.
 
 \subsubsection{\textbf{Distribution Based on Ethnicity}}
 \begin{figure}[ht!]
@@ -438,7 +438,7 @@ The QNB pipeline requires no iterative training of quantum parameters—only a s
 
 \section{Performance Analysis}\label{sec4}
 
-The predictive performance of the seven classification models was evaluated using standard metrics. Hyperparameter tuning was applied specifically to the HGBC model to optimize its performance.
+The predictive performance of all classical and quantum classification models was evaluated using standard metrics. Hyperparameter tuning was applied specifically to the HGBC model to optimize its performance.
 
 \subsection{Hyperparameter Tuning and Confusion Matrix Analysis}\label{sec:hptuning}
 
@@ -506,7 +506,7 @@ Minimizing FN is particularly important in medical diagnostics to reduce missed 
 \end{table}
 
 \subsubsection{Confusion Matrix Analysis: Quantum Machine Learning Models}
-Similarly, we analyzed the confusion matrices for our quantum machine learning (QML) models---VQC, QSVM, and QNB---using PCA-reduced features. Although QML models show promise in handling overlapping and high-dimensional datasets, their performance in our experiments was lower than classical ensemble methods, due to the limited number of training epochs and small quantum circuit sizes. Table~\ref{tab:qml_metrics} summarizes the confusion matrix counts for QML models.
+Similarly, we analyzed the confusion matrices for our quantum machine learning (QML) models---VQC, QSVM, and QNB---using PCA-reduced features. Although QML models show promise in handling overlapping and high-dimensional datasets, their performance in our experiments was lower than classical ensemble methods, due to shallow circuit architectures and the limited expressivity of 4-qubit systems operating on PCA-reduced features. Table~\ref{tab:qml_metrics} summarizes the confusion matrix counts for QML models.
 
 
 \begin{table}[ht]
@@ -635,10 +635,7 @@ The performance results based on accuracy, precision, recall, and F1-score are p
 
 Quantum ML models (VQC, QSVM, QNB) performed with accuracies ranging from 55--77\% and moderate F1 scores compared to classical methods. This indicates that, for this dataset, quantum models underperformed relative to classical ensemble methods, consistent with current limitations of near-term quantum circuits on moderately sized datasets.
 
-The expectation of better performance from quantum models might hold true in scenarios with more complex, overlapping, or high-dimensional data. 
-Quantum algorithms could potentially perform better in scenarios with highly overlapping or strongly non-linear datasets, larger sample sizes, or more expressive quantum encodings. Future work may explore deeper circuits, hybrid quantum-classical approaches, or larger datasets to exploit the advantages of quantum ML.
-
-Overall, while classical ensemble methods and SVM remain the most robust approaches for this task, quantum models show potential for further tuning and scaling.
+Quantum models may perform better on tasks with higher-dimensional, strongly non-linear feature spaces where classical kernels struggle, and future work could explore deeper circuits, more expressive encodings, and hybrid quantum-classical architectures to close this gap. Overall, classical ensemble methods remain the most robust approaches for structured tabular classification under current quantum hardware constraints.
 
 
 \subsection{Comparison Study}\label{sec:results}
@@ -703,14 +700,6 @@ Overall, classical ensemble models such as HGBC and Random Forest remain the mos
 
 
 \begin{thebibliography}{13}
-
-\bibitem{cdc2024}
-Centers for Disease Control and Prevention (2024) Autism Spectrum Disorder (ASD) - Data and Statistics. Accessed: 2025-04-20.
-
-
-\bibitem{lord1994}
-Lord, C., Rutter, M. and Le Couteur, A. (1994) Autism Diagnostic Interview-Revised: A revised version of a diagnostic interview for caregivers of individuals with possible pervasive developmental disorders. \emph{Journal of Autism and Developmental Disorders} \textbf{24}(5), 659--685.
-
 
 \bibitem{vakadkar2021}
 Vakadkar, K., Purkayastha, D. and Krishnan, D. (2021) Detection of Autism Spectrum Disorder in Children Using Machine Learning Techniques. \emph{SN Computer Science} \textbf{2}, 386.

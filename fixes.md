@@ -11,7 +11,7 @@
 - [x] 9. Add references in comparison table; normalize dataset names (remove author name from last row)
 - [x] 10. Clarify which part of the dataset is used for ML vs EDA
 
-## Quantum Section Overhaul
+## Quantum Section Fixes
 
 ### 11. VQC — Full circuit description + corrected figure
 - [x] 11a. Write detailed text: 4 PCA features → angle encoding via RY(π·xᵢ) on each qubit → Rot(θ₁,θ₂,θ₃) variational layer → CNOT ladder (0→1→2→3) for entanglement → measurement of PauliZ on qubit 0 → output mapped to [0,1] via (⟨Z⟩+1)/2
