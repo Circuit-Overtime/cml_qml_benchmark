@@ -218,10 +218,10 @@ The dataset used in this study comprises 3,744 instances and 17 features. Each i
 
 \begin{itemize}
     \item \textbf{Clinical Questionnaire Features (A1--A9):} Nine binary-valued columns representing responses to standardised ASD screening questions (1 = trait-indicative response, 0 = otherwise). These nine features serve as the primary input for all machine learning models.
-    \item \textbf{Demographic and Categorical Features:} Age, sex, ethnicity, country of residence, family history of ASD (\texttt{family\_mem\_with\_ASD}), method of screening (\texttt{used\_app\_before}), relation of the respondent, and the cumulative AQ score. These attributes are used exclusively for Exploratory Data Analysis (EDA) to examine the distribution of ASD traits across demographic groups (see Section~\ref{sec:data_analysis}).
+    \item \textbf{Demographic and Categorical Features:} Age, sex, ethnicity, country of residence, family history of ASD, prior use of a screening application, relation of the respondent, and the cumulative AQ score. These attributes are used exclusively for Exploratory Data Analysis (EDA) to examine the distribution of ASD traits across demographic groups (see Section~\ref{sec:data_analysis}).
 \end{itemize}
 
-The target variable \texttt{ASD\_Trait} is binary, indicating the presence~(1) or absence~(0) of ASD traits based on the clinical questionnaire responses.
+The target variable is a binary label indicating the presence~(1) or absence~(0) of ASD traits based on the clinical questionnaire responses.
 
 The nine clinical features (A1--A9) were used across three modelling tracks:
 \begin{enumerate}
@@ -294,24 +294,42 @@ The predictive performance of the seven classification models was evaluated usin
 \subsection{Hyperparameter Tuning and Confusion Matrix Analysis}\label{sec:hptuning}
 
 \subsubsection{Hyperparameter Tuning for Classical Models}
-For the Histogram Gradient Boosting Classifier (HGBC), hyperparameter tuning was conducted using \texttt{GridSearchCV} to identify optimal settings for maximizing accuracy. The hyperparameters explored included:
-\begin{itemize}
-    \item \texttt{n\_estimators}
-    \item \texttt{learning\_rate}
-    \item \texttt{max\_iter}
-    \item \texttt{max\_depth}
-    \item \texttt{min\_samples\_leaf}
-    \item \texttt{l2\_regularization}
-\end{itemize}
+For the Histogram Gradient Boosting Classifier (HGBC), hyperparameter tuning was conducted using grid search with cross-validation to identify optimal settings for maximizing accuracy. The hyperparameters explored were: number of estimators, learning rate, maximum iterations, maximum depth, minimum samples per leaf, and L2 regularisation strength.
+
+The top~10 hyperparameter combinations and their corresponding mean test accuracies are summarised in Table~\ref{tab:hparam_combos} and visualised in Fig.~\ref{fig:bestparameter}.
+
+\begin{table}[ht]
+\centering
+\caption{Top 10 Hyperparameter Combinations for HGBC}
+\label{tab:hparam_combos}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{ID} & \textbf{L2 Reg.} & \textbf{LR} & \textbf{Max Depth} & \textbf{Max Iter} & \textbf{Min Leaf} & \textbf{Accuracy (\%)} \\
+\hline
+C1  & 1.0 & 0.2  & 10 & 100 & 30 & 97.15 \\
+C2  & 1.0 & 0.1  & 10 & 100 & 30 & 97.07 \\
+C3  & 1.0 & 0.05 & 10 & 300 & 30 & 97.02 \\
+C4  & 1.0 & 0.2  & 10 & 300 & 30 & 97.01 \\
+C5  & 1.0 & 0.1  & 10 & 200 & 30 & 96.99 \\
+C6  & 1.0 & 0.2  & 10 & 200 & 30 & 96.96 \\
+C7  & 1.0 & 0.2  & 10 & 300 & 30 & 96.94 \\
+C8  & 0.0 & 0.1  & 10 & 200 & 30 & 96.91 \\
+C9  & 1.0 & 0.2  & 10 & 200 & 10 & 96.90 \\
+C10 & 1.0 & 0.05 & 10 & 300 & 20 & 96.89 \\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/hyperparameter_combination_line.png}
-    \caption{Top 10 hyperparameter combinations for HGBC based on mean test accuracy. Most top-performing configurations shared \texttt{max\_depth=10} and \texttt{min\_samples\_leaf=30}.}
+    \caption{Mean test accuracy for the top~10 hyperparameter combinations (C1--C10) of HGBC, as defined in Table~\ref{tab:hparam_combos}.}
     \label{fig:bestparameter}
 \end{figure}
 
-Fig.~\ref{fig:bestparameter} visualizes the best hyperparameter combinations. The highest accuracy (approximately 97.15\%) was achieved with a specific combination, indicating that tuning \texttt{max\_depth} and \texttt{min\_samples\_leaf} significantly influences model performance.
+The best-performing configuration (C1) achieved a mean test accuracy of approximately 97.15\% with a maximum depth of~10, minimum samples per leaf of~30, and a learning rate of~0.2. The strong performance of HGBC on this dataset can be attributed to its histogram-based binning strategy, which discretises continuous features into a fixed number of bins, reducing the computational cost of split finding from $O(N)$ to $O(B)$ where $B \ll N$ is the number of bins. This binning also acts as an implicit regulariser, preventing the model from overfitting to noise in individual feature values. Additionally, the combination of moderate tree depth (10) and a relatively high minimum leaf size (30) constrains model complexity, ensuring that each leaf node captures a statistically meaningful number of samples rather than memorising isolated instances. The L2 regularisation further penalises large leaf weights, contributing to better generalisation. These factors together allow HGBC to capture the non-linear interactions among the nine binary questionnaire features while maintaining robustness on unseen data.
 
 \subsubsection{Confusion Matrix Analysis: Classical Models}
 The confusion matrix summarizes model performance by counting 
