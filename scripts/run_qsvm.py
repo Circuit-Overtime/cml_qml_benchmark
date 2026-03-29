@@ -56,14 +56,11 @@ y_test = np.asarray(y_test, dtype=float)
 # ============================================================
 print("\nRunning QSVM (manual statevector fidelity kernel)...")
 
-try:
-    from qiskit import Aer, transpile
-    backend = Aer.get_backend("aer_simulator_statevector")
-    print("Using Qiskit Aer statevector simulator")
-except ImportError:
-    from qiskit_aer import AerSimulator
-    backend = AerSimulator(method="statevector")
-    print("Using qiskit_aer AerSimulator (statevector)")
+from qiskit import transpile
+from qiskit_aer import AerSimulator
+
+backend = AerSimulator(method="statevector")
+print("Using qiskit_aer AerSimulator (statevector)")
 
 feature_map = ZZFeatureMap(feature_dimension=4, reps=2)
 
@@ -72,9 +69,10 @@ def get_statevector(feature_array):
     """Encode a single sample into a quantum state via ZZFeatureMap."""
     param_dict = {p: float(val) for p, val in zip(feature_map.parameters, feature_array)}
     qc_num = feature_map.assign_parameters(param_dict)
+    qc_num.save_statevector()
     tqc = transpile(qc_num, backend=backend)
     result = backend.run(tqc).result()
-    sv = result.get_statevector(tqc)
+    sv = result.data()["statevector"]
     return np.asarray(sv)
 
 

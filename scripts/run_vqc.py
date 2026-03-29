@@ -57,10 +57,14 @@ n_qubits = 4
 
 try:
     dev = qml.device("lightning.gpu", wires=n_qubits)
-    print("Using PennyLane Lightning GPU")
+    print("Using PennyLane Lightning GPU (CUDA)")
 except Exception:
-    print("lightning.gpu not available, falling back to default.qubit")
-    dev = qml.device("default.qubit", wires=n_qubits)
+    try:
+        dev = qml.device("lightning.qubit", wires=n_qubits)
+        print("Using PennyLane Lightning Qubit (C++ optimized)")
+    except Exception:
+        dev = qml.device("default.qubit", wires=n_qubits)
+        print("Using default.qubit (slowest)")
 
 
 @qml.qnode(dev)
@@ -97,7 +101,7 @@ def loss_fn(w):
     return pnp.mean((preds - y_train) ** 2)
 
 
-EPOCHS = 10
+EPOCHS = 50
 
 print(f"\nTraining VQC ({EPOCHS} epochs)...")
 for epoch in tqdm(range(EPOCHS)):
