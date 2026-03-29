@@ -8,7 +8,7 @@
 - [x] 6. Proper dataset description + feature flow + train-test split explanation
 - [ ] 7. Move EDA before modelling; state what it is used for and where
 - [ ] 8. Replace VQLR with VQC; improve circuit descriptions; expand U(θ) and measurement explanations
-- [ ] 9. Add references in comparison table; normalize dataset names (remove author name from last row)
+- [x] 9. Add references in comparison table; normalize dataset names (remove author name from last row)
 - [ ] 10. Show gate usage in circuits; specify rotation axes
 - [ ] 11. Theoretically describe angle encoding and ZZFeatureMap
 - [ ] 12. Visualize: raw dataset, PCA-reduced, post-angular-encoding, 4-qubit flow
