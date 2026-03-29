@@ -210,16 +210,25 @@ Our work addresses these gaps by utilizing a balanced, diverse dataset with syst
     \label{fig:workflow}
 \end{figure}
 
-The core and basic first step towards the paper was to find and cultivate relevant data across multiple ASD datasets suited with related 
-features and attributes.
+The methodology begins with describing the dataset used in this study, followed by the pre-processing pipeline and the machine learning models applied for classification.
 
 \subsection{Dataset Description}
 
-Publicly available discrete datasets were taken in having some common binary questionnaire parameters. This was then augmented together 
-into a single dataset with A1 to A9 columns as the binary responses to the clinical questions. 
-These were the determining factors behind the response of both the datasets and the response in the last column \texttt{ASD\_Trait}
-which was our target variable. Alongside to this we had other attributes like age, sex, ethnicity, family history of ASD, and AQ scores. 
-The target variable \texttt{ASD\_Trait} was binary, indicating the presence (1) or absence (0) of ASD traits based on clinical questionnaire responses.
+The dataset used in this study comprises 3,744 instances and 17 features. Each instance corresponds to an individual screened for Autism Spectrum Disorder (ASD) traits. The features can be categorised into two groups based on their role in the pipeline:
+
+\begin{itemize}
+    \item \textbf{Clinical Questionnaire Features (A1--A9):} Nine binary-valued columns representing responses to standardised ASD screening questions (1 = trait-indicative response, 0 = otherwise). These nine features serve as the primary input for all machine learning models.
+    \item \textbf{Demographic and Categorical Features:} Age, sex, ethnicity, country of residence, family history of ASD (\texttt{family\_mem\_with\_ASD}), method of screening (\texttt{used\_app\_before}), relation of the respondent, and the cumulative AQ score. These attributes are used exclusively for Exploratory Data Analysis (EDA) to examine the distribution of ASD traits across demographic groups (see Section~\ref{sec:data_analysis}).
+\end{itemize}
+
+The target variable \texttt{ASD\_Trait} is binary, indicating the presence~(1) or absence~(0) of ASD traits based on the clinical questionnaire responses.
+
+The nine clinical features (A1--A9) were used across three modelling tracks:
+\begin{enumerate}
+    \item \textbf{Classical ML (CML):} All nine features were used directly for training classical supervised models.
+    \item \textbf{PCA-reduced CML:} Principal Component Analysis was applied to the nine features to obtain a lower-dimensional representation, and classical models were retrained on this reduced feature set.
+    \item \textbf{Quantum ML (QML):} The same PCA-reduced representation (4 principal components) was used as input to quantum models, where the reduced features were encoded into qubit rotations via angle encoding before being processed by parameterised quantum circuits.
+\end{enumerate}
 
 \subsection{Data Pre-processing}
 

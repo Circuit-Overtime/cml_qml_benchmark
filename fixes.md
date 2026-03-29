@@ -2,7 +2,7 @@
 
 - [x] 1. Section 3.1 — Rename to "Dataset Description"
 - [x] 2. Attach dataset link to the references
-- [ ] 3. Describe the usage of each data attribute
+- [x] 3. Describe the usage of each data attribute
 - [ ] 4. Parameters should be inline (not itemized)
 - [ ] 5. Add theoretical justification for HGBC's performance
 - [ ] 6. Proper dataset description + feature flow + train-test split explanation
