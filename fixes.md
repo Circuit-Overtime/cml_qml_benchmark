@@ -15,8 +15,8 @@
 
 ### 11. VQC — Full circuit description + corrected figure
 - [x] 11a. Write detailed text: 4 PCA features → angle encoding via RY(π·xᵢ) on each qubit → Rot(θ₁,θ₂,θ₃) variational layer → CNOT ladder (0→1→2→3) for entanglement → measurement of PauliZ on qubit 0 → output mapped to [0,1] via (⟨Z⟩+1)/2
-- [ ] 11b. Regenerate VQC circuit diagram from PennyLane code (current figure has incorrect black-box U(φ) and mystery R1/R2/R4 gates that don't match the code)
-- [ ] 11c. Specify: optimizer = Adam(lr=0.1), loss = MSE, epochs = 10, framework = PennyLane
+- [x] 11b. Regenerate VQC circuit diagram from PennyLane code (current figure has incorrect black-box U(φ) and mystery R1/R2/R4 gates that don't match the code)
+- [x] 11c. Specify: optimizer = Adam(lr=0.1), loss = MSE, epochs = 10, framework = PennyLane
 
 ### 12. QSVM — Full circuit description + corrected figure
 - [ ] 12a. Write detailed text: 4 PCA features → ZZFeatureMap(dim=4, reps=2) encodes data into quantum state — first layer applies H and Rz(xᵢ) on each qubit, second layer applies CNOT + Rz(π·(xᵢ−xⱼ)(xᵢ+xⱼ)) for pairwise entanglement → statevector extracted → fidelity kernel K(i,j)=|⟨ψ(xᵢ)|ψ(xⱼ)⟩|² computed → fed to classical SVC(kernel="precomputed")
