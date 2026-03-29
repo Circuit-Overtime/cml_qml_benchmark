@@ -58,33 +58,30 @@ This research presents a head-to-head comparison of Classical Machine Learning (
 
 
 \section{Introduction}\label{sec1}
-Autism Spectrum Disorder (ASD) \cite{cdc2024} is a complex developmental disorder requiring early, objective detection for timely intervention. Current medical methods rely on behavioral assessments and clinical observations \cite{lord1994}, which are often time-consuming and subjective.
-Machine Learning (ML) offers a promising alternative for ASD screening by leveraging demographic and clinical data \cite{vakadkar2021}. 
-The paper uses an augmented  dataset of 3,744 instances with 17 features upon which 9 are clinical binary questions and the others are 
-for exploratory analysis. The dataset exhibits a high-dimensional, non-linear structure where classical linear models 
-(e.g., Logistic Regression, Na\"{i}ve Bayes) performed poorly. Taking the same in account we wanted to check how the two methods or LR and NB 
-when applied with the principles of Quantum Machine Learning (QML) would perform on the same dataset. We inherit QML by incorporating
-PennyLane and Qiskit hybrid frameworks to compare the performance of both.
+Quantum Machine Learning (QML) has emerged as a potential alternative to classical supervised methods, with theoretical work suggesting that certain quantum models can exploit high-dimensional Hilbert spaces to capture non-linear feature relationships more efficiently than their classical counterparts \cite{saranya2025}. However, a critical open question remains: \emph{can near-term quantum classifiers match or exceed the performance of well-tuned classical models on real-world binary classification tasks?}
+
+This paper addresses that question through a controlled, head-to-head comparison of Classical Machine Learning (CML) and QML on a common benchmark. We adopt a clinically validated Autism Spectrum Disorder (ASD) screening dataset \cite{asddataset} comprising 3{,}744 instances and 17 features as our testbed---not to advance ASD diagnosis per se, but because the dataset offers a well-structured, near-balanced binary classification problem with both linear and non-linear feature interactions, making it an ideal proving ground for comparing the two paradigms.
+
+Seven classical supervised models---including Logistic Regression, SVM, Random Forest, and Histogram Gradient Boosting Classifier (HGBC)---are evaluated alongside three quantum models: a Variational Quantum Classifier (VQC), a Quantum Support Vector Machine (QSVM), and a Quantum Naive Bayes (QNB) hybrid. All models are trained and tested on the same data partitions, and quantum models operate on the same PCA-reduced feature space to ensure a fair comparison. The quantum circuits are implemented using PennyLane and Qiskit simulation frameworks.
 
 The key contributions of this research are:
 \begin{itemize}
-\item The work is supervised using demographic and questionnaire based data to predict ASD without neuroimaging and MRI based diagnostics.
-\item A comparative analysis of 7 supervised ML algorithms for ASD trait prediction, identifying HGBC as the best classical model and QSVM as the best quantum model.
-\item Introduction of three Quantum Machine Learning models---VQC, QSVM, and QNB---to evaluate QML's performance in capturing non-linear feature relationships.
-\item Dataset-specific insights derived from Exploratory Data Analysis (EDA) highlighting age, gender and family history distributions.
+\item A rigorous CML vs QML benchmark on a shared dataset with identical preprocessing, train-test splits, and evaluation metrics, enabling direct performance comparison.
+\item Implementation and detailed circuit-level description of three distinct quantum classifiers---VQC (trainable ansatz), QSVM (quantum kernel), and QNB (parameterless feature map)---each representing a different QML paradigm.
+\item Justification of the 4-qubit, 4-PCA-component design and analysis of how quantum angle encoding transforms classical features into Hilbert space.
+\item Exploratory Data Analysis on demographic attributes to contextualise the dataset and characterise the study population.
 \end{itemize}
 
 \section{Related Works}\label{sec2}
-The recent works in ASD diagnosis research have shown a strong shift from purely neuro-imaging-based pipelines and costly MRI procedures towards more scalable, data-driven Machine Learning (ML) approaches. This transition is largely motivated by the high financial and logistical costs associated with MRI acquisition, as well as its limited accessibility in many clinical settings. Consequently, several studies have investigated behavioral, demographic, and questionnaire-based features as viable alternatives or complements to neuro-imaging, demonstrating that such modalities can yield competitive diagnostic performance when combined with modern ML techniques.
+The application of Machine Learning to binary classification on tabular datasets is well established, and the ASD screening domain provides a representative case study. Prior work in this space can be grouped into classical and quantum approaches, both of which inform our comparative methodology.
 
+Within the classical Machine Learning (CML) domain, supervised models such as Random Forest (RF) and Support Vector Machines (SVM) have consistently achieved strong results on questionnaire-based ASD datasets \cite{vakadkar2021}. These algorithms are attractive for their robustness to noisy features and ability to model non-linear decision boundaries. However, when scaled to large sample sizes or high-dimensional feature spaces, many classical models exhibit computational complexities on the order of $O(N^2)$ or $O(N^3)$, which can limit their applicability to truly large-scale problems.
 
-Within the classical Machine Learning (CML) domain, supervised models such as Random Forest (RF) and Support Vector Machines (SVM) have repeatedly been reported to perform well on ASD classification tasks \cite{vakadkar2021}. These algorithms are particularly attractive due to their robustness to noisy features, ability to model non-linear decision boundaries, and relatively straightforward compared to deep neural networks. However, when scaled to large sample sizes or very high-dimensional feature spaces, many classical models exhibit computational complexities on the order of $O(N^2)$ or $O(N^3)$ in the number of data points $N$, leading to substantial training and inference times and limiting their applicability to truly large-scale clinical datasets.
+On the quantum side, recent theoretical work has suggested that certain QML models can achieve runtime scaling as $O(\text{poly}(\log N) \cdot \text{poly}(D))$, where $D$ denotes the feature dimension, offering a polynomial improvement over many classical counterparts \cite{saranya2025}. Quantum kernel methods \cite{havlivcek2019} and variational classifiers \cite{schuld2020} have been proposed as near-term approaches that leverage quantum feature spaces for classification, though their practical advantage on moderately sized datasets remains an open question.
 
-On the other hand Quantum Machine Learning (QML) has also shown some promising results in overcoming some shortcomings of the scaling limitations. Recent theoretical works have suggested that certain QML models can achieve runtime scaling as $O(\text{poly}(\log N) \cdot \text{poly}(D))$, where $D$ denotes the feature dimension, thereby offering a polynomial improvement in terms of the dependence on the dataset size compared to many classical counterparts \cite{saranya2025}. 
+Despite these advances, several methodological gaps persist in existing CML--QML comparisons. Many prior studies rely on relatively small or imbalanced datasets, which can bias classifiers toward majority classes and inflate performance metrics \cite{lee2020}. Others evaluate classical and quantum models under different preprocessing pipelines or train-test splits, making direct comparison unreliable.
 
-Having seen these advances, several methodological challenges still persists in the existing detection of clinical ADS via the means of ML architechture. Some prior works rely on relatively small or imbalanced datasets, which can bias classifiers toward majority classes and lead to inflated performance metrics that do not generalize well to real-world populations \cite{lee2020}.
-
-Our work addresses these gaps by utilizing a balanced, diverse dataset with systematic pre-processing and feature engineering, aiming to mitigate the issues of class imbalance and restricted feature spaces highlighted in prior studies \cite{lee2020}. This joint, carefully controlled evaluation on a heterogeneous and better-balanced dataset allows us to more rigorously assess the practical benefits and limitations of QML for ASD diagnosis, while situating our contributions within and extending the existing body of work on ASD-focused ML and QML methods \cite{vakadkar2021,saranya2025,lee2020,nogay2020}.
+Our work addresses these gaps by benchmarking CML and QML models on a shared, near-balanced dataset with identical preprocessing, stratified splits, and evaluation metrics. This controlled setup allows us to rigorously assess where quantum models stand relative to classical methods on a real-world binary classification task \cite{vakadkar2021,saranya2025,lee2020,nogay2020}.
 
 % ---------------------------------------------------------------
 % SECTION 3: METHODOLOGY
@@ -197,7 +194,7 @@ The methodology begins with describing the dataset used in this study, followed 
 The dataset used in this study comprises 3,744 instances and 17 features \cite{asddataset}. Each instance corresponds to an individual screened for Autism Spectrum Disorder (ASD) traits. The features can be categorised into two groups based on their role in the pipeline:
 
 \begin{itemize}
-    \item \textbf{Clinical Questionnaire Features (A1--A9):} Nine binary-valued columns representing responses to standardised ASD screening questions (1 = trait-indicative response, 0 = otherwise). These nine features serve as the primary input for all machine learning models.
+    \item \textbf{Clinical Questionnaire Features (A1--A9):} Nine binary-valued columns representing responses to standardised ASD screening questions (1 = ASD affected, 0 = healthy). These nine features serve as the primary input for all machine learning models.
     \item \textbf{Demographic and Categorical Features:} Age, sex, ethnicity, country of residence, family history of ASD, prior use of a screening application, relation of the respondent, and the cumulative AQ score. These attributes are used exclusively for Exploratory Data Analysis (EDA) to examine the distribution of ASD traits across demographic groups (see Section~\ref{sec:data_analysis}).
 \end{itemize}
 
