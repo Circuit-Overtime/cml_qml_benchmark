@@ -204,7 +204,16 @@ The dataset used in this study comprises 3,744 instances and 17 features \cite{a
     \item \textbf{Demographic and Categorical Features:} Age, sex, ethnicity, country of residence, family history of ASD, prior use of a screening application, relation of the respondent, and the cumulative AQ score. These attributes are used exclusively for Exploratory Data Analysis (EDA) to examine the distribution of ASD traits across demographic groups (see Section~\ref{sec:data_analysis}).
 \end{itemize}
 
-The target variable is a binary label indicating the presence~(1) or absence~(0) of ASD traits based on the clinical questionnaire responses.
+The target variable is a binary label indicating the presence~(1) or absence~(0) of ASD traits based on the clinical questionnaire responses. The dataset is near-balanced, with 1{,}991 ASD-positive and 1{,}752 ASD-negative instances.
+
+Figure~\ref{fig:raw_dataset} shows the Pearson correlation matrix of the nine clinical features together with the ASD label. Features A6 and A9 exhibit the strongest individual correlations with the target (0.55 and 0.54, respectively), while moderate inter-feature correlations (0.33--0.60) indicate redundancy that motivates the subsequent PCA reduction. The accompanying bar chart confirms the near-balanced class distribution.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/viz_raw_dataset.png}
+\caption{Left: Pearson correlation matrix of clinical questionnaire features (A1--A9) and the ASD target label. Right: class distribution showing 1{,}752 Non-ASD and 1{,}991 ASD instances.}
+\label{fig:raw_dataset}
+\end{figure}
 
 The nine clinical features (A1--A9) were used across three modelling tracks:
 \begin{enumerate}
@@ -219,7 +228,16 @@ Data pre-processing was carried out to convert the raw dataset into a form suita
 
 The dataset was split into training (80\%, 2{,}995 instances) and testing (20\%, 749 instances) subsets using stratified sampling to preserve the class distribution of the target variable across both partitions. This single train-test split was applied consistently across all three modelling tracks---CML, PCA-reduced CML, and QML---so that every model was trained and evaluated on the same data partitions, ensuring a fair comparison.
 
-For the PCA-reduced tracks, Principal Component Analysis was fitted on the training set only and then applied to both the training and testing sets. This produced a reduced representation of 4 principal components, which served as input features for both the PCA-CML models and the QML models (after angle encoding).
+For the PCA-reduced tracks, Principal Component Analysis was fitted on the training set only and then applied to both the training and testing sets. The number of retained components was set to $n=4$, which captures approximately 76\% of the total variance (Fig.~\ref{fig:pca_reduced}, right panel). This choice balances two considerations: (i)~retaining sufficient variance to preserve class-discriminative information, and (ii)~matching the number of qubits available in the quantum circuits, since each principal component is mapped one-to-one to a qubit via angle encoding. Increasing beyond 4~components yields diminishing variance gains (each additional component contributes $<$5\%) while requiring proportionally more qubits, which increases circuit depth, gate count, and simulation cost exponentially. The 4-component, 4-qubit configuration therefore represents a practical trade-off between representational fidelity and near-term quantum hardware constraints.
+
+Figure~\ref{fig:pca_reduced} visualises the PCA-reduced feature space. PC1 alone captures approximately 52\% of the total variance and provides the strongest class separation, while PC2--PC4 contribute an additional 24\% combined with progressively less discriminative power. The scatter plots reveal significant overlap between the ASD and Non-ASD classes even after dimensionality reduction, highlighting the classification challenge faced by all models operating on this representation.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/viz_pca_reduced.png}
+\caption{PCA-reduced feature space. Left: PC1 vs PC2 scatter plot coloured by class. Centre: PC3 vs PC4 scatter plot. Right: individual and cumulative explained variance for the four retained principal components.}
+\label{fig:pca_reduced}
+\end{figure}
 
 \subsection{Exploratory Data Analysis} \label{sec:data_analysis}
 Prior to model training, Exploratory Data Analysis (EDA) was conducted using the demographic and categorical attributes described in Section~3.1 (age, sex, ethnicity, family history, etc.) to understand the distribution of ASD traits across different population groups. These demographic features are \emph{not} used as inputs to any of the classification models; they serve solely to characterise the study population and contextualise the prediction results. The nine clinical questionnaire features (A1--A9) are reserved exclusively for the ML and QML pipelines described in the subsequent sections.
@@ -295,6 +313,15 @@ These include Logistic Regression \cite{hosmer2000}, Decision Trees, K-Nearest N
 Na\"{i}ve Bayes, Random Forest \cite{breiman2001}, Support Vector Machine (SVM) \cite{hearst1998}, and 
 Histogram Gradient Boosting Classifier (HGBC).
 In addition to classical models, we evaluated three Quantum Machine Learning (QML) models, each operating on the 4-component PCA-reduced feature vector. All quantum circuits use 4~qubits, one per principal component. The models differ in their encoding strategy, circuit architecture, and training procedure, as described below.
+
+The foundational step shared by VQC and QNB is angle encoding, where each PCA feature $x_i$ is mapped to a qubit via the rotation $R_Y(\pi \cdot x_i)$. Figure~\ref{fig:quantum_encoding} illustrates this mapping for all four qubits: the horizontal axis shows the PCA feature value and the vertical axis shows the resulting probability $P(|1\rangle) = \sin^2(\pi x_i / 2)$ of measuring the qubit in the $|1\rangle$ state. The sinusoidal encoding introduces a non-linear transformation of the classical features into the quantum Hilbert space, which the subsequent circuit layers (variational ansatz, entanglement, or kernel computation) then exploit for classification.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/viz_quantum_encoding.png}
+\caption{Quantum angle encoding for each of the four qubits. Each PCA feature value $x_i$ is mapped to the qubit $|1\rangle$ probability via $R_Y(\pi \cdot x_i)$, following the $\sin^2(\pi x / 2)$ curve (dashed). ASD and Non-ASD samples are coloured separately to show class overlap in the encoded space.}
+\label{fig:quantum_encoding}
+\end{figure}
 
 \subsubsection{Variational Quantum Classifier (VQC)}
 \label{sec:vqc}

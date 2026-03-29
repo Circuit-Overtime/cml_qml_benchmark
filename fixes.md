@@ -39,4 +39,4 @@
 - [x] 15c. Created draw_qnb.py for QNB circuit (scripts/draw_qnb.py) — run to generate figure
 
 ### 16. Visualizations (also high priority)
-- [ ] 16. Visualize: raw dataset, PCA-reduced, post-angular-encoding, 4-qubit flow
+- [x] 16. Visualize: raw dataset (§3.1), PCA-reduced (§3.2), quantum angle encoding (§3.4) — all 3 figures added to paper
