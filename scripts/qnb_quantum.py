@@ -63,7 +63,7 @@ except Exception:
     dev = qml.device("default.qubit", wires=n_qubits)
 
 
-n_layers = 3  # data re-uploading depth
+n_layers = 6  # data re-uploading depth
 
 
 @qml.qnode(dev)
@@ -71,17 +71,19 @@ def qnb_circuit(x):
     x = pnp.array(x, dtype=float)
 
     for layer in range(n_layers):
-        # Amplitude Encoding — RY(pi * x_i)
+        scale = (layer + 1)  # multi-scale: 1, 2, 3, 4, 5, 6
+
+        # Amplitude Encoding — RY with layer-dependent scaling
         for i in range(n_qubits):
-            qml.RY(np.pi * x[i], wires=i)
+            qml.RY(np.pi * x[i] * scale, wires=i)
 
         # Entangling Layer — CNOT ring
         for i in range(n_qubits):
             qml.CNOT(wires=[i, (i + 1) % n_qubits])
 
-        # Phase Encoding — RZ(pi * x_i)
+        # Phase Encoding — RZ with layer-dependent scaling
         for i in range(n_qubits):
-            qml.RZ(np.pi * x[i], wires=i)
+            qml.RZ(np.pi * x[i] * scale, wires=i)
 
     # Measurement — probability distribution over all 2^4 = 16 basis states
     return qml.probs(wires=range(n_qubits))
