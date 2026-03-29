@@ -104,6 +104,7 @@ Our work addresses these gaps by benchmarking CML and QML models on a shared, ne
     \definecolor{boxgrayfill}{RGB}{230,230,230}
     \definecolor{arrgray}{RGB}{130,130,130}
     \definecolor{dashgray}{RGB}{170,170,170}
+    \definecolor{boxred}{RGB}{234,126,126}
     \resizebox{\linewidth}{!}{%
     \begin{tikzpicture}[
         node distance=0.55cm and 1.8cm,
@@ -114,7 +115,7 @@ Our work addresses these gaps by benchmarking CML and QML models on a shared, ne
                      text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
         orangebox/.style={rectangle, rounded corners=2pt, draw=boxorange, fill=boxorangefill,
                      text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
-        blackbox/.style={rectangle, rounded corners=2pt, draw=black, fill=black, text=white,
+        redbox/.style={rectangle, rounded corners=2pt, draw=red, fill=boxred, text=white,
                      text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
         graybox/.style={rectangle, rounded corners=2pt, draw=boxgrayborder, fill=boxgrayfill,
                      text width=2.6cm, minimum height=0.7cm, align=center, font=\small},
@@ -147,7 +148,7 @@ Our work addresses these gaps by benchmarking CML and QML models on a shared, ne
     \node[bluebox, below=0.35cm of qml-title]  (qml-raw)  {Raw Features $\mathbb{R}^{n}$};
     \node[bluebox, below=0.45cm of qml-raw]   (qml-red)  {PCA Reduction};
     \node[orangebox, below=0.45cm of qml-red]   (qml-enc)  {Angle Encoding};
-    \node[blackbox, below=0.45cm of qml-enc]   (qml-circ) {Quantum Circuit};
+    \node[redbox, below=0.45cm of qml-enc]   (qml-circ) {Quantum Circuit};
     \node[graybox, below=0.45cm of qml-circ]  (qml-meas) {Measurement};
 
     % ── Dashed bounding boxes ──
