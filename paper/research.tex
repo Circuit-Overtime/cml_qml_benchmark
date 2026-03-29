@@ -336,12 +336,42 @@ The 12~variational parameters are optimised using the Adam optimiser (learning r
 \subsubsection{Quantum Support Vector Machine (QSVM)}
 \label{sec:qsvm}
 
-TODO: QSVM description.
+The QSVM \cite{havlivcek2019} replaces the classical kernel of a Support Vector Machine with a quantum kernel computed from quantum states. Unlike the VQC, the QSVM has \emph{no trainable quantum parameters}; the quantum circuit is used solely to encode data into a high-dimensional Hilbert space, and the classification itself is performed by a classical SVC. The model was implemented using Qiskit with the Aer statevector simulator.
+
+\paragraph{(i) Data Encoding via ZZFeatureMap.}
+Each 4-dimensional PCA feature vector $\mathbf{x} = (x_0, x_1, x_2, x_3)$ is encoded into a 4-qubit quantum state using the \texttt{ZZFeatureMap} \cite{havlivcek2019} with 2~repetitions. A single repetition of the map consists of two layers:
+
+\begin{enumerate}
+\item \textbf{Single-qubit layer:} A Hadamard gate followed by a $R_Z$ rotation is applied to each qubit:
+\begin{equation}
+U_{\Phi_i}(x_i) \;=\; R_Z(2\,x_i)\;H
+\end{equation}
+The Hadamard creates a uniform superposition, and the $R_Z$ rotation imprints the feature value as a phase on qubit~$i$.
+
+\item \textbf{Two-qubit entangling layer:} For every pair of qubits $(i, j)$ with $i < j$, a CNOT--$R_Z$--CNOT sequence encodes pairwise feature interactions:
+\begin{equation}
+U_{\Phi_{\{i,j\}}} \;=\; \text{CNOT}_{i,j}\;\; R_Z\!\bigl(2\,(\pi - x_i)(\pi - x_j)\bigr)\;\; \text{CNOT}_{i,j}
+\end{equation}
+This effectively applies the unitary $e^{i\,(\pi - x_i)(\pi - x_j)\,Z_i Z_j}$, entangling pairs of qubits with a phase that depends on the product of their feature values.
+\end{enumerate}
+
+With \texttt{reps=2}, this two-layer block is applied twice in succession, increasing the expressibility of the encoding by allowing the quantum state to explore a richer region of the $2^4 = 16$-dimensional Hilbert space.
+
+\paragraph{(ii) Quantum Kernel Computation.}
+For each data point $\mathbf{x}$, the feature map produces a quantum state $|\psi(\mathbf{x})\rangle = U_{\Phi}(\mathbf{x})\,|0\rangle^{\otimes 4}$. The statevector is extracted from the simulator and the quantum kernel is defined as the fidelity between pairs of encoded states:
+\begin{equation}
+K(\mathbf{x}_i, \mathbf{x}_j) \;=\; \bigl|\langle\psi(\mathbf{x}_i)\,|\,\psi(\mathbf{x}_j)\rangle\bigr|^2
+\label{eq:quantum_kernel}
+\end{equation}
+This kernel measures the overlap between two quantum states: if two data points produce similar quantum states, their kernel value is close to~1; if they map to nearly orthogonal states, the value approaches~0. This is analogous to the classical kernel trick, but the mapping is into a Hilbert space whose dimension grows exponentially with the number of qubits.
+
+\paragraph{(iii) Classical SVM Classification.}
+The full kernel matrix $K_{ij}$ is precomputed for all training and test samples, and a classical SVC with \texttt{kernel="precomputed"} is trained on the quantum kernel matrix. The SVM finds the optimal separating hyperplane in the quantum feature space without ever explicitly constructing the high-dimensional feature vectors.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.7\linewidth]{figures/QSVM.jpg}
-\caption{Quantum circuit for the ZZFeatureMap used in the QSVM kernel.}
+\caption{Quantum circuit for the ZZFeatureMap ($\text{reps}=2$) used in the QSVM. Each repetition applies $H$--$R_Z(2x_i)$ on each qubit, followed by CNOT--$R_Z(2(\pi-x_i)(\pi-x_j))$--CNOT entangling gates on all qubit pairs. The output statevector is used to compute the fidelity kernel.}
 \label{fig:QSVM}
 \end{figure}
 
