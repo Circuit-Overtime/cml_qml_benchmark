@@ -1,36 +1,36 @@
-import pennylane as qml
-from pennylane import numpy as pnp
+from qiskit import QuantumCircuit
 import numpy as np
 import matplotlib.pyplot as plt
 
 n_qubits = 4
-n_layers = 3
-dev = qml.device("default.qubit", wires=n_qubits)
+n_layers = 6
+dummy_x = [0.3, 0.5, 0.7, 0.9]
 
+qc = QuantumCircuit(n_qubits)
 
-@qml.qnode(dev)
-def qnb_circuit(x):
-    for layer in range(n_layers):
-        # Amplitude Encoding — RY(π·xᵢ)
-        for i in range(n_qubits):
-            qml.RY(np.pi * x[i], wires=i)
+for layer in range(n_layers):
+    scale = layer + 1
 
-        # Entangling Layer — CNOT ring
-        for i in range(n_qubits):
-            qml.CNOT(wires=[i, (i + 1) % n_qubits])
+    # Amplitude Encoding — RY(π·xᵢ·scale)
+    for i in range(n_qubits):
+        qc.ry(np.pi * dummy_x[i] * scale, i)
 
-        # Phase Encoding — RZ(π·xᵢ)
-        for i in range(n_qubits):
-            qml.RZ(np.pi * x[i], wires=i)
+    # Entangling Layer — CNOT ring
+    for i in range(n_qubits):
+        qc.cx(i, (i + 1) % n_qubits)
 
-    # Measurement — probability distribution
-    return qml.probs(wires=range(n_qubits))
+    # Phase Encoding — RZ(π·xᵢ·scale)
+    for i in range(n_qubits):
+        qc.rz(np.pi * dummy_x[i] * scale, i)
 
+    # Visual separator between layers
+    if layer < n_layers - 1:
+        qc.barrier()
 
-dummy_x = pnp.array([0.3, 0.5, 0.7, 0.9])
+qc.measure_all()
 
-fig, ax = qml.draw_mpl(qnb_circuit, style="pennylane")(dummy_x)
-fig.set_size_inches(18, 5)
+fig = qc.draw("mpl", style="iqp", fold=20)
+fig.set_size_inches(14, 16)
 fig.savefig("paper/figures/QNB_circuit.png", dpi=300, bbox_inches="tight")
 print("Saved → paper/figures/QNB_circuit.png")
 plt.close()

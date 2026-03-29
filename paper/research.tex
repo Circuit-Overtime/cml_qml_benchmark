@@ -54,7 +54,7 @@ University of Luxembourg, Luxembourg City, Luxembourg\\
 \textbf{Abstract}
 \end{center}
 \abstract{
-This research presents a comparative study of classical and Quantum Machine Learning (QML) approaches for predicting Autism Spectrum Disorder (ASD) traits, where early and objective diagnosis is critical. Seven classical supervised models---including Logistic Regression, SVM, Random Forest, and Histogram Gradient Boosting Classifier (HGBC)---were evaluated on a dataset of 3,744 instances alongside three quantum models: Variational Quantum Classifier (VQC), Quantum Support Vector Machine (QSVM), and Quantum Naive Bayes (QNB). Classical models were additionally evaluated on PCA-reduced features. Among all models, HGBC achieved the highest performance with 97.86\% accuracy, 98.48\% precision, 97.50\% recall, and a 97.90\% F1-score. Among quantum models, QNB achieved the best accuracy at 93.24\%. Exploratory Data Analysis on demographic attributes revealed higher ASD trait prevalence in children (60.57\%) and males, along with patterns related to ethnicity and family history. The results demonstrate that classical ensemble methods remain highly effective for ASD prediction on this dataset, while QML approaches offer a promising direction for future work on more complex, high-dimensional feature spaces.
+This research presents a comparative study of classical and Quantum Machine Learning (QML) approaches for predicting Autism Spectrum Disorder (ASD) traits, where early and objective diagnosis is critical. Seven classical supervised models---including Logistic Regression, SVM, Random Forest, and Histogram Gradient Boosting Classifier (HGBC)---were evaluated on a dataset of 3,744 instances alongside three quantum models: Variational Quantum Classifier (VQC), Quantum Support Vector Machine (QSVM), and Quantum Naive Bayes (QNB). Classical models were additionally evaluated on PCA-reduced features. Among all models, HGBC achieved the highest performance with 97.86\% accuracy, 98.48\% precision, 97.50\% recall, and a 97.90\% F1-score. Among quantum models, QSVM achieved the best accuracy at 82.00\%. Exploratory Data Analysis on demographic attributes revealed higher ASD trait prevalence in children (60.57\%) and males, along with patterns related to ethnicity and family history. The results demonstrate that classical ensemble methods remain highly effective for ASD prediction on this dataset, while QML approaches offer a promising direction for future work on more complex, high-dimensional feature spaces.
 } \\
 \textbf{Keywords:}
 \keywords{Autism Spectrum Disorder (ASD), Quantum Machine Learning, Classification Algorithms, HGBC, QSVM, Variational Quantum Classifier}
@@ -378,22 +378,22 @@ The full kernel matrix $K_{ij}$ is precomputed for all training and test samples
 \subsubsection{Quantum Naive Bayes (QNB)}
 \label{sec:qnb}
 
-The Quantum Naive Bayes (QNB) model is a hybrid quantum-classical classifier that uses a parameterless quantum circuit as a non-linear feature transformer, whose outputs are then classified by a classical Gaussian Naive Bayes estimator. Unlike VQC, the quantum circuit contains \emph{no trainable parameters}; unlike QSVM, it does not compute a kernel matrix but instead produces transformed feature vectors directly. The circuit employs \emph{data re-uploading}~\cite{perez2020}, repeating the encoding--entanglement block $L=3$ times to increase expressivity, and measures the full $2^4=16$-dimensional probability distribution rather than individual qubit expectations.
+The Quantum Naive Bayes (QNB) model is a hybrid quantum-classical classifier that uses a parameterless quantum circuit as a non-linear feature transformer, whose outputs are then classified by a classical Gaussian Naive Bayes estimator. Unlike VQC, the quantum circuit contains \emph{no trainable parameters}; unlike QSVM, it does not compute a kernel matrix but instead produces transformed feature vectors directly. The circuit employs \emph{data re-uploading}~\cite{perez2020} with \emph{multi-scale encoding}, repeating the encoding--entanglement block $L=6$ times with layer-dependent scaling factors to increase expressivity, and measures the full $2^4=16$-dimensional probability distribution rather than individual qubit expectations.
 
 \paragraph{Encoding--Entanglement Block.}
-Each of the $L=3$ layers applies three sub-stages in sequence. First, amplitude encoding via $R_Y$ rotations:
+Each of the $L=6$ layers applies three sub-stages in sequence with a layer-dependent scale factor $s_\ell = \ell$ (for $\ell = 1,\ldots,6$). First, amplitude encoding via $R_Y$ rotations:
 \begin{equation}
-U_{\text{amp}}^{(\ell)} = \bigotimes_{i=0}^{3} R_Y(\pi \cdot x_i),
+U_{\text{amp}}^{(\ell)} = \bigotimes_{i=0}^{3} R_Y(\pi \cdot x_i \cdot s_\ell),
 \end{equation}
 followed by a CNOT ring that entangles all four qubits with wrap-around connectivity:
 \begin{equation}
 U_{\text{ent}} = \text{CNOT}_{3 \to 0} \cdot \text{CNOT}_{2 \to 3} \cdot \text{CNOT}_{1 \to 2} \cdot \text{CNOT}_{0 \to 1},
 \end{equation}
-and finally phase encoding via $R_Z$ rotations:
+and finally phase encoding via $R_Z$ rotations at the same scale:
 \begin{equation}
-U_{\text{phase}}^{(\ell)} = \bigotimes_{i=0}^{3} R_Z(\pi \cdot x_i).
+U_{\text{phase}}^{(\ell)} = \bigotimes_{i=0}^{3} R_Z(\pi \cdot x_i \cdot s_\ell).
 \end{equation}
-The ring topology ensures that every qubit is entangled with its neighbours, enabling the circuit to capture pairwise feature interactions that a classical Naive Bayes model (which assumes feature independence) cannot represent on its own. Repeating this block $L$ times with the same data (data re-uploading) allows the quantum state to express increasingly non-linear functions of the input features, analogous to adding hidden layers in a neural network.
+The ring topology ensures that every qubit is entangled with its neighbours, enabling the circuit to capture pairwise feature interactions that a classical Naive Bayes model (which assumes feature independence) cannot represent on its own. The multi-scale factors $(1\times, 2\times, \ldots, 6\times)$ cause each re-uploading layer to encode the data at a different frequency, creating a Fourier-like expansion in Hilbert space that increases the circuit's representational capacity beyond uniform re-uploading.
 
 \paragraph{Measurement.}
 After all $L$ layers, the circuit measures the computational-basis probability distribution:
@@ -410,7 +410,7 @@ The QNB pipeline requires no iterative training of quantum parameters—only a s
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/QNB_circuit.png}
-\caption{Quantum circuit for the Quantum Naive Bayes (QNB) model. Each of the $L=3$ data re-uploading layers applies $R_Y(\pi \cdot x_i)$ amplitude encoding, a CNOT ring for entanglement, and $R_Z(\pi \cdot x_i)$ phase encoding. The final measurement yields a 16-dimensional probability vector fed to a classical Gaussian Naive Bayes classifier.}
+\caption{Quantum circuit for the Quantum Naive Bayes (QNB) model. Each of the $L=6$ data re-uploading layers applies $R_Y(\pi \cdot x_i \cdot s_\ell)$ amplitude encoding, a CNOT ring for entanglement, and $R_Z(\pi \cdot x_i \cdot s_\ell)$ phase encoding with multi-scale factors $s_\ell = 1,\ldots,6$. The final measurement yields a 16-dimensional probability vector fed to a classical Gaussian Naive Bayes classifier.}
 \label{fig:QNB}
 \end{figure}
     
@@ -497,12 +497,12 @@ Similarly, we analyzed the confusion matrices for our quantum machine learning (
 \midrule
 VQC  & 195 & 40 & 85 & 165 \\
 QSVM & 210 & 25 & 90 & 170 \\
-QNB  & 826 & 25 & 50 & 200 \\
+QNB  & 207 & 144 & 131 & 267 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-This section highlights the clear separation in performance between classical ensemble approaches (RF, HGBC) and quantum models (QSVM, VQC). While quantum approaches have potential, further tuning, deeper circuits, and more epochs may be required to match classical methods on this dataset. Due to preprocessing and model-specific data filtering, Q$\rightarrow$NB was evaluated on a larger effective test set, leading to higher absolute confusion-matrix values; comparative evaluation is therefore based on normalized performance metrics \cite{bishop2006}.
+This section highlights the clear separation in performance between classical ensemble approaches (RF, HGBC) and quantum models (QSVM, VQC, QNB). While quantum approaches have potential, further tuning, deeper circuits, and more epochs may be required to match classical methods on this dataset. All three quantum models were evaluated on the same PCA-reduced test set (749 samples) using the identical 80/20 stratified split \cite{bishop2006}.
 
 The quantum machine learning models used in this study are illustrated in the diagrams. Figure~\ref{fig:VQC} shows the circuit structure of the Variational Quantum Classifier implemented with a four-qubit variational ansatz. Figure~\ref{fig:QSVM} represents the quantum feature map and kernel circuit used in the Quantum Support Vector Machine model. Figure~\ref{fig:QNB} illustrates the hybrid quantum-classical circuit used in the Quantum Naive Bayes approach.
 
@@ -603,7 +603,7 @@ Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\re
           \hline
           16 & QSVM & 82.00 & 92.00 & 96.00 & 85.33 \\
           \hline
-          17 & Q->NB & 93.24 & 88.97 & 80.14 & 84.2 \\
+          17 & Q->NB & 63.28 & 64.96 & 67.09 & 66.01 \\
           \hline
     \end{tabular}
     \label{tab:Performance_Matrix_Combined}
@@ -611,7 +611,7 @@ Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\re
 
 The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:Performance_Matrix_Combined]{Table~\ref{tab:Performance_Matrix_Combined}}. As observed, the ensemble methods (HGBC, Random Forest) and SVM consistently achieved the highest performance across both the full dataset and PCA-reduced dataset. The accuracy of different classification techniques has been presented in a visual representation in \hyperref[fig:acc]{Fig.~\ref{fig:acc}} followed by the F1- Score of the classical classification models in \hyperref[fig:f1_score]{Fig.~\ref{fig:f1_score}}.
 
-Quantum ML models (VQC, QSVM, Q->NB) performed with accuracies ranging from 80--90\% and moderate F1 scores compared to classical methods. This indicates that, for this dataset, quantum models did perform at par with classical models.
+Quantum ML models (VQC, QSVM, Q->NB) performed with accuracies ranging from 63--82\% and moderate F1 scores compared to classical methods. This indicates that, for this dataset, quantum models underperformed relative to classical ensemble methods, consistent with current limitations of near-term quantum circuits on moderately sized datasets.
 
 The expectation of better performance from quantum models might hold true in scenarios with more complex, overlapping, or high-dimensional data. 
 Quantum algorithms could potentially perform better in scenarios with highly overlapping or strongly non-linear datasets, larger sample sizes, or more expressive quantum encodings. Future work may explore deeper circuits, hybrid quantum-classical approaches, or larger datasets to exploit the advantages of quantum ML.
@@ -663,7 +663,7 @@ Several prior studies are affected by class imbalance, limited feature diversity
 
 The higher QSVM accuracy reported in \cite{saranya2025} can be attributed to an enhanced, dataset-specific feature set and a relatively small, well-structured dataset, which improved class separability and kernel effectiveness. Our QML experiments, conducted on PCA-reduced features from a larger and more overlapping dataset, faced greater classification complexity, limiting achievable performance. This suggests that quantum models are most effective in structured, lower-dimensional, and well-separated feature spaces, and may benefit from hybrid classical--quantum pipelines.
 
-Finally, this work does not evaluate real quantum hardware. All QML experiments were performed using Pennylane-based simulations, providing a realistic benchmark under near-term hardware constraints rather than demonstrating performance on physical quantum devices.
+Finally, this work does not evaluate real quantum hardware. All QML experiments were performed using PennyLane (VQC, QNB) and Qiskit Aer (QSVM) quantum simulators, providing a realistic benchmark under near-term hardware constraints rather than demonstrating performance on physical quantum devices.
 
 
 \section{Conclusion}
@@ -671,7 +671,7 @@ Finally, this work does not evaluate real quantum hardware. All QML experiments 
 
 This study systematically compared classical supervised machine learning models with Quantum Machine Learning (QML) approaches for ASD trait prediction on non-linear datasets. Among classical methods, the Histogram Gradient Boosting Classifier (HGBC) achieved the strongest overall performance, reaching 97.86\% accuracy and consistently outperforming other baselines.
 
-Within the quantum models, both Quantum Support Vector Machine (QSVM) and Quantum Feature Map for Naive Bayes (Q$\rightarrow$NB) demonstrated competitive results, with Q$\rightarrow$NB achieving 93.24\% accuracy and QSVM achieving 82.00\%, while the Variational Quantum Classifier (VQC) showed comparatively lower performance (74.50\%). These results indicate that, with optimized quantum encodings and suitable hardware, QML approaches hold potential for modeling complex non-linear relationships even at smaller scales.
+Within the quantum models, QSVM achieved the highest quantum accuracy at 82.00\%, followed by VQC at 74.50\% and Q$\rightarrow$NB at 63.28\%. The lower QNB performance reflects the inherent limitation of parameterless quantum feature maps: without trainable circuit parameters, the quantum transformation relies entirely on fixed data encoding and entanglement to separate classes, which proves insufficient on PCA-reduced features. These results indicate that, with optimized quantum encodings and suitable hardware, QML approaches hold potential for modeling complex non-linear relationships even at smaller scales.
 
 Exploratory Data Analysis further revealed higher ASD trait prevalence in children (60.57\%) and males, along with demographic patterns related to ethnicity and family history, highlighting the multifactorial nature of ASD.
 

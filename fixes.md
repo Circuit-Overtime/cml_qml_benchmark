@@ -29,9 +29,9 @@
 - [x] 13c. Created draw_qnb.py to regenerate QNB circuit diagram from PennyLane code
 
 ### 14. Theoretical descriptions (applies across all 3)
-- [ ] 14a. Angle encoding theory: explain RY(π·xᵢ)|0⟩ = cos(πxᵢ/2)|0⟩ + sin(πxᵢ/2)|1⟩, why it maps normalized features to qubit amplitudes
-- [ ] 14b. ZZFeatureMap theory: explain the two-local encoding U_Φ(x) = exp(i·Σφ({i,j})·ZᵢZⱼ)·exp(i·Σφ(i)·Zᵢ)·H⊗n, how reps=2 increases expressibility
-- [ ] 14c. Measurement theory: explain PauliZ expectation ⟨ψ|Z|ψ⟩ ∈ [−1,1], how it's mapped to class probability
+- [x] 14a. Angle encoding theory — covered in VQC §(i): RY(π·xᵢ)|0⟩ equation + Bloch sphere explanation
+- [x] 14b. ZZFeatureMap theory — covered in QSVM §(i): H+Rz layer, CNOT-Rz-CNOT entangling, reps=2 expressibility
+- [x] 14c. Measurement theory — covered in VQC §(iii): ⟨Z₀⟩ ∈ [−1,1], rescaled (⟨Z⟩+1)/2 ∈ [0,1]
 
 ### 15. Regenerate all 3 circuit figures
 - [x] 15a. Use PennyLane qml.draw() for VQC circuit → save as figure (scripts/draw_vqc.py)
