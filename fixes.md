@@ -5,7 +5,7 @@
 - [x] 3. Describe the usage of each data attribute
 - [x] 4. Parameters should be inline (not itemized)
 - [x] 5. Add theoretical justification for HGBC's performance
-- [ ] 6. Proper dataset description + feature flow + train-test split explanation
+- [x] 6. Proper dataset description + feature flow + train-test split explanation
 - [ ] 7. Move EDA before modelling; state what it is used for and where
 - [ ] 8. Replace VQLR with VQC; improve circuit descriptions; expand U(θ) and measurement explanations
 - [ ] 9. Add references in comparison table; normalize dataset names (remove author name from last row)

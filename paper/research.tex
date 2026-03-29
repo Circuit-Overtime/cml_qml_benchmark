@@ -232,14 +232,11 @@ The nine clinical features (A1--A9) were used across three modelling tracks:
 
 \subsection{Data Pre-processing}
 
-Data pre-processing was crucial for preparing the raw dataset for model training \cite{kotsiantis2006}. Steps included:
-\begin{itemize}
-    \item \textbf{Initial approach:} The responses were in the form of "YES" or "NO" strings and they were encoded to numerical labels.
-    \item \textbf{Categorical Variables Encoding:} Label-based encoding was applied to categorical attributes for mathematical consistency.
-    \item \textbf{Feature Scaling:} Numerical features were normalized using Min-Max Scaling to the range [0,1].
-    \item \textbf{Data Split:} The dataset was divided into training (80\%) and testing (20\%) subsets.
-    \item \textbf{Dimensionality Reduction for Classical ML (CML):} PCA was evaluated experimentally to analyze model performance under reduced feature representations.
-\end{itemize}
+Data pre-processing was carried out to convert the raw dataset into a form suitable for model training \cite{kotsiantis2006}. The binary questionnaire responses (A1--A9), originally stored as ``YES''/``NO'' strings, were encoded to numerical labels (1/0). Categorical demographic attributes such as sex, ethnicity, and relation were transformed using label-based encoding for mathematical consistency. Numerical features were then normalised using Min-Max Scaling to the range $[0,1]$.
+
+The dataset was split into training (80\%, 2{,}995 instances) and testing (20\%, 749 instances) subsets using stratified sampling to preserve the class distribution of the target variable across both partitions. This single train-test split was applied consistently across all three modelling tracks---CML, PCA-reduced CML, and QML---so that every model was trained and evaluated on the same data partitions, ensuring a fair comparison.
+
+For the PCA-reduced tracks, Principal Component Analysis was fitted on the training set only and then applied to both the training and testing sets. This produced a reduced representation of 4 principal components, which served as input features for both the PCA-CML models and the QML models (after angle encoding).
 
 % ---------------------------------------------------------------
 % Fix 2: Removed \FloatBarrier before the three QML circuit
