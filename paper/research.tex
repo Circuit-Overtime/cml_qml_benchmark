@@ -294,34 +294,67 @@ The chosen models are standard in classification tasks and were suitable given t
 These include Logistic Regression \cite{hosmer2000}, Decision Trees, K-Nearest Neighbors (KNN), 
 Na\"{i}ve Bayes, Random Forest \cite{breiman2001}, Support Vector Machine (SVM) \cite{hearst1998}, and 
 Histogram Gradient Boosting Classifier (HGBC).
-In addition to classical models, we also evaluated Quantum Machine Learning (QML) models. This included a Variational Quantum Classifier (VQC)
-\cite{schuld2020}, a Quantum Support Vector Machine (QSVM) using quantum kernel estimation \cite{havlivcek2019}. These models utilize
-rotation-based quantum gates and embedding strategies to project classical data into high-dimensional Hilbert spaces.
+In addition to classical models, we evaluated three Quantum Machine Learning (QML) models, each operating on the 4-component PCA-reduced feature vector. All quantum circuits use 4~qubits, one per principal component. The models differ in their encoding strategy, circuit architecture, and training procedure, as described below.
+
+\subsubsection{Variational Quantum Classifier (VQC)}
+\label{sec:vqc}
+
+The VQC \cite{schuld2020} is a hybrid quantum--classical model implemented in PennyLane. The circuit consists of three stages (Fig.~\ref{fig:VQC}):
+
+\paragraph{(i) Angle Encoding.}
+Each of the 4~PCA features $x_i \in [0,1]$ is encoded into a qubit via a single-qubit $R_Y$ rotation:
+\begin{equation}
+R_Y(\pi \cdot x_i)\,|0\rangle \;=\; \cos\!\Bigl(\frac{\pi x_i}{2}\Bigr)|0\rangle \;+\; \sin\!\Bigl(\frac{\pi x_i}{2}\Bigr)|1\rangle
+\label{eq:angle_encoding}
+\end{equation}
+This maps each normalised feature value to the amplitude of a qubit state on the Bloch sphere. A value of $x_i = 0$ leaves the qubit in $|0\rangle$, while $x_i = 1$ rotates it to $|1\rangle$, with intermediate values producing superpositions proportional to the feature magnitude.
+
+\paragraph{(ii) Variational Ansatz.}
+A parameterised layer of general single-qubit rotations is applied to each qubit:
+\begin{equation}
+\text{Rot}(\theta_1, \theta_2, \theta_3) \;=\; R_Z(\theta_3)\,R_Y(\theta_2)\,R_Z(\theta_1)
+\end{equation}
+This provides 3~trainable parameters per qubit (12~total). Following the rotations, a CNOT ladder ($q_0 \!\to\! q_1 \!\to\! q_2 \!\to\! q_3$) entangles neighbouring qubits, allowing the circuit to capture correlations between encoded features.
+
+\paragraph{(iii) Measurement.}
+The expectation value of the Pauli-$Z$ operator on qubit~0 is measured:
+\begin{equation}
+\hat{y} \;=\; \frac{\langle\psi|Z_0|\psi\rangle + 1}{2} \;\in\; [0,1]
+\end{equation}
+The raw expectation $\langle Z_0\rangle \in [-1, +1]$ is linearly rescaled to $[0,1]$ to serve as the predicted class probability. A threshold of 0.5 determines the binary classification output.
+
+\paragraph{Training.}
+The 12~variational parameters are optimised using the Adam optimiser (learning rate $= 0.1$) over 10~epochs, minimising the mean squared error between the predicted probabilities and the true labels.
 
 \begin{figure}[!htbp]
 \centering
-\begin{minipage}{0.48\textwidth}
-\centering
-\includegraphics[width=0.9\linewidth]{figures/VQC.jpg}
-\caption{Quantum circuit representing a 4-qubit Variational Quantum Classifier (VQC).}
+\includegraphics[width=0.7\linewidth]{figures/VQC.jpg}
+\caption{Quantum circuit for the 4-qubit Variational Quantum Classifier (VQC). Stage~1: $R_Y(\pi x_i)$ angle encoding. Stage~2: $\text{Rot}(\theta_1,\theta_2,\theta_3)$ variational rotations followed by a CNOT entangling ladder. Stage~3: Pauli-$Z$ measurement on qubit~0.}
 \label{fig:VQC}
-\end{minipage}
-\hfill
-\begin{minipage}{0.48\textwidth}
+\end{figure}
+
+\subsubsection{Quantum Support Vector Machine (QSVM)}
+\label{sec:qsvm}
+
+TODO: QSVM description.
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.95\linewidth]{figures/QSVM.jpg}
-\caption{Quantum circuit representing a 4-qubit Quantum Support Vector Machine (QSVM).}
+\includegraphics[width=0.7\linewidth]{figures/QSVM.jpg}
+\caption{Quantum circuit for the ZZFeatureMap used in the QSVM kernel.}
 \label{fig:QSVM}
-\end{minipage}
+\end{figure}
 
-\vspace{0.5em}
+\subsubsection{Quantum Naive Bayes (QNB)}
+\label{sec:qnb}
 
-\begin{minipage}{0.6\textwidth}
+TODO: QNB description.
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=\linewidth]{figures/QNB.jpg}
-\caption{Quantum circuit representing the Quantum Hybrid Naive Bayes model.}
+\includegraphics[width=0.7\linewidth]{figures/QNB.jpg}
+\caption{Quantum circuit for the Quantum Hybrid Naive Bayes model.}
 \label{fig:QNB}
-\end{minipage}
 \end{figure}
     
 \section{Performance Analysis}\label{sec4}

@@ -14,7 +14,7 @@
 ## Quantum Section Overhaul
 
 ### 11. VQC — Full circuit description + corrected figure
-- [ ] 11a. Write detailed text: 4 PCA features → angle encoding via RY(π·xᵢ) on each qubit → Rot(θ₁,θ₂,θ₃) variational layer → CNOT ladder (0→1→2→3) for entanglement → measurement of PauliZ on qubit 0 → output mapped to [0,1] via (⟨Z⟩+1)/2
+- [x] 11a. Write detailed text: 4 PCA features → angle encoding via RY(π·xᵢ) on each qubit → Rot(θ₁,θ₂,θ₃) variational layer → CNOT ladder (0→1→2→3) for entanglement → measurement of PauliZ on qubit 0 → output mapped to [0,1] via (⟨Z⟩+1)/2
 - [ ] 11b. Regenerate VQC circuit diagram from PennyLane code (current figure has incorrect black-box U(φ) and mystery R1/R2/R4 gates that don't match the code)
 - [ ] 11c. Specify: optimizer = Adam(lr=0.1), loss = MSE, epochs = 10, framework = PennyLane
 
