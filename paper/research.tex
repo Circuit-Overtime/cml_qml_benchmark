@@ -370,7 +370,7 @@ The full kernel matrix $K_{ij}$ is precomputed for all training and test samples
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{figures/QSVM.jpg}
+\includegraphics[width=\linewidth]{figures/QSVM_circuit.png}
 \caption{Quantum circuit for the ZZFeatureMap ($\text{reps}=2$) used in the QSVM. Each repetition applies $H$--$R_Z(2x_i)$ on each qubit, followed by CNOT--$R_Z(2(\pi-x_i)(\pi-x_j))$--CNOT entangling gates on all qubit pairs. The output statevector is used to compute the fidelity kernel.}
 \label{fig:QSVM}
 \end{figure}

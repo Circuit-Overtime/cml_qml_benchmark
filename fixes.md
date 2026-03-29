@@ -20,7 +20,7 @@
 
 ### 12. QSVM — Full circuit description + corrected figure
 - [x] 12a. Write detailed text: 4 PCA features → ZZFeatureMap(dim=4, reps=2) encodes data into quantum state — first layer applies H and Rz(xᵢ) on each qubit, second layer applies CNOT + Rz(π·(xᵢ−xⱼ)(xᵢ+xⱼ)) for pairwise entanglement → statevector extracted → fidelity kernel K(i,j)=|⟨ψ(xᵢ)|ψ(xⱼ)⟩|² computed → fed to classical SVC(kernel="precomputed")
-- [ ] 12b. Regenerate QSVM circuit diagram from Qiskit ZZFeatureMap (current figure shows a variational V(θ) block which is wrong — QSVM has NO trainable parameters, only a data-encoding feature map)
+- [x] 12b. Regenerate QSVM circuit diagram from Qiskit ZZFeatureMap (current figure shows a variational V(θ) block which is wrong — QSVM has NO trainable parameters, only a data-encoding feature map)
 - [x] 12c. Explain the kernel trick: quantum kernel maps to Hilbert space, fidelity measures overlap
 
 ### 13. QNB — Full circuit description + corrected figure
