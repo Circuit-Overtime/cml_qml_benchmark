@@ -378,12 +378,44 @@ The full kernel matrix $K_{ij}$ is precomputed for all training and test samples
 \subsubsection{Quantum Naive Bayes (QNB)}
 \label{sec:qnb}
 
-TODO: QNB description.
+The Quantum Naive Bayes (QNB) model is a hybrid quantum-classical classifier that uses a parameterless quantum circuit as a non-linear feature transformer, whose outputs are then classified by a classical Gaussian Naive Bayes estimator. Unlike VQC, the quantum circuit contains \emph{no trainable parameters}; unlike QSVM, it does not compute a kernel matrix but instead produces transformed feature vectors directly.
+
+\paragraph{Stage~1: Angle Encoding.}
+Each PCA-reduced feature $x_i$ is encoded into qubit $i$ using the same $R_Y$ rotation as VQC:
+\begin{equation}
+\ket{\psi_{\text{enc}}} = \bigotimes_{i=0}^{3} R_Y(\pi \cdot x_i)\ket{0}.
+\end{equation}
+
+\paragraph{Stage~2: Entangling Layer (CNOT Ring).}
+A ring of CNOT gates creates correlations between all four qubits, including a wrap-around connection from qubit~3 back to qubit~0:
+\begin{equation}
+U_{\text{ent}} = \text{CNOT}_{3 \to 0} \cdot \text{CNOT}_{2 \to 3} \cdot \text{CNOT}_{1 \to 2} \cdot \text{CNOT}_{0 \to 1}.
+\end{equation}
+The ring topology ensures that every qubit is entangled with its neighbours, enabling the circuit to capture pairwise feature interactions that a classical Naive Bayes model (which assumes feature independence) cannot represent on its own.
+
+\paragraph{Stage~3: Phase Encoding.}
+After entanglement, a second data-encoding layer applies $R_Z$ rotations to embed phase information:
+\begin{equation}
+U_{\text{phase}} = \bigotimes_{i=0}^{3} R_Z(\pi \cdot x_i).
+\end{equation}
+This two-stage encoding (amplitude via $R_Y$, then phase via $R_Z$) maps each sample into a richer region of the $2^4$-dimensional Hilbert space than either encoding alone.
+
+\paragraph{Stage~4: Measurement.}
+Unlike VQC (which measures only qubit~0), QNB measures the Pauli-$Z$ expectation value on \emph{every} qubit:
+\begin{equation}
+z_i = \langle \psi | Z_i | \psi \rangle, \quad i = 0,\ldots,3.
+\end{equation}
+The four expectation values $\mathbf{z} = (z_0, z_1, z_2, z_3)$ form a quantum-transformed feature vector for each input sample.
+
+\paragraph{Classical Classification.}
+The transformed vectors $\{\mathbf{z}^{(k)}\}$ are passed to a Gaussian Naive Bayes (GNB) classifier, which models each class-conditional distribution as $p(\mathbf{z} \mid y) = \prod_{i} \mathcal{N}(z_i;\, \mu_{y,i},\, \sigma^2_{y,i})$ and applies Bayes' rule for prediction. The quantum circuit thus acts as a non-linear feature map that introduces inter-feature entanglement, compensating for the conditional-independence assumption of classical NB.
+
+The QNB pipeline requires no iterative training of quantum parameters—only a single forward pass through the circuit per sample—making it significantly faster than VQC while still leveraging quantum feature transformations. The implementation uses PennyLane with the same $R_Y$ angle encoding as VQC, and the circuit structure is shown in Figure~\ref{fig:QNB}.
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.7\linewidth]{figures/QNB.jpg}
-\caption{Quantum circuit for the Quantum Hybrid Naive Bayes model.}
+\includegraphics[width=\linewidth]{figures/QNB_circuit.png}
+\caption{Quantum circuit for the Quantum Naive Bayes (QNB) model. Stage~1: $R_Y(\pi \cdot x_i)$ angle encoding; Stage~2: CNOT ring entanglement; Stage~3: $R_Z(\pi \cdot x_i)$ phase encoding; Stage~4: Pauli-$Z$ measurement on all four qubits. The resulting expectation values are fed to a classical Gaussian Naive Bayes classifier.}
 \label{fig:QNB}
 \end{figure}
     

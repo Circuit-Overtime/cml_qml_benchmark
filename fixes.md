@@ -24,9 +24,9 @@
 - [x] 12c. Explain the kernel trick: quantum kernel maps to Hilbert space, fidelity measures overlap
 
 ### 13. QNB — Full circuit description + corrected figure
-- [ ] 13a. **CODE MISSING** — need QNB implementation to write accurate description
-- [ ] 13b. Once code is found: describe encoding method, what the Q block does, measurement strategy
-- [ ] 13c. Regenerate QNB circuit diagram from actual code
+- [x] 13a. Recreated QNB implementation (scripts/qnb_quantum.py): RY angle encoding → CNOT ring → RZ phase encoding → PauliZ on all 4 qubits → GaussianNB
+- [x] 13b. Wrote full description: 4 stages (angle encoding, CNOT ring entanglement, phase encoding, all-qubit measurement) + classical GNB classification
+- [x] 13c. Created draw_qnb.py to regenerate QNB circuit diagram from PennyLane code
 
 ### 14. Theoretical descriptions (applies across all 3)
 - [ ] 14a. Angle encoding theory: explain RY(π·xᵢ)|0⟩ = cos(πxᵢ/2)|0⟩ + sin(πxᵢ/2)|1⟩, why it maps normalized features to qubit amplitudes
@@ -34,9 +34,9 @@
 - [ ] 14c. Measurement theory: explain PauliZ expectation ⟨ψ|Z|ψ⟩ ∈ [−1,1], how it's mapped to class probability
 
 ### 15. Regenerate all 3 circuit figures
-- [ ] 15a. Use PennyLane qml.draw() for VQC circuit → save as figure
-- [ ] 15b. Use Qiskit ZZFeatureMap.draw('mpl') for QSVM circuit → save as figure
-- [ ] 15c. Regenerate QNB circuit from its code (once found)
+- [x] 15a. Use PennyLane qml.draw() for VQC circuit → save as figure (scripts/draw_vqc.py)
+- [x] 15b. Use Qiskit ZZFeatureMap.draw('mpl') for QSVM circuit → save as figure (scripts/draw_qsvm.py)
+- [x] 15c. Created draw_qnb.py for QNB circuit (scripts/draw_qnb.py) — run to generate figure
 
 ### 16. Visualizations (also high priority)
 - [ ] 16. Visualize: raw dataset, PCA-reduced, post-angular-encoding, 4-qubit flow
