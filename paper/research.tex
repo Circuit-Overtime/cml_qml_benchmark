@@ -389,9 +389,9 @@ This kernel measures the overlap between two quantum states: if two data points 
 \paragraph{(iii) Classical SVM Classification.}
 The full kernel matrix $K_{ij}$ is precomputed for all training and test samples, and a classical SVC with \texttt{kernel="precomputed"} is trained on the quantum kernel matrix. The SVM finds the optimal separating hyperplane in the quantum feature space without ever explicitly constructing the high-dimensional feature vectors.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{figures/QSVM_circuit.png}
+\includegraphics[width=0.85\linewidth]{figures/QSVM_circuit.png}
 \caption{Quantum circuit for the ZZFeatureMap ($\text{reps}=2$) used in the QSVM. Each repetition applies $H$--$R_Z(2x_i)$ on each qubit, followed by CNOT--$R_Z(2(\pi-x_i)(\pi-x_j))$--CNOT entangling gates on all qubit pairs. The output statevector is used to compute the fidelity kernel.}
 \label{fig:QSVM}
 \end{figure}
@@ -428,13 +428,13 @@ The probability vectors $\{\mathbf{p}^{(k)}\}$ are passed to a Gaussian Naive Ba
 
 The QNB pipeline requires no iterative training of quantum parameters—only a single forward pass through the circuit per sample—making it significantly faster than VQC while still leveraging quantum feature transformations. The implementation uses PennyLane with the same $R_Y$ angle encoding as VQC, and the circuit structure is shown in Figure~\ref{fig:QNB}.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{figures/QNB_circuit.png}
+\includegraphics[width=0.85\linewidth]{figures/QNB_circuit.png}
 \caption{Quantum circuit for the Quantum Naive Bayes (QNB) model. Each of the $L=6$ data re-uploading layers applies $R_Y(\pi \cdot x_i \cdot s_\ell)$ amplitude encoding, a CNOT ring for entanglement, and $R_Z(\pi \cdot x_i \cdot s_\ell)$ phase encoding with multi-scale factors $s_\ell = 1,\ldots,6$. The final measurement yields a 16-dimensional probability vector fed to a classical Gaussian Naive Bayes classifier.}
 \label{fig:QNB}
 \end{figure}
-    
+
 \section{Performance Analysis}\label{sec4}
 
 The predictive performance of the seven classification models was evaluated using standard metrics. Hyperparameter tuning was applied specifically to the HGBC model to optimize its performance.
@@ -505,7 +505,7 @@ Minimizing FN is particularly important in medical diagnostics to reduce missed 
 \end{table}
 
 \subsubsection{Confusion Matrix Analysis: Quantum Machine Learning Models}
-Similarly, we analyzed the confusion matrices for our quantum machine learning (QML) models, QSVM and VQC, using PCA-reduced features. Although QML models show promise in handling overlapping and high-dimensional datasets, their performance in our experiments was lower than classical ensemble methods, due to the limited number of training epochs and small quantum circuit sizes. Table~\ref{tab:qml_metrics} summarizes the confusion matrix counts for QML models.
+Similarly, we analyzed the confusion matrices for our quantum machine learning (QML) models---VQC, QSVM, and QNB---using PCA-reduced features. Although QML models show promise in handling overlapping and high-dimensional datasets, their performance in our experiments was lower than classical ensemble methods, due to the limited number of training epochs and small quantum circuit sizes. Table~\ref{tab:qml_metrics} summarizes the confusion matrix counts for QML models.
 
 
 \begin{table}[ht]
@@ -563,7 +563,7 @@ Precision (TP / (TP + FP)) and Recall (TP / (TP + FN)) are critical metrics for 
     \end{minipage}
 \end{figure}
 
-Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\ref{fig:pre-re-rf}}) and Support Vector Machine (\hyperref[fig:pre-re-svm]{Fig.~\ref{fig:pre-re-svm}}) are shown above. Their performance on PCA-reduced data is illustrated in \hyperref[fig:pre-re-rf-qml]{Fig.~\ref{fig:pre-re-rf-qml}} and \hyperref[fig:pre-re-svm-qml]{Fig.~\ref{fig:pre-re-svm-qml}}, respectively.
+Precision and recall curves for the classical Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\ref{fig:pre-re-rf}}) and Support Vector Machine (\hyperref[fig:pre-re-svm]{Fig.~\ref{fig:pre-re-svm}}) are shown alongside their quantum counterparts: the Variational Quantum Classifier (\hyperref[fig:pre-re-rf-qml]{Fig.~\ref{fig:pre-re-rf-qml}}) and the Quantum Support Vector Machine (\hyperref[fig:pre-re-svm-qml]{Fig.~\ref{fig:pre-re-svm-qml}}).
 
 
 \subsection{Accuracy and F1 Score of Classical Models}\label{sec:f1score}
@@ -624,7 +624,7 @@ Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\re
           \hline
           16 & QSVM & 82.00 & 92.00 & 96.00 & 85.33 \\
           \hline
-          17 & Q->NB & 63.28 & 64.96 & 67.09 & 66.01 \\
+          17 & QNB & 63.28 & 64.96 & 67.09 & 66.01 \\
           \hline
     \end{tabular}
     \label{tab:Performance_Matrix_Combined}
@@ -632,7 +632,7 @@ Precision and recall curves for Random Forest (\hyperref[fig:pre-re-rf]{Fig.~\re
 
 The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:Performance_Matrix_Combined]{Table~\ref{tab:Performance_Matrix_Combined}}. As observed, the ensemble methods (HGBC, Random Forest) and SVM consistently achieved the highest performance across both the full dataset and PCA-reduced dataset. The accuracy of different classification techniques has been presented in a visual representation in \hyperref[fig:acc]{Fig.~\ref{fig:acc}} followed by the F1- Score of the classical classification models in \hyperref[fig:f1_score]{Fig.~\ref{fig:f1_score}}.
 
-Quantum ML models (VQC, QSVM, Q->NB) performed with accuracies ranging from 63--82\% and moderate F1 scores compared to classical methods. This indicates that, for this dataset, quantum models underperformed relative to classical ensemble methods, consistent with current limitations of near-term quantum circuits on moderately sized datasets.
+Quantum ML models (VQC, QSVM, QNB) performed with accuracies ranging from 63--82\% and moderate F1 scores compared to classical methods. This indicates that, for this dataset, quantum models underperformed relative to classical ensemble methods, consistent with current limitations of near-term quantum circuits on moderately sized datasets.
 
 The expectation of better performance from quantum models might hold true in scenarios with more complex, overlapping, or high-dimensional data. 
 Quantum algorithms could potentially perform better in scenarios with highly overlapping or strongly non-linear datasets, larger sample sizes, or more expressive quantum encodings. Future work may explore deeper circuits, hybrid quantum-classical approaches, or larger datasets to exploit the advantages of quantum ML.
@@ -692,7 +692,7 @@ Finally, this work does not evaluate real quantum hardware. All QML experiments 
 
 This study systematically compared classical supervised machine learning models with Quantum Machine Learning (QML) approaches for ASD trait prediction on non-linear datasets. Among classical methods, the Histogram Gradient Boosting Classifier (HGBC) achieved the strongest overall performance, reaching 97.86\% accuracy and consistently outperforming other baselines.
 
-Within the quantum models, QSVM achieved the highest quantum accuracy at 82.00\%, followed by VQC at 74.50\% and Q$\rightarrow$NB at 63.28\%. The lower QNB performance reflects the inherent limitation of parameterless quantum feature maps: without trainable circuit parameters, the quantum transformation relies entirely on fixed data encoding and entanglement to separate classes, which proves insufficient on PCA-reduced features. These results indicate that, with optimized quantum encodings and suitable hardware, QML approaches hold potential for modeling complex non-linear relationships even at smaller scales.
+Within the quantum models, QSVM achieved the highest quantum accuracy at 82.00\%, followed by VQC at 74.50\% and QNB at 63.28\%. The lower QNB performance reflects the inherent limitation of parameterless quantum feature maps: without trainable circuit parameters, the quantum transformation relies entirely on fixed data encoding and entanglement to separate classes, which proves insufficient on PCA-reduced features. These results indicate that, with optimized quantum encodings and suitable hardware, QML approaches hold potential for modeling complex non-linear relationships even at smaller scales.
 
 Exploratory Data Analysis further revealed higher ASD trait prevalence in children (60.57\%) and males, along with demographic patterns related to ethnicity and family history, highlighting the multifactorial nature of ASD.
 
