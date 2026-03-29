@@ -238,6 +238,63 @@ The dataset was split into training (80\%, 2{,}995 instances) and testing (20\%,
 
 For the PCA-reduced tracks, Principal Component Analysis was fitted on the training set only and then applied to both the training and testing sets. This produced a reduced representation of 4 principal components, which served as input features for both the PCA-CML models and the QML models (after angle encoding).
 
+\subsection{Exploratory Data Analysis} \label{sec:data_analysis}
+Prior to model training, Exploratory Data Analysis (EDA) was conducted using the demographic and categorical attributes described in Section~3.1 (age, sex, ethnicity, family history, etc.) to understand the distribution of ASD traits across different population groups. These demographic features are \emph{not} used as inputs to any of the classification models; they serve solely to characterise the study population and contextualise the prediction results. The nine clinical questionnaire features (A1--A9) are reserved exclusively for the ML and QML pipelines described in the subsequent sections.
+
+\subsubsection{\textbf{Distribution Based on Ethnicity}}
+\begin{figure}[ht!]
+  \centering
+    \includegraphics[width=0.9\linewidth]{figures/Ethnicity_yes.jpeg}
+    \captionof{figure}{The ethnics with the ASD traits as \enquote{YES}}
+    \label{fig:ethni}
+\end{figure}
+ASD traits were found to be most prevalent in White Europeans within this dataset (\hyperref[fig:ethni]{Fig \ref{fig:ethni}}). This observation could be influenced by various factors, including genetic, social, environmental influences, and potentially higher awareness and access to diagnostic testing in these populations.
+\subsubsection{Distribution Based on Sex:}
+Analysis indicated that males exhibited ASD traits more frequently than females in this dataset (\hyperref[fig:gen]{Fig \ref{fig:gen}}). Hormonal differences, such as the influence of testosterone on brain development, are often considered as potential contributing factors to this observed gender disparity in ASD prevalence.
+
+\begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=0.99\linewidth]{figures/sex.jpeg}
+     \vspace{10pt}
+    \captionof{figure}{\centering Gender distribution with ASD traits as \enquote{YES}}
+    \label{fig:gen}
+\end{minipage}
+\hfill
+\hfill
+\begin{minipage}{0.49\textwidth}
+    \centering
+     \includegraphics[width=0.9\linewidth]{figures/age_chart.png}
+    \captionof{figure}{\centering Age categories distribution of ASD traits:}
+    \label{fig:age}
+\end{minipage}
+
+\subsubsection{Distribution Based on Age Category}
+It was observed that ASD traits were most commonly reported in children, specifically affecting 60.57\% of individuals in the child age category (2-12 years) within the dataset (\hyperref[fig:age]{Fig \ref{fig:age}}, \hyperref[tab:age-category]{Table \ref{tab:age-category}}). This highlights a period of significant susceptibility to exhibiting these traits.
+
+\begin{table}[ht]
+   \centering
+   \caption{Age Category Traits in Percentage}
+   \vspace{0.8em}
+   \renewcommand{\arraystretch}{1.3} % Taller rows
+   \setlength{\tabcolsep}{20pt}     % Wider columns
+   \begin{tabular}{|c|c|}
+       \hline
+       \textbf{Age Category} & \textbf{Traits (\%)} \\
+       \hline
+       Newborn & 9.44\% \\
+       \hline
+       Child & 60.57\% \\
+       \hline
+       Teenager & 21.45\% \\
+       \hline
+       Adult & 8.44\% \\
+       \hline
+       Aged & 0.10\% \\
+       \hline
+   \end{tabular}
+   \label{tab:age-category}
+\end{table}
+
 % ---------------------------------------------------------------
 % Fix 2: Removed \FloatBarrier before the three QML circuit
 %         figures. Changed the enclosing environment from a
@@ -535,65 +592,6 @@ Several prior studies are affected by class imbalance, limited feature diversity
 The higher QSVM accuracy reported in \cite{saranya2025} can be attributed to an enhanced, dataset-specific feature set and a relatively small, well-structured dataset, which improved class separability and kernel effectiveness. Our QML experiments, conducted on PCA-reduced features from a larger and more overlapping dataset, faced greater classification complexity, limiting achievable performance. This suggests that quantum models are most effective in structured, lower-dimensional, and well-separated feature spaces, and may benefit from hybrid classical--quantum pipelines.
 
 Finally, this work does not evaluate real quantum hardware. All QML experiments were performed using Pennylane-based simulations, providing a realistic benchmark under near-term hardware constraints rather than demonstrating performance on physical quantum devices.
-
-
-
-
-\subsection{Exploratory Data Analysis} \label{sec:data_analysis}
-Exploratory Data Analysis (EDA) was conducted to understand the distribution of ASD traits across different demographic factors within the dataset.
-\subsubsection{\textbf{Distribution Based on Ethnicity}}
-\begin{figure}[ht!]
-  \centering
-    \includegraphics[width=0.9\linewidth]{figures/Ethnicity_yes.jpeg}
-    \captionof{figure}{The ethnics with the ASD traits as \enquote{YES}}
-    \label{fig:ethni}
-\end{figure}
-ASD traits were found to be most prevalent in White Europeans within this dataset (\hyperref[fig:ethni]{Fig \ref{fig:ethni}}). This observation could be influenced by various factors, including genetic, social, environmental influences, and potentially higher awareness and access to diagnostic testing in these populations.
-\subsubsection{Distribution Based on Sex:}
-Analysis indicated that males exhibited ASD traits more frequently than females in this dataset (\hyperref[fig:gen]{Fig \ref{fig:gen}}). Hormonal differences, such as the influence of testosterone on brain development, are often considered as potential contributing factors to this observed gender disparity in ASD prevalence.
-
-\begin{minipage}{0.49\textwidth}
-    \centering
-    \includegraphics[width=0.99\linewidth]{figures/sex.jpeg}
-     \vspace{10pt}
-    \captionof{figure}{\centering Gender distribution with ASD traits as \enquote{YES}}
-    \label{fig:gen}
-\end{minipage}
-\hfill
-\hfill
-\begin{minipage}{0.49\textwidth}
-    \centering
-     \includegraphics[width=0.9\linewidth]{figures/age_chart.png}
-    \captionof{figure}{\centering Age categories distribution of ASD traits:}
-    \label{fig:age}
-\end{minipage}
-
-\subsubsection{Distribution Based on Age Category}
-It was observed that ASD traits were most commonly reported in children, specifically affecting 60.57\% of individuals in the child age category (2-12 years) within the dataset (\hyperref[fig:age]{Fig \ref{fig:age}}, \hyperref[tab:age-category]{Table \ref{tab:age-category}}). This highlights a period of significant susceptibility to exhibiting these traits.
-
-\begin{table}[ht]
-   \centering
-   \caption{Age Category Traits in Percentage}
-   \vspace{0.8em}
-   \renewcommand{\arraystretch}{1.3} % Taller rows
-   \setlength{\tabcolsep}{20pt}     % Wider columns
-   \begin{tabular}{|c|c|}
-       \hline
-       \textbf{Age Category} & \textbf{Traits (\%)} \\
-       \hline
-       Newborn & 9.44\% \\
-       \hline
-       Child & 60.57\% \\
-       \hline
-       Teenager & 21.45\% \\
-       \hline
-       Adult & 8.44\% \\
-       \hline
-       Aged & 0.10\% \\
-       \hline
-   \end{tabular}
-   \label{tab:age-category}
-\end{table}
 
 
 \section{Conclusion}
