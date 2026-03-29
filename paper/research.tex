@@ -50,13 +50,10 @@ University of Luxembourg, Luxembourg City, Luxembourg\\
 
 \maketitle
 \raggedbottom
-\begin{center}
-\textbf{Abstract}
-\end{center}
 \abstract{
-This research presents a comparative study of classical and Quantum Machine Learning (QML) approaches for predicting Autism Spectrum Disorder (ASD) traits, where early and objective diagnosis is critical. Seven classical supervised models---including Logistic Regression, SVM, Random Forest, and Histogram Gradient Boosting Classifier (HGBC)---were evaluated on a dataset of 3,744 instances alongside three quantum models: Variational Quantum Classifier (VQC), Quantum Support Vector Machine (QSVM), and Quantum Naive Bayes (QNB). Classical models were additionally evaluated on PCA-reduced features. Among all models, HGBC achieved the highest performance with 97.86\% accuracy, 98.48\% precision, 97.50\% recall, and a 97.90\% F1-score. Among quantum models, QSVM achieved the best accuracy at 82.00\%. Exploratory Data Analysis on demographic attributes revealed higher ASD trait prevalence in children (60.57\%) and males, along with patterns related to ethnicity and family history. The results demonstrate that classical ensemble methods remain highly effective for ASD prediction on this dataset, while QML approaches offer a promising direction for future work on more complex, high-dimensional feature spaces.
+This research presents a head-to-head comparison of Classical Machine Learning (CML) and Quantum Machine Learning (QML) for binary classification, using a clinically validated ASD screening dataset of 3{,}744 instances as a shared benchmark to evaluate whether near-term quantum approaches can match established classical methods on a real-world diagnostic task. Seven classical supervised models---including Logistic Regression, SVM, Random Forest, and Histogram Gradient Boosting Classifier (HGBC)---were evaluated alongside three quantum models: Variational Quantum Classifier (VQC), Quantum Support Vector Machine (QSVM), and Quantum Naive Bayes (QNB), all operating on the same PCA-reduced feature space to ensure a fair comparison. Among all models, HGBC achieved the highest performance with 97.86\% accuracy, 98.48\% precision, 97.50\% recall, and a 97.90\% F1-score. Among quantum models, QSVM achieved the best accuracy at 82.00\%. Exploratory Data Analysis on demographic attributes revealed higher ASD trait prevalence in children (60.57\%) and males, along with patterns related to ethnicity and family history. The results demonstrate that classical ensemble methods remain superior for this binary classification task under current quantum hardware constraints, while QML approaches offer a promising direction for future work on more complex, high-dimensional feature spaces.
 } \\
-\textbf{Keywords:}
+
 \keywords{Autism Spectrum Disorder (ASD), Quantum Machine Learning, Classification Algorithms, HGBC, QSVM, Variational Quantum Classifier}
 
 
@@ -72,8 +69,8 @@ PennyLane and Qiskit hybrid frameworks to compare the performance of both.
 The key contributions of this research are:
 \begin{itemize}
 \item The work is supervised using demographic and questionnaire based data to predict ASD without neuroimaging and MRI based diagnostics.
-\item A comparative analysis of 7 supervised ML algorithms for ASD trait prediction. Identification of Histogram Gradient Boosting Classifier (HGBC) as the best classical model and Q->NB as the best Quantum Model has been analysed.
-\item Introduction of Quantum Machine Learning models (quantum logistic regression, quantum kernels) QML's performance in capturing non-linear feature relationships.
+\item A comparative analysis of 7 supervised ML algorithms for ASD trait prediction, identifying HGBC as the best classical model and QSVM as the best quantum model.
+\item Introduction of three Quantum Machine Learning models---VQC, QSVM, and QNB---to evaluate QML's performance in capturing non-linear feature relationships.
 \item Dataset-specific insights derived from Exploratory Data Analysis (EDA) highlighting age, gender and family history distributions.
 \end{itemize}
 
