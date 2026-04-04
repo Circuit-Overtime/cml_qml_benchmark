@@ -79,9 +79,7 @@ Within the classical Machine Learning (CML) domain, supervised models such as Ra
 
 On the quantum side, recent theoretical work has suggested that certain QML models can achieve runtime scaling as $O(\text{poly}(\log N) \cdot \text{poly}(D))$, where $D$ denotes the feature dimension, offering a polynomial improvement over many classical counterparts \cite{saranya2025}. Using the  Quantum kernel methods \cite{havlivcek2019} and variational classifiers \cite{schuld2020} the idea is to leverage quantum feature spaces for classification, though their practical advantage on moderately sized datasets remains an open question.
 
-Despite these advances, several methodological gaps persist in existing CML--QML comparisons. Many prior studies rely on relatively small or imbalanced datasets, which can bias classifiers toward majority classes and inflate performance metrics \cite{lee2020}. Others evaluate classical and quantum models under different preprocessing pipelines or train-test splits, making direct comparison unreliable.
-
-Our work addresses these gaps by benchmarking CML and QML models on a shared, near-balanced dataset with identical preprocessing, stratified splits, and evaluation metrics. This controlled setup allows us to rigorously assess where quantum models stand relative to classical methods on a real-world binary classification task \cite{vakadkar2021,saranya2025,lee2020,nogay2020}.
+Our work addresses the benchmarking of CML and QML models on a shared, near-balanced dataset with identical preprocessing, stratified splits, and evaluation metrics. This controlled setup allows us to rigorously assess where quantum models stand relative to classical methods on a real-world binary classification task \cite{vakadkar2021,saranya2025,lee2020,nogay2020}.
 
 \section{Methodology}\label{sec3}
 
@@ -185,7 +183,7 @@ The methodology begins with describing the dataset used in this study, followed 
 
 \subsection{Dataset Description}
 
-The dataset used in this study comprises 3,744 instances and 17 features \cite{asddataset}. Each instance corresponds to an individual screened for Autism Spectrum Disorder (ASD) traits. The features can be categorised into two groups based on their role in the pipeline:
+The dataset used in this paper comprises of 3,744 tuples and 17 features total \cite{asddataset}. The features can be categorised into two groups based on their role in the pipeline:
 
 \begin{itemize}
     \item \textbf{Clinical Questionnaire Features (A1--A9):} Nine binary-valued columns representing responses to standardised ASD screening questions (1 = ASD affected, 0 = healthy). These nine features serve as the primary input for all machine learning models.
@@ -194,7 +192,7 @@ The dataset used in this study comprises 3,744 instances and 17 features \cite{a
 
 The target variable is a binary label indicating the presence~(1) or absence~(0) of ASD traits based on the clinical questionnaire responses. The dataset is near-balanced, with 1{,}991 ASD-positive and 1{,}752 ASD-negative instances.
 
-Figure~\ref{fig:raw_dataset} shows the Pearson correlation matrix of the nine clinical features together with the ASD label. Features A6 and A9 exhibit the strongest individual correlations with the target (0.55 and 0.54, respectively), while moderate inter-feature correlations (0.33--0.60) indicate redundancy that motivates the subsequent PCA reduction. The accompanying bar chart confirms the near-balanced class distribution.
+Figure~\ref{fig:raw_dataset} shows the Pearson correlation matrix of the nine clinical features together with the ASD label. The features A6 and A9 exhibit strongest individual correlations with the target variable (0.55 and 0.54, respectively), while moderate inter-feature correlations (0.33--0.60) indicate redundancy that motivates the subsequent PCA reduction. The accompanying bar chart confirms the near-balanced class distribution.
 
 \begin{figure}[!htbp]
 \centering
@@ -212,11 +210,11 @@ The nine clinical features (A1--A9) were used across three modelling tracks:
 
 \subsection{Data Pre-processing}
 
-Data pre-processing was carried out to convert the raw dataset into a form suitable for model training \cite{kotsiantis2006}. The binary questionnaire responses (A1--A9), originally stored as ``YES''/``NO'' strings, were encoded to numerical labels (1/0). Categorical demographic attributes such as sex, ethnicity, and relation were transformed using label-based encoding for mathematical consistency. Numerical features were then normalised using Min-Max Scaling to the range $[0,1]$.
+Data pre-processing was carried out to convert the raw dataset into a form suitable for model training \cite{kotsiantis2006}. The binary questionnaire responses (A1--A9), originally stored as ``YES''/``NO'' strings, were encoded to numerical labels (1/0).
 
-The dataset was split into training (80\%, 2{,}995 instances) and testing (20\%, 749 instances) subsets using stratified sampling to preserve the class distribution of the target variable across both partitions. This single train-test split was applied consistently across all three modelling tracks---CML, PCA-reduced CML, and QML---so that every model was trained and evaluated on the same data partitions, ensuring a fair comparison.
+The dataset was split into training (80\%, 2{,}995 instances) and testing (20\%, 749 instances) subsets. This single train-test split was applied consistently across all three modelling tracks---CML, PCA-reduced CML, and QML---so that every model was trained and evaluated on the same data partitions, ensuring a fair comparison.
 
-For the PCA-reduced tracks, Principal Component Analysis was fitted on the training set only and then applied to both the training and testing sets. The number of retained components was set to $n=4$, which captures approximately 76\% of the total variance (Fig.~\ref{fig:pca_reduced}, right panel). This choice balances two considerations: (i)~retaining sufficient variance to preserve class-discriminative information, and (ii)~matching the number of qubits available in the quantum circuits, since each principal component is mapped one-to-one to a qubit via angle encoding. Increasing beyond 4~components yields diminishing variance gains (each additional component contributes $<$5\%) while requiring proportionally more qubits, which increases circuit depth, gate count, and simulation cost exponentially. The 4-component, 4-qubit configuration therefore represents a practical trade-off between representational fidelity and near-term quantum hardware constraints.
+For the PCA-reduced tracks, Principal Component Analysis was fitted on the training set only and then applied to both the training and testing sets. The number of retained components was set to $n=4$, which captures approximately 76\% of the total variance (Fig.~\ref{fig:pca_reduced}, right panel). This choice balances two considerations: (i)~retaining sufficient variance to preserve class-discriminative information, and (ii)~matching the number of qubits available in the quantum circuits, since each principal component is mapped one-to-one to a qubit via angle encoding. Increasing beyond 4~components yields diminishing variance gains (each additional component contributes $<$5\%) while requiring proportionally more qubits, which increases circuit depth, gate count, and simulation cost exponentially.
 
 Figure~\ref{fig:pca_reduced} visualises the PCA-reduced feature space. PC1 alone captures approximately 52\% of the total variance and provides the strongest class separation, while PC2--PC4 contribute an additional 24\% combined with progressively less discriminative power. The scatter plots reveal significant overlap between the ASD and Non-ASD classes even after dimensionality reduction, highlighting the classification challenge faced by all models operating on this representation.
 
@@ -228,7 +226,7 @@ Figure~\ref{fig:pca_reduced} visualises the PCA-reduced feature space. PC1 alone
 \end{figure}
 
 \subsection{Exploratory Data Analysis} \label{sec:data_analysis}
-Prior to model training, Exploratory Data Analysis (EDA) was conducted on three demographic attributes---ethnicity, sex, and age category---to understand the distribution of ASD traits across different population groups. These demographic features are \emph{not} used as inputs to any of the classification models; they serve solely to characterise the study population and contextualise the prediction results. The nine clinical questionnaire features (A1--A9) are reserved exclusively for the ML and QML pipelines described in the subsequent sections.
+Prior to model training, Exploratory Data Analysis (EDA) was conducted on three demographic attributes---ethnicity, sex, and age category---to understand the distribution of ASD traits across different population groups. These demographic features are \emph{not} used as inputs to any of the classification models; they serve solely to characterise the study population and contextualise the prediction results. The nine clinical questionnaire features (A1--A9) are reserved exclusively for the CML and QML pipelines described in the subsequent sections.
 
 \subsubsection{\textbf{Distribution Based on Ethnicity}}
 \begin{figure}[ht!]
@@ -287,12 +285,11 @@ It was observed that ASD traits were most commonly reported in children, specifi
 \subsection{Machine Learning Models Used}\label{sec3.4}
 \vspace{-1em}
 
-Several supervised machine learning algorithms were applied for binary classification to predict the presence of ASD traits. 
-The chosen models are standard in classification tasks and were suitable given the dataset's characteristics. 
-These include Logistic Regression \cite{hosmer2000}, Decision Trees, K-Nearest Neighbors (KNN), 
+The chosen CML models include Logistic Regression \cite{hosmer2000}, Decision Trees, K-Nearest Neighbors (KNN), 
 Na\"{i}ve Bayes, Random Forest \cite{breiman2001}, Support Vector Machine (SVM) \cite{hearst1998}, and 
 Histogram Gradient Boosting Classifier (HGBC).
-In addition to classical models, we evaluated three Quantum Machine Learning (QML) models, each operating on the 4-component PCA-reduced feature vector. All quantum circuits use 4~qubits, one per principal component. The models differ in their encoding strategy, circuit architecture, and training procedure, as described below.
+
+In addition to classical models, we evaluated three Quantum Machine Learning (QML) models, each operating on the 4-component PCA-reduced feature vector. All quantum circuits use 4~qubits, one per principal component. The models differ in their encoding strategy, circuit architecture.
 
 The foundational step shared by VQC and QNB is angle encoding, where each PCA feature $x_i$ is mapped to a qubit via the rotation $R_Y(\pi \cdot x_i)$. Figure~\ref{fig:quantum_encoding} illustrates this mapping for all four qubits: the horizontal axis shows the PCA feature value and the vertical axis shows the resulting probability $P(|1\rangle) = \sin^2(\pi x_i / 2)$ of measuring the qubit in the $|1\rangle$ state. The sinusoidal encoding introduces a non-linear transformation of the classical features into the quantum Hilbert space, which the subsequent circuit layers (variational ansatz, entanglement, or kernel computation) then exploit for classification.
 
@@ -316,12 +313,12 @@ R_Y(\pi \cdot x_i)\,|0\rangle \;=\; \cos\!\Bigl(\frac{\pi x_i}{2}\Bigr)|0\rangle
 \end{equation}
 This maps each normalised feature value to the amplitude of a qubit state on the Bloch sphere. A value of $x_i = 0$ leaves the qubit in $|0\rangle$, while $x_i = 1$ rotates it to $|1\rangle$, with intermediate values producing superpositions proportional to the feature magnitude.
 
-\paragraph{(ii) Variational Ansatz.}
+\paragraph{(ii) Variational Circuit.}
 A parameterised layer of general single-qubit rotations is applied to each qubit:
 \begin{equation}
 \text{Rot}(\theta_1, \theta_2, \theta_3) \;=\; R_Z(\theta_3)\,R_Y(\theta_2)\,R_Z(\theta_1)
 \end{equation}
-This provides 3~trainable parameters per qubit (12~total). Following the rotations, a CNOT ladder ($q_0 \!\to\! q_1 \!\to\! q_2 \!\to\! q_3$) entangles neighbouring qubits, allowing the circuit to capture correlations between encoded features.
+This provides 3~trainable parameters per qubit (12~total). Following the rotations, a CNOT ladder ($q_0 \!\to\! q_1 \!\to\! q_2 \!\to\! q_3$) neighbouring qubits the circuit to captures correlations between encoded features.
 
 \paragraph{(iii) Measurement.}
 The expectation value of the Pauli-$Z$ operator on qubit~0 is measured:
@@ -353,7 +350,7 @@ Each 4-dimensional PCA feature vector $\mathbf{x} = (x_0, x_1, x_2, x_3)$ is enc
 \begin{equation}
 U_{\Phi_i}(x_i) \;=\; R_Z(2\,x_i)\;H
 \end{equation}
-The Hadamard creates a uniform superposition, and the $R_Z$ rotation imprints the feature value as a phase on qubit~$i$.
+The Hadamard gate creates a uniform superposition, and the $R_Z$ rotation embeds the feature value as a phase on qubit~$i$.
 
 \item \textbf{Two-qubit entangling layer:} For every pair of qubits $(i, j)$ with $i < j$, a CNOT--$R_Z$--CNOT sequence encodes pairwise feature interactions:
 \begin{equation}
@@ -385,7 +382,7 @@ The full kernel matrix $K_{ij}$ is precomputed for all training and test samples
 \subsubsection{Quantum Naive Bayes (QNB)}
 \label{sec:qnb}
 
-The Quantum Naive Bayes (QNB) model is a hybrid quantum-classical classifier that uses a parameterless quantum circuit as a non-linear feature transformer, whose outputs are then classified by a classical Gaussian Naive Bayes estimator. Unlike VQC, the quantum circuit contains \emph{no trainable parameters}; unlike QSVM, it does not compute a kernel matrix but instead produces transformed feature vectors directly. The circuit employs \emph{data re-uploading}~\cite{perez2020} with \emph{multi-scale encoding}, repeating the encoding--entanglement block $L=6$ times with layer-dependent scaling factors to increase expressivity, and measures the full $2^4=16$-dimensional probability distribution rather than individual qubit expectations.
+The Quantum Naive Bayes (QNB) model is a hybrid quantum-classical classifier that uses a parameterless quantum circuit as a non-linear feature transformer. The outputs are then classified by a classical Gaussian Naive Bayes estimator. Unlike VQC, the quantum circuit contains \emph{no trainable parameters} and unlike QSVM, it does not compute a kernel matrix. It instead produces transformed feature vectors directly. The circuit employs \emph{data re-uploading}~\cite{perez2020} with \emph{multi-scale encoding}, repeating the encoding-entanglement block $L=6$ times with layer-dependent scaling factors to increase expressivity, and measures the full $2^4=16$-dimensional probability distribution rather than individual qubit expectations.
 
 \paragraph{Encoding--Entanglement Block.}
 Each of the $L=6$ layers applies three sub-stages in sequence with a layer-dependent scale factor $s_\ell = \ell$ (for $\ell = 1,\ldots,6$). First, amplitude encoding via $R_Y$ rotations:
@@ -400,7 +397,9 @@ and finally phase encoding via $R_Z$ rotations at the same scale:
 \begin{equation}
 U_{\text{phase}}^{(\ell)} = \bigotimes_{i=0}^{3} R_Z(\pi \cdot x_i \cdot s_\ell).
 \end{equation}
-The ring topology ensures that every qubit is entangled with its neighbours, enabling the circuit to capture pairwise feature interactions that a classical Naive Bayes model (which assumes feature independence) cannot represent on its own. The multi-scale factors $(1\times, 2\times, \ldots, 6\times)$ cause each re-uploading layer to encode the data at a different frequency, creating a Fourier-like expansion in Hilbert space that increases the circuit's representational capacity beyond uniform re-uploading.
+The ring topology ensures that every qubit is entangled with its neighbours. This enables the circuit to capture pairwise feature interactions that a classical Naive Bayes model (which assumes feature independence) cannot represent on its own. 
+
+The multi-scale factors $(1\times, 2\times, \ldots, 6\times)$ cause each re-uploading layer to encode the data at a different frequency. This creates a Fourier-like expansion in Hilbert space that increases the circuit's representational capacity.
 
 \paragraph{Measurement.}
 After all $L$ layers, the circuit measures the computational-basis probability distribution:
@@ -409,10 +408,10 @@ p_j = |\langle j | \psi \rangle|^2, \quad j \in \{0,\ldots,15\},
 \end{equation}
 yielding a 16-dimensional feature vector $\mathbf{p} = (p_0, \ldots, p_{15})$ for each input sample. This is exponentially richer than the 4 expectation values used in VQC, providing the downstream classifier with a high-resolution fingerprint of the quantum state.
 
-\paragraph{Classical Classification.}
+\paragraph{Classical Classification:-}
 The probability vectors $\{\mathbf{p}^{(k)}\}$ are passed to a Gaussian Naive Bayes (GNB) classifier, which models each class-conditional distribution as $p(\mathbf{p} \mid y) = \prod_{j} \mathcal{N}(p_j;\, \mu_{y,j},\, \sigma^2_{y,j})$ and applies Bayes' rule for prediction. The quantum circuit thus acts as a non-linear feature map that introduces inter-feature entanglement, compensating for the conditional-independence assumption of classical NB.
 
-The QNB pipeline requires no iterative training of quantum parameters—only a single forward pass through the circuit per sample—making it significantly faster than VQC while still leveraging quantum feature transformations. The implementation uses PennyLane with the same $R_Y$ angle encoding as VQC, and the circuit structure is shown in Figure~\ref{fig:QNB}.
+The QNB pipeline requires no iterative training of quantum parameters. Only a single forward pass through the circuit per sample is needed, making it significantly faster than VQC while still leveraging quantum feature transformations. The implementation uses PennyLane with the same $R_Y$ angle encoding as VQC, and the circuit structure is shown in Figure~\ref{fig:QNB}.
 
 \begin{figure}[H]
 \centering
@@ -442,7 +441,7 @@ The top~10 hyperparameter combinations and their corresponding mean test accurac
 \hline
 \textbf{ID} & \textbf{L2 Reg.} & \textbf{LR} & \textbf{Max Depth} & \textbf{Max Iter} & \textbf{Min Leaf} & \textbf{Accuracy (\%)} \\
 \hline
-C1  & 1.0 & 0.2  & 10 & 100 & 30 & 97.15 \\
+\textbf{C1}  & \textbf{1.0} & \textbf{0.2}  & \textbf{10} & \textbf{100} & \textbf{30} & \textbf{97.15} \\
 C2  & 1.0 & 0.1  & 10 & 100 & 30 & 97.07 \\
 C3  & 1.0 & 0.05 & 10 & 300 & 30 & 97.02 \\
 C4  & 1.0 & 0.2  & 10 & 300 & 30 & 97.01 \\
@@ -463,7 +462,9 @@ C10 & 1.0 & 0.05 & 10 & 300 & 20 & 96.89 \\
     \label{fig:bestparameter}
 \end{figure}
 
-The best-performing configuration (C1) achieved a mean test accuracy of approximately 97.15\% with a maximum depth of~10, minimum samples per leaf of~30, and a learning rate of~0.2. The strong performance of HGBC on this dataset can be attributed to its histogram-based binning strategy, which discretises continuous features into a fixed number of bins, reducing the computational cost of split finding from $O(N)$ to $O(B)$ where $B \ll N$ is the number of bins. This binning also acts as an implicit regulariser, preventing the model from overfitting to noise in individual feature values. Additionally, the combination of moderate tree depth (10) and a relatively high minimum leaf size (30) constrains model complexity, ensuring that each leaf node captures a statistically meaningful number of samples rather than memorising isolated instances. The L2 regularisation further penalises large leaf weights, contributing to better generalisation. These factors together allow HGBC to capture the non-linear interactions among the nine binary questionnaire features while maintaining robustness on unseen data.
+The best-performing configuration (C1) achieved a mean test accuracy of approximately 97.15\% with a maximum depth of~10, minimum samples per leaf of~30, and a learning rate of~0.2. 
+
+The strong performance of HGBC on this dataset can be attributed to its histogram-based binning strategy, which discretises continuous features into a fixed number of bins, reducing the computational cost of split finding from $O(N)$ to $O(B)$ where $B \ll N$ is the number of bins. This binning also acts as an implicit regulariser, preventing the model from overfitting to noise in individual feature values. Additionally, the combination of moderate tree depth (10) and a relatively high minimum leaf size (30) constrains model complexity, ensuring that each leaf node captures a statistically meaningful number of samples rather than memorising isolated instances. The L2 regularisation further penalises large leaf weights, contributing to better generalisation. These factors together allow HGBC to capture the non-linear interactions among the nine binary questionnaire features while maintaining robustness on unseen data.
 
 \subsubsection{Confusion Matrix Analysis: Classical Models}
 The confusion matrix summarizes model performance by counting 
@@ -590,7 +591,7 @@ Precision and recall curves for the classical Random Forest (\hyperref[fig:pre-r
           \hline
           6 & Random Forest (Full) & 95.99 & 96.95 & 95.50 & 96.22 \\
           \hline
-          7 & HGBC (Full) & \textbf{97.86} & \textbf{98.48} & \textbf{97.50} & \textbf{97.90} \\
+          7 & \textbf{HGBC (Full)} & \textbf{97.86} & \textbf{98.48} & \textbf{97.50} & \textbf{97.90} \\
           \hline
           8 & Logistic Regression (PCA) & 81.71 & 86.15 & 78.14 & 81.95 \\
           \hline
@@ -604,11 +605,11 @@ Precision and recall curves for the classical Random Forest (\hyperref[fig:pre-r
           \hline
           13 & Random Forest (PCA) & 95.59 & 96.20 & 95.48 & 95.84 \\
           \hline
-          14 & HGBC (PCA) & 95.86 & 95.53 & 96.73 & 96.13 \\
+          14 & \textbf{HGBC (PCA)} & \textbf{95.86} & \textbf{95.53} & \textbf{96.73} & \textbf{96.13} \\
           \hline
           15 & VQC & 54.87 & 62.00 & 38.94 & 47.84 \\
           \hline
-          16 & QSVM & 77.30 & 75.79 & 84.17 & 79.76 \\
+          16 & \textbf{QSVM} & \textbf{77.30} & \textbf{75.79} & \textbf{84.17} & \textbf{79.76} \\
           \hline
           17 & QNB & 63.28 & 64.96 & 67.09 & 66.01 \\
           \hline
@@ -616,7 +617,7 @@ Precision and recall curves for the classical Random Forest (\hyperref[fig:pre-r
     \label{tab:Performance_Matrix_Combined}
 \end{table}
 
-The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:Performance_Matrix_Combined]{Table~\ref{tab:Performance_Matrix_Combined}}. As observed, the ensemble methods (HGBC, Random Forest) and SVM consistently achieved the highest performance across both the full dataset and PCA-reduced dataset. The accuracy of different classification techniques has been presented in a visual representation in \hyperref[fig:acc]{Fig.~\ref{fig:acc}} followed by the F1- Score of the classical classification models in \hyperref[fig:f1_score]{Fig.~\ref{fig:f1_score}}.
+The performance results based on accuracy, precision, recall, and F1-score are presented in \hyperref[tab:Performance_Matrix_Combined]{Table~\ref{tab:Performance_Matrix_Combined}}. The accuracy of different classification techniques has been presented in a visual representation in \hyperref[fig:acc]{Fig.~\ref{fig:acc}} followed by the F1- Score of the classical classification models in \hyperref[fig:f1_score]{Fig.~\ref{fig:f1_score}}.
 
 Quantum ML models (VQC, QSVM, QNB) performed with accuracies ranging from 55--77\% and moderate F1 scores compared to classical methods. This indicates that, for this dataset, quantum models underperformed relative to classical ensemble methods, consistent with current limitations of near-term quantum circuits on moderately sized datasets.
 
@@ -663,9 +664,7 @@ Quantum models may perform better on tasks with higher-dimensional, strongly non
 \end{table}
 Our methods were compared with recent studies in the literature, with a concise summary presented in Table~\ref{tab:Comparative_Studies}. The HGBC model outperformed most reported classical approaches, achieving 97.86\% accuracy and a 97.90\% F1-score. While some quantum-based methods, such as QSVM, report accuracies up to 98.9\%, these results often rely on specialized feature engineering or smaller, carefully curated datasets.
 
-Several prior studies are affected by class imbalance, limited feature diversity, high dimensionality, noise, or overfitting. In contrast, our pipeline employed balanced data, systematic pre-processing, and hyperparameter tuning to improve robustness and generalization.
-
-The higher QSVM accuracy reported in \cite{saranya2025} can be attributed to an enhanced, dataset-specific feature set and a relatively small, well-structured dataset, which improved class separability and kernel effectiveness. Our QML experiments, conducted on PCA-reduced features from a larger and more overlapping dataset, faced greater classification complexity, limiting achievable performance. This suggests that quantum models are most effective in structured, lower-dimensional, and well-separated feature spaces, and may benefit from hybrid classical--quantum pipelines.
+The higher QSVM accuracy reported in \cite{saranya2025} can be attributed to an enhanced, dataset-specific feature set and a relatively small, well-structured dataset, which improved class separability and kernel effectiveness. Our QML experiments, conducted on PCA-reduced features from a larger and more overlapping dataset faced greater classification complexity limiting achievable performance. This suggests that quantum models are most effective in structured, lower-dimensional, and well-separated feature spaces, and may benefit from hybrid classical--quantum pipelines.
 
 Finally, this work does not evaluate real quantum hardware. All QML experiments were performed using PennyLane (VQC, QNB) and Qiskit Aer (QSVM) quantum simulators, providing a realistic benchmark under near-term hardware constraints rather than demonstrating performance on physical quantum devices.
 
@@ -673,9 +672,11 @@ Finally, this work does not evaluate real quantum hardware. All QML experiments 
 \section{Conclusion}
 \label{sec:conclusion}
 
-This study systematically compared classical supervised machine learning models with Quantum Machine Learning (QML) approaches for ASD trait prediction on non-linear datasets. Among classical methods, the Histogram Gradient Boosting Classifier (HGBC) achieved the strongest overall performance, reaching 97.86\% accuracy and consistently outperforming other baselines.
+This study systematically compared classical supervised machine learning models with Quantum Machine Learning (QML) approaches for binary classification. Among classical methods, the Histogram Gradient Boosting Classifier (HGBC) achieved the strongest overall performance, reaching 97.86\% accuracy and consistently outperforming other baselines and within the quantum models, QSVM achieved the highest quantum accuracy at 77.30\%, 
 
-Within the quantum models, QSVM achieved the highest quantum accuracy at 77.30\%, followed by QNB at 63.28\% and VQC at 54.87\%. The VQC's near-random performance despite 50 training epochs reflects the barren plateau problem: with only 12~trainable parameters in a single variational layer, the loss landscape becomes flat and the optimiser fails to converge. QNB and QSVM, which use no trainable quantum parameters and instead rely on fixed feature maps (data re-uploading and ZZFeatureMap respectively), avoid this optimisation difficulty but still lack the expressivity to match classical ensemble methods on this dataset. These results indicate that current near-term quantum circuits with shallow depth and limited qubits are insufficient to compete with well-tuned classical models on structured tabular data.
+The VQC's near-random performance despite 50 training epochs reflects the barren plateau problem: with only 12~trainable parameters in a single variational layer, the loss landscape becomes flat and the optimiser fails to converge.
+
+QNB and QSVM, which use no trainable quantum parameters and instead rely on fixed feature maps (data re-uploading and ZZFeatureMap respectively). These results indicate that current near-term quantum circuits with shallow depth and limited qubits are insufficient to compete with well-tuned classical models on structured tabular data.
 
 Exploratory Data Analysis further revealed higher ASD trait prevalence in children (60.57\%) and males, along with demographic patterns related to ethnicity and family history, highlighting the multifactorial nature of ASD.
 
