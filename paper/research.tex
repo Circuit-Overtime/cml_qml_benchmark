@@ -179,7 +179,7 @@ Our work addresses the benchmarking of CML and QML models on a shared, near-bala
     \label{fig:workflow}
 \end{figure}
 
-The methodology begins with describing the dataset used in this study, followed by the pre-processing pipeline and the machine learning models applied for classification.
+The overall workflow is illustrated in Fig.~\ref{fig:workflow}. The methodology begins with describing the dataset used in this study, followed by the pre-processing pipeline and the machine learning models applied for classification.
 
 \subsection{Dataset Description}
 
@@ -311,7 +311,7 @@ Each of the 4~PCA features $x_i \in [0,1]$ is encoded into a qubit via a single-
 R_Y(\pi \cdot x_i)\,|0\rangle \;=\; \cos\!\Bigl(\frac{\pi x_i}{2}\Bigr)|0\rangle \;+\; \sin\!\Bigl(\frac{\pi x_i}{2}\Bigr)|1\rangle
 \label{eq:angle_encoding}
 \end{equation}
-This maps each normalised feature value to the amplitude of a qubit state on the Bloch sphere. A value of $x_i = 0$ leaves the qubit in $|0\rangle$, while $x_i = 1$ rotates it to $|1\rangle$, with intermediate values producing superpositions proportional to the feature magnitude.
+As shown in Eq.~\eqref{eq:angle_encoding}, this maps each normalised feature value to the amplitude of a qubit state on the Bloch sphere. A value of $x_i = 0$ leaves the qubit in $|0\rangle$, while $x_i = 1$ rotates it to $|1\rangle$, with intermediate values producing superpositions proportional to the feature magnitude.
 
 \paragraph{(ii) Variational Circuit.}
 A parameterised layer of general single-qubit rotations is applied to each qubit:
@@ -367,7 +367,7 @@ For each data point $\mathbf{x}$, the feature map produces a quantum state $|\ps
 K(\mathbf{x}_i, \mathbf{x}_j) \;=\; \bigl|\langle\psi(\mathbf{x}_i)\,|\,\psi(\mathbf{x}_j)\rangle\bigr|^2
 \label{eq:quantum_kernel}
 \end{equation}
-This kernel measures the overlap between two quantum states: if two data points produce similar quantum states, their kernel value is close to~1; if they map to nearly orthogonal states, the value approaches~0. This is analogous to the classical kernel trick, but the mapping is into a Hilbert space whose dimension grows exponentially with the number of qubits.
+The kernel in Eq.~\eqref{eq:quantum_kernel} measures the overlap between two quantum states: if two data points produce similar quantum states, their kernel value is close to~1; if they map to nearly orthogonal states, the value approaches~0. This is analogous to the classical kernel trick, but the mapping is into a Hilbert space whose dimension grows exponentially with the number of qubits.
 
 \paragraph{(iii) Classical SVM Classification.}
 The full kernel matrix $K_{ij}$ is precomputed for all training and test samples, and a classical SVC with \texttt{kernel="precomputed"} is trained on the quantum kernel matrix. The SVM finds the optimal separating hyperplane in the quantum feature space without ever explicitly constructing the high-dimensional feature vectors.
