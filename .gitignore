@@ -39,3 +39,5 @@ Thumbs.db
 # Quantum computation caches
 *.npy
 quantum_reduced/
+*.7z
+*.zip
